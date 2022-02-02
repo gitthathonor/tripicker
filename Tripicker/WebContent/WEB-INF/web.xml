@@ -9,4 +9,19 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- 가상주소 임시 설정 -->
+  <!-- MemberFrontController -->
+    <servlet>
+      <servlet-name>MemberFrontController</servlet-name>
+      <servlet-class>com.tripicker.member.action.MemberController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>MemberFrontController</servlet-name>
+      <url-pattern>*.tripicker</url-pattern>
+    </servlet-mapping>     
+  <!-- MemberFrontController -->
+  
+  
 </web-app>
