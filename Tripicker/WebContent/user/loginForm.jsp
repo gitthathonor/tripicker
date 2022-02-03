@@ -7,11 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- 팀프로젝트 첫 실행파일 -->
-	<%
-	  //response.sendRedirect("./main.me");
-	  response.sendRedirect("./UserJoin.me");
-	 // response.sendRedirect("./UserLogin.me");
-	%>
+	<!-- 로그인 페이지 -->
+	<h1>로그인 페이지</h1>
 </body>
 </html>

@@ -10,18 +10,18 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <!-- 가상주소 임시 설정 -->
-  <!-- MemberFrontController -->
+  <!-- 가상주소 임시 설정 -->  
+  <!-- UserFrontController -->
     <servlet>
-      <servlet-name>MemberFrontController</servlet-name>
-      <servlet-class>com.tripicker.member.action.MemberController</servlet-class>
+      <servlet-name>UserFrontController</servlet-name>
+      <servlet-class>com.tripicker.user.action.UserFrontController</servlet-class>
     </servlet>
       
     <servlet-mapping>
-      <servlet-name>MemberFrontController</servlet-name>
-      <url-pattern>*.tripicker</url-pattern>
+      <servlet-name>UserFrontController</servlet-name>
+      <url-pattern>*.me</url-pattern>
     </servlet-mapping>     
-  <!-- MemberFrontController -->
+  <!-- UserFrontController -->
   
   
 </web-app>

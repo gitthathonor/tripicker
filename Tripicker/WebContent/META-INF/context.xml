@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+  <Resource 
+   name="jdbc/team_project" 
+   auth="Container" 
+   type="javax.sql.DataSource"
+   driverClassName="com.mysql.cj.jdbc.Driver" 
+   url="jdbc:mysql://localhost:3306/team_project" 
+   username="root" 
+   password="1234"
+  />
+
+</Context>
