@@ -112,7 +112,7 @@
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">          
           <li class="nav-item">
-            <a class="nav-link" href="about.html">코스짜기</a>
+            <a class="nav-link" href="about.jsp">코스짜기</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -120,20 +120,20 @@
               여행장소
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="property-single.html">Property Single</a>
-              <a class="dropdown-item" href="blog-single.html">Blog Single</a>
-              <a class="dropdown-item" href="agents-grid.html">Agents Grid</a>
-              <a class="dropdown-item" href="agent-single.html">Agent Single</a>
+              <a class="dropdown-item" href="property-single.jsp">Property Single</a>
+              <a class="dropdown-item" href="blog-single.jsp">Blog Single</a>
+              <a class="dropdown-item" href="agents-grid.jsp">Agents Grid</a>
+              <a class="dropdown-item" href="agent-single.jsp">Agent Single</a>
             </div>
           </li>
-<!--           <li class="nav-item"> -->
-<!--             <a class="nav-link" href="property-grid.html">숙박/교통</a> -->
-<!--           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="blog-grid.html">커뮤니티</a>
+            <a class="nav-link" href="property-grid.jsp">숙박/교통</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">고객센터</a>
+            <a class="nav-link" href="blog-grid.jsp">커뮤니티</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.jsp">고객센터</a>
           </li>
         </ul>
       </div>     
