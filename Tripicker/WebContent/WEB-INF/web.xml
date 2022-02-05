@@ -10,7 +10,28 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <!-- 가상주소 임시 설정 -->  
+  <!-- PlanFrontController -->
+  <servlet>
+  	<servlet-name>PlanFrontController</servlet-name>
+  	<servlet-class>com.tripicker.plan.action.PlanFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PlanFrontController</servlet-name>
+  	<url-pattern>*.pl</url-pattern>
+  </servlet-mapping>
+  <!-- PlanFrontController -->
+  
+  <!-- CityFrontController -->
+  <servlet>
+  	<servlet-name>CityFrontController</servlet-name>
+  	<servlet-class>com.tripicker.plan.action.CityFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CityFrontController</servlet-name>
+  	<url-pattern>*.ci</url-pattern>
+  </servlet-mapping>
+  <!-- CityFrontController -->
+  
   <!-- UserFrontController -->
     <servlet>
       <servlet-name>UserFrontController</servlet-name>
@@ -22,6 +43,8 @@
       <url-pattern>*.us</url-pattern>
     </servlet-mapping>     
   <!-- UserFrontController -->
+  
+
   
   
 </web-app>
