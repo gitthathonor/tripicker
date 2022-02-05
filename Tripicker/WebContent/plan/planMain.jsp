@@ -7,6 +7,6 @@
 <title>Tripicker - 여행 계획 짜기(Main)</title>
 </head>
 <body>
-
+여행 계획 세우기 메인 페이지
 </body>
 </html>
