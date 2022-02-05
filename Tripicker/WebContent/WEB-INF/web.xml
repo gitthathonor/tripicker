@@ -19,7 +19,7 @@
       
     <servlet-mapping>
       <servlet-name>UserFrontController</servlet-name>
-      <url-pattern>*.me</url-pattern>
+      <url-pattern>*.us</url-pattern>
     </servlet-mapping>     
   <!-- UserFrontController -->
   
