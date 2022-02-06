@@ -3,7 +3,7 @@
 
 <Context>
   <Resource 
-   name="jdbc/tripicker" 
+   name="jdbc/mysqldb" 
    auth="Container" 
    type="javax.sql.DataSource"
    driverClassName="com.mysql.cj.jdbc.Driver" 

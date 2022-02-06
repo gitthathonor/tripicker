@@ -20,7 +20,7 @@ public class UserDAO {
 	// DB연결
 	private Connection getCon() throws Exception {
 		Context initCTX = new InitialContext();    
-		DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/tripicker");
+		DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/mysqldb");
 		//DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/mysqldb");
 
 		con = ds.getConnection();
