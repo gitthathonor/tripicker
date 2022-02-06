@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+#selectDate>#startDate {
+	display: inline;
+	margin-left: 10em;
+}
+
+#selectDate>#lastDate {
+	display: inline;
+	margin-left: 20em;
+}
+
+#submitDate {
+	display: inline;
+	margin-left: 80%;
+}
