@@ -21,7 +21,6 @@ public class UserFrontController extends HttpServlet{
 		// 1. 가상주소 계산 //
 		String url = request.getRequestURL()+"";
 		String uri = request.getRequestURI();
-
 		System.out.println("url : " +url);
 		System.out.println("uri : " +uri);
 		
@@ -38,17 +37,16 @@ public class UserFrontController extends HttpServlet{
 		ActionForward forward  = null;
 		
 		if(command.equals("/UserJoin.us")) {
-			//회원가입 페이지(LgoinForm.jsp) 출력
+			// 회원가입 페이지(LgoinForm.jsp) 출력
 			System.out.println("C : /UserJoin.us 호출");
 			forward = new ActionForward();
 			forward.setPath("./user/JoinForm.jsp");
 			forward.setRedirect(false);
 			
 		}else if(command.equals("/UserJoinAction.us")) {
-			//회원가입 처리(DB로 정보전달)			
+			// 회원가입 처리(DB로 정보전달) 후 로그인페이지 출력			
 			action = new UserJoinAction();
-			System.out.println("C : /UserJoinAction.us 호출");
-			
+			System.out.println("C : /UserJoinAction.us 호출");			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -56,18 +54,13 @@ public class UserFrontController extends HttpServlet{
 			}
 			
 		}else if(command.equals("/UserLogin.us")) {
-			//로그인 페이지(joinForm.jsp) 출력
+			// 로그인 페이지(joinForm.jsp) 출력
 			System.out.println("C : /UserLogin.us 호출");
 			forward = new ActionForward();
-			forward.setPath("./user/LoginForm.jsp");
+			forward.setPath("loginForm.jsp");
 			forward.setRedirect(false);
 			
 		}else if(command.equals("/UserIdCheckAction.us")) {
-			//System.out.println("/UserIdCheckAction.me 들어옴!");
-			// 아이디 중복체크후 가입폼에 JSONObject형태로 반환
-			// 페이지 이동, 파일전환x
-			//String id =request.getParameter("id");
-			//System.out.println("FrontController : 아이디값"+id);
 			action = new UserIdCheckAction();
 			System.out.println("C : /UserIdCheckAction.us 호출");
 			try {
@@ -83,6 +76,7 @@ public class UserFrontController extends HttpServlet{
 			} catch (Exception e) {				
 				e.printStackTrace();
 			}
+			
 		}else if(command.equals("/UserEmailCheckAction.us")) {
 			action = new UserEmailCheckAction();
 			try {

@@ -235,14 +235,15 @@
 		 <font id="age_check_msg"></font><br><br>     	    								
     	 <strong>* 성별 </strong> <input type="radio" class="form-control form-control-lg form-control-a" name="gender" id="check_gender_m" value="M" checked> 남
     	 						  <input type="radio" class="form-control form-control-lg form-control-a" name="gender" id="check_gender_f" value="F"> 여<br>
-      	 <font id=" gender_check_msg"></font><br><br>       	 
+      	 <font id="gender_check_msg"></font><br><br>       	 
       	 <strong>* 이메일 </strong> <input type="text" class="form-control form-control-lg form-control-a" name="email" id="input_email">
       	 	<!-- <input type="button" class="btn btn-b" value="중복확인"> -->
       	 	<font id="email_check_msg"></font><br><br>  
-      	 <strong>주소 </strong> <input type="text" class="form-control form-control-lg form-control-a" name="addr" placeholder="주소찾기를 이용해주세요" readonly >
+      	 <strong>주소(선택) </strong> <input type="text" class="form-control form-control-lg form-control-a" name="addr" placeholder="주소찾기를 이용해주세요" readonly >
       	 	<input type="button" class="btn btn-b" onclick="return findAddr();" value="주소찾기"><br>
       	 <strong>상세주소</strong><input type="text" class="form-control form-control-lg form-control-a" name="detailAddr"><br>	
-      	 	<input type="submit" value="회원가입" class="btn btn-a" id="join_btn" >
+      	 	<input type="submit" value="취소" class="btn btn-a" id="join_btn" onclick="history.back();">
+      	 	<input type="button" value="회원가입" class="btn btn-a" id="join_btn" >
       	 </form>
 <!--           <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property"> -->
 <!--             <div class="carousel-item-b"> -->
@@ -1039,9 +1040,6 @@
 	  
   });
   
-
- 
 </script>
-
 </body>
 </html>

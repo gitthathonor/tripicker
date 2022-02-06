@@ -10,7 +10,8 @@
 
 <!-- 팀프로젝트 첫 실행파일 -->
 	<%	 
-	  response.sendRedirect("./UserJoin.us");
+	  //response.sendRedirect("./UserJoin.us");
+	  response.sendRedirect("./UserLogin.us");
 	%> 
 
 

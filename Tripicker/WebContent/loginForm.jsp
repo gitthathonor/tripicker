@@ -213,7 +213,7 @@
    		 <strong>아이디 </strong> <input type="text" class="form-control form-control-lg form-control-a"><br>
    		 <strong>비밀번호 <input type="password" class="form-control form-control-lg form-control-a"  ><br>
     	 	<input type="submit" value="로그인" class="btn btn-a"><br>
-    	 	<a href="">회원가입</a>
+    	 	<a href="location.href='./UserJoin.us';">회원가입</a>
       	 </form>
 <!--           <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property"> -->
 <!--             <div class="carousel-item-b"> -->
