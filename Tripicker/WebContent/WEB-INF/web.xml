@@ -33,7 +33,7 @@
   <!-- CityFrontController -->
   <servlet>
   	<servlet-name>CityFrontController</servlet-name>
-  	<servlet-class>com.tripicker.plan.action.CityFrontController</servlet-class>
+  	<servlet-class>com.tripicker.city.action.CityFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>CityFrontController</servlet-name>
@@ -41,7 +41,17 @@
   </servlet-mapping>
   <!-- CityFrontController -->
   
-  
+  <!-- UserFrontController -->
+    <servlet>
+      <servlet-name>UserFrontController</servlet-name>
+      <servlet-class>com.tripicker.user.action.UserFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>UserFrontController</servlet-name>
+      <url-pattern>*.us</url-pattern>
+    </servlet-mapping>     
+  <!-- UserFrontController -->
   
   
   
