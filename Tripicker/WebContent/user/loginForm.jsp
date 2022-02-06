@@ -67,10 +67,10 @@
     <div class="container">
     <div class="row">
         <div class="col-md-4 mb-3">
-        <form action="">
-   		 <strong>아이디 </strong> <input type="text" class="form-control form-control-lg form-control-a"><br>
-   		 <strong>비밀번호</strong> <input type="password" class="form-control form-control-lg form-control-a"  ><br>
-    	 	<input type="submit" value="로그인" class="btn btn-a"><br>
+        <form action="./UserLoginAction.us" method="post">
+   		 <strong>아이디 </strong> <input type="text" class="form-control form-control-lg form-control-a" name="id" required><br>
+   		 <strong>비밀번호</strong> <input type="password" class="form-control form-control-lg form-control-a" name="pass" required><br>
+    	 	<input type="submit" value="로그인" class="btn btn-a" onclick="./UserLoginAction.us"><br>
     	 	<a href="./UserJoin.us">회원가입</a>
       	 </form>
         </div>

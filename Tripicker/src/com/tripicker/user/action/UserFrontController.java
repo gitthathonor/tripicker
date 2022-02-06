@@ -32,37 +32,38 @@ public class UserFrontController extends HttpServlet{
 		System.out.println(" C : command - "+command);
 		System.out.println(" C : 1. 가상 주소 계산 끝");	
 		// 1. 가상주소 계산 끝 //
+		
 		// 2. 가상주소 매핑 //
 		Action action = null;
 		ActionForward forward  = null;
 		
 		if(command.equals("/UserJoin.us")) {
 			// 회원가입 페이지(LgoinForm.jsp) 출력
-			System.out.println("C : /UserJoin.us 호출");
+			//System.out.println("C : /UserJoin.us 호출");
 			forward = new ActionForward();
-			forward.setPath("./user/JoinForm.jsp");
+			forward.setPath("./user/joinForm.jsp");
 			forward.setRedirect(false);
 			
 		}else if(command.equals("/UserJoinAction.us")) {
-			// 회원가입 처리(DB로 정보전달) 후 로그인페이지 출력			
+			// 회원가입 처리(DB로 정보전달)후 로그인페이지 출력			
 			action = new UserJoinAction();
-			System.out.println("C : /UserJoinAction.us 호출");			
+			//System.out.println("C : /UserJoinAction.us 호출");			
 			try {
-				forward = action.execute(request, response);
+				 forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			
 		}else if(command.equals("/UserLogin.us")) {
 			// 로그인 페이지(joinForm.jsp) 출력
-			System.out.println("C : /UserLogin.us 호출");
+			//System.out.println("C : /UserLogin.us 호출");
 			forward = new ActionForward();
 			forward.setPath("./user/loginForm.jsp");
 			forward.setRedirect(false);
 			
 		}else if(command.equals("/UserIdCheckAction.us")) {
 			action = new UserIdCheckAction();
-			System.out.println("C : /UserIdCheckAction.us 호출");
+			//System.out.println("C : /UserIdCheckAction.us 호출");
 			try {
 				action.execute(request, response);
 			} catch (Exception e) {				
@@ -84,7 +85,25 @@ public class UserFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/UserLoginAction.us")) {
+			//System.out.println("C : /UserLoginAction.us 호출");
+			action = new UserLoginAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}else if(command.equals("/UserLogout.us")) {
+			//System.out.println("C : /UserLogoutAction.us 호출");
+			action = new UserLogoutAction();
+			try {
+				action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		System.out.println(" C : 2. 페이지 매핑처리 끝 ");
 	
 		
 		// 3. 페이지 이동 //

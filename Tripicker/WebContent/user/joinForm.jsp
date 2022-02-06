@@ -252,8 +252,7 @@
 			  type:'post',
 			  data: {id : id},
 			  dateType: 'json',
-			  success:function(result){			 
-				 // console.log(result); 
+			  success:function(result){			  
 				if( !(4 <= id.length && id.length <= 10) ){
 					//console.log("id if문 들어옴");
 					$('#id_check_msg').attr('color','red');
@@ -268,8 +267,7 @@
 				 }else{ //아이디 중복됨
 					$('#id_check_msg').attr('color','red');
 					$('#id_check_msg').html("이미 사용중인 아이디 입니다");
-					idFlag = false;
-					//$('#join_btn').prop("disabled", false);				  
+					idFlag = false;				  
 				  }
 			  },//success
 			  error:function(){
@@ -281,8 +279,7 @@
 	  //checkPass()
 	  function checkPass(){
 		  var pass = $('#input_pass').val();	
-		  var checkPass = $('#input_same_pass').val();
-		  
+		  var checkPass = $('#input_same_pass').val();		  
 		  if( !(6 <= pass.length && pass.length <= 12) ){
 			  $('#pass_check_msg').attr('color','red');
 			  $('#pass_check_msg').html("비밀번호는 6~12자리로 입력해주세요");
@@ -291,32 +288,24 @@
 			  $('#pass_check_msg').attr('color','#054D95');
 			  $('#pass_check_msg').html("사용가능한 비밀번호 입니다!");
 			  passFlag = true;
-		  }
-		  
+		  }			  
 		  //비밀번호 수정시, 비밀번호 확인 상태도 변경
-		  if(pass !== checkPass){
-			  $('#pass_same_check_msg').attr('color','red');
-			  $('#pass_same_check_msg').html("같은 비밀번호를 입력해주세요");
-			  passChFlag = false;
-		  }else{
-			  $('#pass_same_check_msg').attr('color','#054D95');
-			  $('#pass_same_check_msg').html("비밀번호가 일치합니다!");
-			  passChFlag = true;
-		  }
+		  checkPassSame();
 	  }//checkPass()
 	  	  
 	  //checkPassSame()
 	  function checkPassSame(){
 		  var checkPass = $('#input_same_pass').val();
-		  if( checkPass !== $('#input_pass').val() ){
+		 if( checkPass === "" || checkPass !== $('#input_pass').val() ){
 			  $('#pass_same_check_msg').attr('color','red');
 			  $('#pass_same_check_msg').html("같은 비밀번호를 입력해주세요");
 			  passChFlag = false;
-		  }else{
+		  }else if( checkPass === $('#input_pass').val()){
+			  //비밀번호 확인이 공백이 아니고 같을때 확인메세지 출력
 			  $('#pass_same_check_msg').attr('color','#054D95');
 			  $('#pass_same_check_msg').html("비밀번호가 일치합니다!");
 			  passChFlag = true;
-		  }
+		  }		  
 	  }//checkPassSame()
 	  
 	  //checkName()

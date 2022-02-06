@@ -26,13 +26,11 @@ public class UserJoinAction implements Action{
 		user.setGender(request.getParameter("gender"));
 		user.setEmail(request.getParameter("email"));
 		user.setAddr(request.getParameter("addr")+request.getParameter("detailAddr")); //주소+상세주소
-		//mb.setRank(디폴트값1);
-		//mb.setReg_date(now());
 		System.out.println("M : " +user);
 		
 		// DAO객체 생성후 회원가입 메서드 실행
-		UserDAO dao = new UserDAO();
-		dao.joinUser(user);
+		UserDAO udao = new UserDAO();
+		udao.joinUser(user);
 		System.out.println("M : 회원정보 저장완료");
 		
 		// 페이지 이동정보 저장
@@ -40,6 +38,6 @@ public class UserJoinAction implements Action{
 		forward.setPath("./UserLogin.us");
 		forward.setRedirect(true);
 		
-		return forward;
+		return null;
 	}
 }

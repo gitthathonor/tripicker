@@ -120,9 +120,9 @@ public class UserDAO {
 	
 	//checkDupleEmail(email) - 이메일 중복체크
 	public String checkDupleEmail(String email) {
-		String result = "";
+		String result = "";		
 		
-		try {
+		try {			
 			con = getCon();
 			sql = "SELECT email FROM user WHERE email=?";
 			pstmt = con.prepareStatement(sql);
@@ -141,6 +141,62 @@ public class UserDAO {
 		return result;
 	}
 	//checkDupleEmail(email)
+	
+	
+	//loginCheck(id,pass) - 로그인
+	public int loginCheck(String id, String pass) {		
+		int result = -1;
+		System.out.println(id+"/"+pass);
+		try {
+			con = getCon();
+			sql = "SELECT pass FROM user WHERE id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);			
+			rs = pstmt.executeQuery();
+			System.out.println(" DAO - loginCheck 실행 ");
+			
+			if(rs.next()) {//아이디 있음
+				if(rs.getString("pass").equals(pass)) {//아이디, 비밀번호 확인
+					result = 1;
+				}else {//아이디 o, 비밀번호 x
+					result = 0;
+				}
+			}else {//아이디 없음
+				result = -1;
+			}
+		} catch (Exception e) {			
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+				
+		return result;
+	}
+	//loginCheck(id,pass)
+	
+	//getRank(rank) - 회원등급 조회(등급이름or아이콘 아이디옆에 나오도록?)
+	public int getRank(String id) {
+		int rank = 1;
+		try {
+			con = getCon();
+			sql = "SELECT ('rank') FROM user WHERE id=?";
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			rank = rs.getInt("rank");
+			System.out.println("랭크 : "+rank);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return rank;
+	}	
+	//getRank(rank) - 회원등급 조회
+	
+	
+	
 	
 
 }

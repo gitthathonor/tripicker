@@ -9,6 +9,7 @@
 <body>
 	<%
 		//response.sendRedirect("./UserJoin.us");
+		//response.sendRedirect("./UserLogin.us");
 		response.sendRedirect("./Main.tr");
 	%>
 </body>

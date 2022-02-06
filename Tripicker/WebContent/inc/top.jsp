@@ -3,6 +3,18 @@
 <!DOCTYPE html>
 <!--/ Form Search Star /-->
 <header>
+<%
+	String id = null;
+	String rank = null;
+	// 세션 정보 저장
+	if(session != null){
+		id = (String)session.getAttribute("id");
+		rank = session.getAttribute("rank")+"";
+	}
+	
+
+%>
+
   <div class="box-collapse">
     <div class="title-box-d">
       <h3 class="title-d">Search Property</h3>
@@ -104,7 +116,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.jsp">Trip<span class="color-b">Picker</span></a>
+      <a class="navbar-brand text-brand" href="./Main.tr">Trip<span class="color-b">Picker</span></a>
       <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
         data-target="#navbarTogglerDemo01" aria-expanded="false">
         <span class="fa fa-search" aria-hidden="true"></span>
@@ -136,6 +148,30 @@
             <a class="nav-link" href="contact.jsp">고객센터</a>
           </li>
         </ul>
+ <%
+ 	if(id == null){
+ %>
+      	  <!-- 로그인 전 메뉴 -->
+      	  <ul>
+      	  <li><a href="./UserJoin.us">회원가입</a></li>
+     	  <li><a href="./UserLogin.us">로그인</a></li>     	  
+     	  </ul>
+ <% 	
+ 	}else{
+ %>
+       	  <!-- 로그인 후 메뉴 -->
+      	  <ul>
+     	  <li><a href="./UserLogout.us">로그아웃</a></li>     	  
+     	  <li><a href="">마이(<%=id %>)페이지 </a></li> 
+     	  </ul>
+ <%
+ 	}
+ %>
+        
+         
+        
+        
+        
       </div>     
     </div>
   </nav>
