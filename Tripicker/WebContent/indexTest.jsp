@@ -9,7 +9,9 @@
 <body>
 	<%
 		//response.sendRedirect("./UserJoin.us");
-		response.sendRedirect("./Main.tr");
+		//response.sendRedirect("./Main.tr");
+		response.sendRedirect("./CityInsert.ci");
+		
 	
 	%>
 </body>
