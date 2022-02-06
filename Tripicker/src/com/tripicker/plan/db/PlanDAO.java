@@ -47,8 +47,8 @@ public class PlanDAO {
 	public void insertDate(PlanDTO pdto) {
 		try {
 			con = getCon();
-			sql = "insert into plan(planNum,id,startDate,lastDate,period,pCityName,pSpotName)"
-					+ "values(?,?,?,?,?,?,?)";
+			sql = "insert into plan(planNum,id,startDate,lastDate,period,pCityName,pSpotName,planSeqNum)"
+					+ "values(?,?,?,?,?,?,?,?)";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -59,10 +59,20 @@ public class PlanDAO {
 			pstmt.setString(5, pdto.getPeriod());
 			pstmt.setString(6, pdto.getpCityName());
 			pstmt.setString(7, pdto.getpSpotName());
+			pstmt.setInt(8, pdto.getPlanSeqNum());
 			
 			pstmt.executeUpdate();
 			
 			System.out.println("DAO : 여행 일자 정보 성공!");
+			
+			sql = "set @count=0;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.executeUpdate();
+			
+			sql = "UPDATE plan SET planNum=@count:=@count+1;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.executeUpdate();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("DAO : 여행 일자 정보 실패!");
@@ -71,6 +81,10 @@ public class PlanDAO {
 		}
 	} //insertDate();
 	
+	
+	public void insertCity() {
+		
+	} //insertCity();
 	
 	
 }

@@ -52,7 +52,6 @@ public class PlanFrontController extends HttpServlet {
 		}
 		
 		
-		
 		/////2. 가상 주소 매핑/////
 		
 		
@@ -75,13 +74,7 @@ public class PlanFrontController extends HttpServlet {
 		}
 		System.out.println("PlanFront : 페이지 이동 끝!");
 		/////3. 페이지 이동/////
-		
-		
-		
-		
 	}
-	
-	
 	
 	
 	@Override
