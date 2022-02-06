@@ -4,9 +4,8 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.simple.JSONObject;
-
+import com.tripicker.Action;
+import com.tripicker.ActionForward;
 import com.tripicker.user.db.UserDAO;
 
 public class UserNicknameCheckAction implements Action{

@@ -20,7 +20,9 @@ public class UserDAO {
 	// DB연결
 	private Connection getCon() throws Exception {
 		Context initCTX = new InitialContext();    
-		DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/team_project");
+		DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/tripicker");
+		//DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/mysqldb");
+
 		con = ds.getConnection();
 		System.out.println("DB연결");
 		return con;
@@ -36,8 +38,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
+		
 	//joinUser(UserDTO) - 회원가입처리
 	public void joinUser(UserDTO user) {
 		try {

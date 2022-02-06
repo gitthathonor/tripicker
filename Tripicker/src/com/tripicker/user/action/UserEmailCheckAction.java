@@ -5,9 +5,10 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
-
+import com.tripicker.Action;
+import com.tripicker.ActionForward;
 import com.tripicker.user.db.UserDAO;
+
 
 public class UserEmailCheckAction implements Action{
 	
@@ -17,7 +18,7 @@ public class UserEmailCheckAction implements Action{
 		// 한글처리
 		request.setCharacterEncoding("UTF-8");
 
-		// 회원가입 폼에서 입력받은 이메일 저장
+		// 회원가입 폼에서 입력받은 닉네임 저장
 		String email = request.getParameter("email");
 		PrintWriter out = response.getWriter();
 		

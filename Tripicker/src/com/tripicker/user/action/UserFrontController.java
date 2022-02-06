@@ -2,13 +2,13 @@ package com.tripicker.user.action;
 
 import java.io.IOException;
 
+import com.tripicker.Action;
+import com.tripicker.ActionForward;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.ResponseWrapper;
-
 
 
 public class UserFrontController extends HttpServlet{
@@ -57,7 +57,7 @@ public class UserFrontController extends HttpServlet{
 			// 로그인 페이지(joinForm.jsp) 출력
 			System.out.println("C : /UserLogin.us 호출");
 			forward = new ActionForward();
-			forward.setPath("loginForm.jsp");
+			forward.setPath("./user/loginForm.jsp");
 			forward.setRedirect(false);
 			
 		}else if(command.equals("/UserIdCheckAction.us")) {
@@ -85,7 +85,7 @@ public class UserFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
-				
+	
 		
 		// 3. 페이지 이동 //
 		if(forward != null) { //페이지 이동정보 있음

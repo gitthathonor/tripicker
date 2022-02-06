@@ -2,7 +2,8 @@ package com.tripicker.user.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import com.tripicker.Action;
+import com.tripicker.ActionForward;
 import com.tripicker.user.db.UserDAO;
 import com.tripicker.user.db.UserDTO;
 
@@ -14,7 +15,7 @@ public class UserJoinAction implements Action{
 		// 한글처리
 		request.setCharacterEncoding("UTF-8");
 		//System.out.println("UserJoinAction.java 호출");
-		// mb 객체
+		// user 객체
 		UserDTO user = new UserDTO();
 		// 회원가입 페이지로부터 전달된 정보 저장
 		user.setId(request.getParameter("id"));
