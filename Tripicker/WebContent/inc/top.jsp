@@ -148,31 +148,26 @@
             <a class="nav-link" href="contact.jsp">고객센터</a>
           </li>
         </ul>
- <%
- 	if(id == null){
- %>
-      	  <!-- 로그인 전 메뉴 -->
-      	  <ul>
-      	  <li><a href="./UserJoin.us">회원가입</a></li>
-     	  <li><a href="./UserLogin.us">로그인</a></li>     	  
-     	  </ul>
- <% 	
- 	}else{
- %>
-       	  <!-- 로그인 후 메뉴 -->
-      	  <ul>
-     	  <li><a href="./UserLogout.us">로그아웃</a></li>     	  
-     	  <li><a href="">마이(<%=id %>)페이지 </a></li> 
-     	  </ul>
- <%
- 	}
- %>
-        
-         
-        
-        
-        
       </div>     
+		<%
+ 			if(id == null){
+ 		%>
+      	  <!-- 로그인 전 메뉴 -->
+      	  <input type="button" class="btn btn-b-n" onclick="location.href='./UserLogin.us';" value="로그인" style="border-radius: 5px;">&nbsp;
+      	  <input type="button" class="btn" onclick="location.href='./UserJoin.us';" value="회원가입" style="border-radius: 5px;">
+      	  
+      	 
+ 		<% 	
+ 			}else{
+		%>
+       	  <!-- 로그인 후 메뉴 -->
+       	  
+       	  <input type="button" class="btn btn-b-n" onclick="location.href='';" value="마이<%=id %>페이지" style="border-radius: 5px;">&nbsp;
+      	  <input type="button" class="btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
+      	 
+ 		<%
+ 			}
+		 %>
     </div>
   </nav>
   </header>
