@@ -41,7 +41,7 @@
   <div class="click-closed"></div>
   
   <!-- header -->
-  	<jsp:include page="inc/top.jsp"></jsp:include>
+  	<jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- header -->
 
   <!--/ Carousel Star /-->
@@ -764,7 +764,7 @@
   <!--/ Testimonials End /-->
 
   <!-- footer -->
-  	<jsp:include page="inc/bottom.jsp"/>
+  	<jsp:include page="../inc/bottom.jsp"/>
   <!-- footer -->
   
 

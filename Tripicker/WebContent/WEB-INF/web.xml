@@ -53,6 +53,18 @@
     </servlet-mapping>     
   <!-- UserFrontController -->
   
+  <!-- MainFrontController -->
+    <servlet>
+      <servlet-name>MainFrontController</servlet-name>
+      <servlet-class>com.tripicker.MainFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>MainFrontController</servlet-name>
+      <url-pattern>*.tr</url-pattern>
+    </servlet-mapping>     
+  <!-- MainFrontController -->
+  
   
   
 </web-app>
