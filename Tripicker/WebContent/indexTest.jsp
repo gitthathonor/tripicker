@@ -8,7 +8,9 @@
 </head>
 <body>
 	<%
-		response.sendRedirect("./UserJoin.us");
+		//response.sendRedirect("./UserJoin.us");
+		response.sendRedirect("./Main.tr");
+	
 	%>
 </body>
 </html>
