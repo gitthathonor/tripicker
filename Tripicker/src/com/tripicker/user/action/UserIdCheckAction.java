@@ -4,9 +4,6 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.simple.JSONObject;
-
 import com.tripicker.Action;
 import com.tripicker.ActionForward;
 import com.tripicker.user.db.UserDAO;
@@ -24,18 +21,10 @@ public class UserIdCheckAction implements Action{
 		PrintWriter out = response.getWriter();
 		
 		// DAO 객체호출
-		UserDAO dao = new UserDAO();
-		
-		//System.out.println("아이디 중복체크 결과값: "+dao.idCheck(id));
-		
-		//PrintWriter out =response.getWriter();
-			
-//		JSONObject obj = new JSONObject();
-//		obj.put("result",result);
-//		response.setContentType("application/x-json; charset=UTF-8");
-		
+		UserDAO udao = new UserDAO();
+				
 		// 중복x -> "ok"
-		out.write(dao.checkDupleId(id));
+		out.write(udao.checkDupleId(id));
 		return null;
 		
 	}
