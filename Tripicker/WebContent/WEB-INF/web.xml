@@ -30,6 +30,20 @@
   </servlet-mapping>
   <!-- PlanFrontController -->
   
+  <!-- PlanAjaxController -->
+  <servlet>
+  	<servlet-name>PlanAjaxController</servlet-name>
+  	<servlet-class>com.tripicker.plan.action.PlanAjaxController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PlanAjaxController</servlet-name>
+  	<url-pattern>*.ajax</url-pattern>
+  </servlet-mapping>
+  <!-- PlanAjaxController -->
+  
+  
+  
+  
   <!-- CityFrontController -->
   <servlet>
   	<servlet-name>CityFrontController</servlet-name>

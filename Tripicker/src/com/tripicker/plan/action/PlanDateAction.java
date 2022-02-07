@@ -48,6 +48,7 @@ public class PlanDateAction implements Action{
 		long periodRealDate = periodDate/(24*60*60*1000);
 		System.out.println(periodRealDate);
 		
+		
 		String period = periodRealDate+"박"+(periodRealDate+1)+"일";
 		
 		System.out.println(startDate);
@@ -65,9 +66,14 @@ public class PlanDateAction implements Action{
 		PlanDAO pdao = new PlanDAO();
 		pdao.insertDate(pdto);
 		
+		int tourDay = (int)periodRealDate + 1;
+		
+		request.setAttribute("tourDay", tourDay);
+		
+		
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("./PlanCityInsert.pl");
+		forward.setPath("./PlanSpotInsert.pl");
 		forward.setRedirect(true);
 		return forward;
 	}
