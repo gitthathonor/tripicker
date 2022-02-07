@@ -14,10 +14,13 @@
 	
 
 %>
-
+<!--  보류!
+  검색조건
+  <div class="click-closed"></div>
+  / 검색 조건 /
   <div class="box-collapse">
     <div class="title-box-d">
-      <h3 class="title-d">Search Property</h3>
+      <h3 class="title-d">여행 조건</h3>
     </div>
     <span class="close-box-collapse right-boxed ion-ios-close"></span>
     <div class="box-collapse-wrap form">
@@ -25,87 +28,77 @@
         <div class="row">
           <div class="col-md-12 mb-2">
             <div class="form-group">
-              <label for="Type">Keyword</label>
-              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+              <label for="Type">키워드</label>
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="키워드">
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group">
-              <label for="Type">Type</label>
+              <label for="Type">지역</label>
               <select class="form-control form-control-lg form-control-a" id="Type">
-                <option>All Type</option>
-                <option>For Rent</option>
-                <option>For Sale</option>
-                <option>Open House</option>
+                <option>서울</option>
+                <option>부산</option>
+                <option>대구</option>
+                <option>인천</option>
+                <option>광주</option>
+                <option>대전</option>
+                <option>울산</option>
+                <option>경기</option>
+                <option>강원</option>
+                <option>충북</option>
+                <option>충남</option>
+                <option>전북</option>
+                <option>전남</option>
+                <option>경북</option>
+                <option>경남</option>
+                <option>제주</option>
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group">
-              <label for="city">City</label>
+              <label for="city">여행일</label>
               <select class="form-control form-control-lg form-control-a" id="city">
-                <option>All City</option>
-                <option>Alabama</option>
-                <option>Arizona</option>
-                <option>California</option>
-                <option>Colorado</option>
+                <option>1-3일</option>
+                <option>4-6일</option>
+                <option>7-10일</option>
+                <option>11-15일</option>
+                <option>15일이상</option>
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group">
-              <label for="bedrooms">Bedrooms</label>
+              <label for="bedrooms">여행시기</label>
               <select class="form-control form-control-lg form-control-a" id="bedrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
+                <option>봄</option>
+                <option>여름</option>
+                <option>가을</option>
+                <option>겨울</option>
               </select>
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group">
-              <label for="garages">Garages</label>
+              <label for="garages">여행테마</label>
               <select class="form-control form-control-lg form-control-a" id="garages">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group">
-              <label for="bathrooms">Bathrooms</label>
-              <select class="form-control form-control-lg form-control-a" id="bathrooms">
-                <option>Any</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-6 mb-2">
-            <div class="form-group">
-              <label for="price">Min Price</label>
-              <select class="form-control form-control-lg form-control-a" id="price">
-                <option>Unlimite</option>
-                <option>$50,000</option>
-                <option>$100,000</option>
-                <option>$150,000</option>
-                <option>$200,000</option>
+                <option>가족여행</option>
+                <option>나홀로여행</option>
+                <option>커플여행</option>
+                <option>친구와함께</option>
+                <option>비즈니스여행</option>
               </select>
             </div>
           </div>
           <div class="col-md-12">
-            <button type="submit" class="btn btn-b">Search Property</button>
+            <button type="submit" class="btn btn-b">검색</button>
           </div>
         </div>
       </form>
     </div>
   </div>
-  <!--/ Form Search End /-->
+  / 검색 조건 /
+ -->  
 
   <!--/ Nav Star /-->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
@@ -126,17 +119,8 @@
           <li class="nav-item">
             <a class="nav-link" href="./PlanMain.pl">코스짜기</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              여행장소
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="property-single.jsp">Property Single</a>
-              <a class="dropdown-item" href="blog-single.jsp">Blog Single</a>
-              <a class="dropdown-item" href="agents-grid.jsp">Agents Grid</a>
-              <a class="dropdown-item" href="agent-single.jsp">Agent Single</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="property-single.jsp">여행장소</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="property-grid.jsp">숙박/교통</a>
@@ -144,35 +128,47 @@
           <li class="nav-item">
             <a class="nav-link" href="blog-grid.jsp">커뮤니티</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.jsp">고객센터</a>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              고객센터
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="notice.jsp">공지사항</a>
+              <a class="dropdown-item" href="faq.jsp">FAQ</a>
+              <a class="dropdown-item" href="requestsEX.jsp">1:1문의</a>
+            </div>
           </li>
+          
         </ul>
- <%
- 	if(id == null){
- %>
-      	  <!-- 로그인 전 메뉴 -->
-      	  <ul>
-      	  <li><a href="./UserJoin.us">회원가입</a></li>
-     	  <li><a href="./UserLogin.us">로그인</a></li>     	  
-     	  </ul>
- <% 	
- 	}else{
- %>
-       	  <!-- 로그인 후 메뉴 -->
-      	  <ul>
-     	  <li><a href="./UserLogout.us">로그아웃</a></li>     	  
-     	  <li><a href="">마이(<%=id %>)페이지 </a></li> 
-     	  </ul>
- <%
- 	}
- %>
-        
-         
-        
-        
-        
       </div>     
+		<%
+ 			if(id == null){
+ 		%>
+      	  <!-- 로그인 전 메뉴 -->
+      	  <input type="button" class="btn btn-b-n" onclick="location.href='./UserLogin.us';" value="로그인" style="border-radius: 5px;">&nbsp;
+      	  <input type="button" class="btn" onclick="location.href='./UserJoin.us';" value="회원가입" style="border-radius: 5px;">
+      	  
+      	 
+ 		<% 	
+ 			}else{
+		%>
+       	  <!-- 로그인 후 메뉴 -->
+       	  
+       	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이<%=id %>페이지" style="border-radius: 5px;">&nbsp;
+      	  <input type="button" class="btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
+      	 
+ 		<%
+ 			}
+		 %>
+
+<!-- 검색버튼 일단 보류 -->		 
+<!-- 		 <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse" -->
+<!--         data-target="#navbarTogglerDemo01" aria-expanded="false"> -->
+<!--         <span class="fa fa-search" aria-hidden="true"></span> -->
+<!--       </button> -->
+		 
     </div>
   </nav>
   </header>

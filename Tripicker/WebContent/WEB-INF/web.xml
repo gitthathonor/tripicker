@@ -65,6 +65,19 @@
     </servlet-mapping>     
   <!-- MainFrontController -->
   
+  <!-- MyPageFrontController -->
+    <servlet>
+      <servlet-name>MyPageFrontController</servlet-name>
+      <servlet-class>com.tripicker.mypage.action.MyPageFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>MyPageFrontController</servlet-name>
+      <url-pattern>*.my</url-pattern>
+    </servlet-mapping>     
+  <!-- MyPageFrontController -->
+  
+  
   
   
 </web-app>

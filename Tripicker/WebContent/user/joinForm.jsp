@@ -10,30 +10,30 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="./img/favicon.png" rel="icon">
+  <link href="./img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
+  <link href="./lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./lib/animate/animate.min.css" rel="stylesheet">
+  <link href="./lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="./css/join.css" rel="stylesheet">
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: EstateAgency
-    Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+  <style type="text/css">
+	.section-footer {
+	margin-top: 1500px;
+	}
+  </style>
+  
 </head>
 
 <body>
@@ -51,38 +51,60 @@
             <h1 class="title-single">회원가입</h1>
           </div>
         </div>
-        <div class="col-md-12 col-lg-4">
-          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-          
-          </nav>
-        </div>
-      </div>
-    </div>
-  </section>
+       </div>
+      </div> 
+   </section>    
   <!--/ Intro Single End /-->
 
-  <!--/ Property Single Star /-->
-  <section class="property-single nav-arrow-b">
-    <div class="container">
-    <div class="row">
-        <div class="col-md-6 mb-3">
+  <!-- 회원가입 -->
+<!--   <section class="property-single nav-arrow-b"> -->
+<!--     <div class="container"> -->
+<!--     <div class="row"> -->
+<!--         <div class="col-md-6 mb-3"> -->
+		<br><br><br>
         <form action="./UserJoinAction.us" method="post" name="fr" onsubmit="return checkJoin();">
-   		 <strong>* 아이디 </strong> <input type="text" class="form-control form-control-lg form-control-a" width="10" name="id" id="input_id" placeholder="4~10자리">   		 
-   		 <font id="id_check_msg"></font><br><br> 
-   		 		 
-   		 <strong>* 비밀번호 </strong><input type="password" class="form-control form-control-lg form-control-a" name="pass" id="input_pass" placeholder="6~12자리">
-    	 <font id="pass_check_msg"></font><br><br> 
-    	 <strong>* 비밀번호 확인 </strong><input type="password" class="form-control form-control-lg form-control-a" name="checkPass" id="input_same_pass">
-    	 <font id="pass_same_check_msg"></font><br><br> 
-    	     	   	 
-    	 <strong>* 이름 : </strong><input type="text" class="form-control form-control-lg form-control-a" name="name" id="input_name" maxlength="15">
-    	 <span id="name_check_msg"></span><br><br>  
-    	   	 
-    	 <strong>* 닉네임 </strong> <input type="text" class="form-control form-control-lg form-control-a" name="nickname" id="input_nickname" placeholder="2~8자리">
-    	 <font id="nickname_check_msg"></font><br><br> 
-    	 
-    	 <strong>* 나이 </strong> 
-	    	 			<select name="age" id="sel_age" >
+        	<div id="content">
+        	 <div>
+        	   <h3 class="join_title"> <label for="id"> * 아이디</label></h3>
+        	   <span class="box int_id">
+                        <input type="text" name="id" id="input_id" placeholder="4~10자리" class="int" maxlength="20">
+                    </span>
+        	     <font id="id_check_msg"></font>
+        	    <span class="error_next_box" id="idError"></span>	
+        	 </div>
+        	 <div>
+        	  <h3 class="join_title"><label for="pass">* 비밀번호</label></h3>
+               <span class="box int_pass">
+                        <input type="password" id="input_pass" name="pass" class="int" maxlength="20" placeholder="6~12자리">
+                        <img src="img/icon_check_.png" id="pswd1_img1" class="pswdImg">
+                    </span>
+                <font id="pass_check_msg"></font>
+               </div>
+        	 <div>
+              <h3 class="join_title"><label for="pass2">* 비밀번호 재확인</label></h3>
+              <span class="box int_pass_check">
+                        <input type="password" id="input_same_pass" name="checkPass" class="int" maxlength="20">
+                        <img src="img/icon_check_.png" id="pswd2_img1" class="pswdImg">
+                    </span>
+                 <font id="pass_same_check_msg"></font>
+              </div>
+        	 <div>
+              <h3 class="join_title"><label for="name">이름</label></h3>
+              <span class="box int_name">
+                        <input type="text" name="name" id="input_name" maxlength="15" class="int" >
+                    </span>
+                 <span id="name_check_msg"></span>
+             </div>
+        	 <div>
+              <h3 class="join_title"><label for="nickname">닉네임</label></h3>
+              <span class="box int_name">
+                        <input type="text" name="nickname" id="input_nickname" placeholder="2~8자리" class="int" maxlength="8">
+                    </span>
+               	 <font id="nickname_check_msg"></font> 
+             </div>
+        	 <div>
+              <h3 class="join_title"><label for="age">나이</label></h3>
+                <select name="age" id="sel_age" class="form-control ">
 						   <option value="noSel">연령대 선택</option>
 						   <option value="10">10대</option>
 						   <option value="20">20대</option>
@@ -90,25 +112,38 @@
 						   <option value="40">40대</option>
 						   <option value="50">50대</option>
 						   <option value="60">60대</option>
-						 </select><br>
-		 <font id="age_check_msg"></font><br><br> 
-		     	    								
-    	 <strong>* 성별 </strong> <input type="radio" class="form-control form-control-lg form-control-a" name="gender" id="check_gender_m" value="M" checked> 남
-    	 						  <input type="radio" class="form-control form-control-lg form-control-a" name="gender" id="check_gender_f" value="F"> 여<br>
-      	 <font id="gender_check_msg"></font><br><br>       	 
-      	 <strong>* 이메일 </strong> <input type="text" class="form-control form-control-lg form-control-a" name="email" id="input_email">     	 	
-      	 <font id="email_check_msg"></font><br><br>  
-      	 
-      	 <strong>주소(선택) </strong> <input type="text" class="form-control form-control-lg form-control-a" name="addr" placeholder="주소찾기를 이용해주세요" readonly >
-      	 <input type="button" class="btn btn-b" onclick="return findAddr();" value="주소찾기"><br>
-      	 <strong>상세주소</strong><input type="text" class="form-control form-control-lg form-control-a" name="detailAddr"><br>	
-      	 	<input type="button" value="취소" class="btn btn-a" onclick="history.back();">
-      	 	<input type="submit" value="회원가입" class="btn btn-a" id="join_btn">
+				</select>
+				 <font id="age_check_msg"></font>
+             </div>
+        	 <div>
+              <h3 class="join_title"><label for="gender">성별</label></h3>
+                 <input type="radio"  name="gender" id="check_gender_m" value="M" checked> 남
+    	 		 <input type="radio"  name="gender" id="check_gender_f" value="F"> 여<br>
+      	 		 <font id="gender_check_msg"></font>
+             </div>
+        	 <div>
+              <h3 class="join_title"><label for="email">이메일<span class="optional"></span></label></h3>
+               <span class="box int_email">
+                        <input type="email" name="email" id="input_email" class="int" maxlength="100" placeholder="선택입력"></input>
+                    </span>     	 	
+      	 		 <font id="email_check_msg"></font>
+             </div>
+             <div>
+        	  <h3 class="addr_title"><label for="addr">주소(선택)</label></h3>
+        	    <input type="text" class="form-control form-control-lg form-control-a" name="addr" placeholder="주소찾기를 이용해주세요" readonly >
+      		    <input type="button" class="btn btn-b" onclick="return findAddr();" value="주소찾기"><br>
+      	     </div>
+        	 <div>
+        	  <h3 class="addr_detail"><label for="addr_detail">상세주소</label></h3>
+        	    <input type="text" class="form-control form-control-lg form-control-a" name="detailAddr"><br>
+      	     </div>
+      	     
+      	     <input type="button" value="취소" class="btn btn-a" onclick="history.back();" >
+      	 	 <input type="submit" value="회원가입" class="btn btn-b" id="join_btn">
+        	</div>
+      	 	
       	 </form>
-        </div>
-      </div>
-    </div>	
-  </section>
+        
   <!--/ Property Single End /-->
   <!-- footer -->
   	<jsp:include page="../inc/bottom.jsp"/>
@@ -117,20 +152,20 @@
   <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/popper/popper.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="./lib/jquery/jquery-migrate.min.js"></script>
+  <script src="./lib/popper/popper.min.js"></script>
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./lib/easing/easing.min.js"></script>
+  <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="./lib/scrollreveal/scrollreveal.min.js"></script>
   <!-- 주소찾기 API -->
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <script src="./contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="./js/main.js"></script>
  
  <!-- 회원가입 정보 체크 스크립트 -->
  <script type="text/javascript">
