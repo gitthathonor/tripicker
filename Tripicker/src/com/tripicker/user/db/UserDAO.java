@@ -88,10 +88,12 @@ public class UserDAO {
 			return result;
 			
 		} catch (Exception sqle) {
+			//e.printStackTrace();
 			throw new RuntimeException(sqle.getMessage());
 		} finally {
 			closeDB();			
 		}
+		
 	}//checkDupleId(id)
 	
 	//checkDupleNickname(nickname) - 닉네임 중복체크

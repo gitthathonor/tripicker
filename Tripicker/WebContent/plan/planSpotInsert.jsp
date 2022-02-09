@@ -34,21 +34,55 @@
 
 <!-- javscript 및 jquery 코드들 -->
 <script type="text/javascript">
-  	$(document).ready(function(){
   		
-  		// 관광지 타입 정하기
-  		
-  		/* $('#contentTypeSelect').select()
-  		var contentType = $('#contentTypeSelect').val();
-  		alert(contentType); */
+  		var servicekey = "f47yx%2FsSVGp6fgmm1EYl9EdqbY1CJpRaAynHGwNF175VZlnJnQWS%2BJagCJYeUBERQ%2FZsEC%2BAYOxd432K%2FBmp4g%3D%3D";
   		
   		
-  		$("#insertSpotTab").tabs(function(){
+  		//tab 창 코드
+  		$(document).ready(function(){
+  			$("#insertSpotTab").tabs();
+  			/* $("#insertSpotTab >div > p").each(function(){
+  				$(this).append("hello");
+  			}); */
+  		});
+  		
+  		
   			
-  		}); //tab 창 코드
+  		// select 결과에 따른 검색결과 들고오기
+  		var contentType = $('select[name=contentType]').val(); //contentType의 value값
   		
   		
-  	}); //jquery 전체 구문
+  		
+  		
+  		function getCat2List() {
+  			
+  		}
+  		
+  		function getCat3List() {
+  			
+  		}
+  		
+  		
+  		// 지역이 바뀔 때, 시군구 코드도 해당 지역에 맞게 들고오도록 만드는 메서드 
+  		function getSigunguList(areacode, initFlag) {
+  			var areacode = $('select[name=areacode]').val();
+  			
+  			$(document).ready(function(){
+  				$.ajax({
+  	  				url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode"+",
+  	  				data : {"areacode":areacode},
+  	  				success : function(data) {
+  	  					
+  	  				},
+  	  				error : function() {
+  	  					
+  	  				}
+  	  			});
+  			});
+  			
+  		}	
+  		
+  	
   </script>
 
 
@@ -85,7 +119,10 @@
 
 <body>
 	<% 
-		int tourDay = Integer.parseInt(request.getParameter("tourDay"));
+		String a = String.valueOf(session.getAttribute("tourDay"));
+		System.out.println(a);
+		
+		int tourDay = Integer.parseInt(a);
 	%>
 
 	<div class="click-closed"></div>
@@ -110,12 +147,13 @@
 
 	<!-- 지역 및 관광지 검색 창 -->
 	<section class="section-about">
+		<div id="selectArea">
 		<fieldset>
 			<form id="searchSpotForm" method="post" action="./searchSpotAction.pl">
 			<table>
 				<tr>
 					<td>
-						<select name="contentTypeId" id="contentTypeSelect">
+						<select name="contentType" id="contentType">
 							<option value="관광타입" selected="selected">관광타입</option>
 							<option value="12">관광지</option>
 							<option value="14">문화시설</option>
@@ -186,17 +224,35 @@
 				</tr>
 				<tr>
 					<td>
-						<select id="areaCode">
+						<select name="areacode" title="지역선택" onchange="getSigunguList(this.value);">
+							<option value="1">서울</option>
+							<option value="2">인천</option>
+							<option value="3">대전</option>
+							<option value="4">대구</option>
+							<option value="5">광주</option>
+							<option value="6">부산</option>
+							<option value="7">울산</option>
+							<option value="8">세종특별자치시</option>
+							<option value="31">경기도</option>
+							<option value="32">강원도</option>
+							<option value="33">충청북도</option>
+							<option value="34">충청남도</option>
+							<option value="35">경상북도</option>
+							<option value="36">경상남도</option>
+							<option value="37">전라북도</option>
+							<option value="38">전라남도</option>
+							<option value="39">제주도</option>	
 						</select>
 					</td>
 					<td>
-						<select id="sigunguCode">
+						<select id="sigungucode" title="시군구선택">
 						</select>
 					</td>
 				</tr>
 			</table>
 			</form>
 		</fieldset>
+		</div>
 	</section>
 	
 	<!-- 지역 및 관광지 검색 창 -->
@@ -219,17 +275,15 @@
 
 		<div id="insertSpotTab" style="height: 300px;"> <!-- style="margin-left: 50%; margin-bottom: 70%; height: auto;" class="spotInfo" -->
 			<ul>
-				<li><a href="#tabs-1"></a></li>
+			<%for(int i=1; i<=tourDay; i++) {%>
+				<li><a href="#tabs-<%=i%>">Day<%=i%></a></li>
+			<%}%>
 			</ul>
-			<div id="tabs-1">
+			<%for(int i=1; i<=tourDay; i++) {%>
+			<div id="tabs-<%=i%>">
 				<p class="spotDayPlan"></p>
 			</div>
-			<div id="tabs-2">
-				<p class="spotDayPlan"></p>
-			</div>
-			<div id="tabs-3">
-				<p class="spotDayPlan"></p>
-			</div>
+			<%}%>
 		</div>
 	</section>
 

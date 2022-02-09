@@ -135,8 +135,8 @@
               고객센터
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="notice.jsp">공지사항</a>
-              <a class="dropdown-item" href="faq.jsp">FAQ</a>
+              <a class="dropdown-item" href="./NoticeAction.no">공지사항</a>
+              <a class="dropdown-item" href="./FAQAction.no">FAQ</a>
               <a class="dropdown-item" href="requestsEX.jsp">1:1문의</a>
             </div>
           </li>
