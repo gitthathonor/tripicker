@@ -10,23 +10,23 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../img/favicon.png" rel="icon">
+  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
 
 </head>
 
@@ -34,7 +34,7 @@
 
   <div class="click-closed"></div>
   <!-- header -->
-  	<jsp:include page="inc/top.jsp"></jsp:include>
+  	<jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- header -->
   <!--/ 제목 /-->
   <section class="intro-single">
@@ -58,14 +58,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-1.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-1.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                 
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 서울 </a>
+                    <a href="../blog-single.html"> 서울 </a>
                   </h2>
                 </div>
                 
@@ -77,14 +77,14 @@
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
             
-              <img src="img/post-2.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-2.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                 
                 <div class="centor">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 인천 </a>
+                    <a href="../blog-single.html"> 인천 </a>
                   </h2>
                 </div>
                 
@@ -95,14 +95,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-3.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-3.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                 
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 대전 </a>
+                    <a href="../blog-single.html"> 대전 </a>
                   </h2>
                 </div>
                 
@@ -113,13 +113,13 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-4.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-4.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 대구 </a>
+                    <a href="../blog-single.html"> 대구 </a>
                   </h2>
                 </div>
                 
@@ -130,14 +130,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-5.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-5.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                 
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 광주 </a>
+                    <a href="../blog-single.html"> 광주 </a>
                   </h2>
                 </div>
                 
@@ -148,32 +148,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
-            </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
-               
-                <div class="card-title-b">
-                  <h2 class="title-2">
-                    <a href="blog-single.html"> 부산 </a>
-                  </h2>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card-box-b card-shadow news-box">
-            <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 울산 </a>
+                    <a href="../blog-single.html"> 부산 </a>
                   </h2>
                 </div>
                 
@@ -184,14 +166,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 세종<br>특별자치시 </a>
+                    <a href="../blog-single.html"> 울산 </a>
                   </h2>
                 </div>
                 
@@ -202,14 +184,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 경기도 </a>
+                    <a href="../blog-single.html"> 세종<br>특별자치시 </a>
                   </h2>
                 </div>
                 
@@ -220,14 +202,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 강원도 </a>
+                    <a href="../blog-single.html"> 경기도 </a>
                   </h2>
                 </div>
                 
@@ -238,14 +220,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 충청북도 </a>
+                    <a href="../blog-single.html"> 강원도 </a>
                   </h2>
                 </div>
                 
@@ -256,14 +238,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 충청남도 </a>
+                    <a href="../blog-single.html"> 충청북도 </a>
                   </h2>
                 </div>
                 
@@ -274,14 +256,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 경상북도 </a>
+                    <a href="../blog-single.html"> 충청남도 </a>
                   </h2>
                 </div>
                 
@@ -292,14 +274,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 경상남도 </a>
+                    <a href="../blog-single.html"> 경상북도 </a>
                   </h2>
                 </div>
                 
@@ -310,14 +292,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 전라북도 </a>
+                    <a href="../blog-single.html"> 경상남도 </a>
                   </h2>
                 </div>
                 
@@ -328,14 +310,14 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 전라남도 </a>
+                    <a href="../blog-single.html"> 전라북도 </a>
                   </h2>
                 </div>
                 
@@ -346,14 +328,32 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html"> 제주도 </a>
+                    <a href="../blog-single.html"> 전라남도 </a>
+                  </h2>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card-box-b card-shadow news-box">
+            <div class="img-box-b">
+              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-header-b">
+               
+                <div class="card-title-b">
+                  <h2 class="title-2">
+                    <a href="../blog-single.html"> 제주도 </a>
                   </h2>
                 </div>
                 
@@ -369,25 +369,25 @@
   <!--/ 지역 선택 끝 /-->
 
   <!-- footer -->
-  	<jsp:include page="inc/bottom.jsp"/>
+  	<jsp:include page="../inc/bottom.jsp"/>
   <!-- footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/popper/popper.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../lib/popper/popper.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../lib/easing/easing.min.js"></script>
+  <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../lib/scrollreveal/scrollreveal.min.js"></script>
   <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <script src="../contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="../js/main.js"></script>
 
 </body>
 </html>
