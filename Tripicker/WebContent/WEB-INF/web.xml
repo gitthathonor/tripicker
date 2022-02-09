@@ -91,6 +91,17 @@
     </servlet-mapping>     
   <!-- MyPageFrontController -->
   
+  <!-- NoticeFrontController -->
+    <servlet>
+      <servlet-name>NoticeFrontController</servlet-name>
+      <servlet-class>com.tripicker.notice.action.NoticeFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>NoticeFrontController</servlet-name>
+      <url-pattern>*.no</url-pattern>
+    </servlet-mapping>     
+  <!-- NoticeFrontController -->
   
   
   
