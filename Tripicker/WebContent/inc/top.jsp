@@ -120,7 +120,7 @@
             <a class="nav-link" href="./PlanMain.pl">코스짜기</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="property-single.jsp">여행장소</a>
+            <a class="nav-link" href="">여행장소</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="property-grid.jsp">숙박/교통</a>
