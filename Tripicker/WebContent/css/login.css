@@ -116,7 +116,6 @@ input {
   color: black;
   font: inherit;
   margin: 0;
-  outline: 1px solid black;
   padding: 0;
   transition: background-color 0.3s;
 }
@@ -133,7 +132,9 @@ input[type="submit"] {
 }
 
 .form input[type="password"],
-.form input[type="text"],
+.form input[type="text"]{
+  outline: 1px solid silver;
+}
 .form input[type="submit"] {
   inline-size: 100%;
 }

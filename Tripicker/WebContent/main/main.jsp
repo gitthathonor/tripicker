@@ -73,7 +73,7 @@
 												<div class="input-group">
 													<input type="search" class="form-control form-control-lg"
 														placeholder="입력해주세요" style="border-radius: 10px;">
-													<div class="input-group-append">
+													<div class="input-group-append"> &nbsp;
 														<button type="submit" class="btn btn-b"
 															style="border-radius: 20px;">
 															<i class="fa fa-search"></i>

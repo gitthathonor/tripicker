@@ -4,8 +4,8 @@
 			  auth = "Container"
 			  type = "javax.sql.DataSource"
 			  driverClassName = "com.mysql.cj.jdbc.Driver"
-			  url = "jdbc:mysql://localhost:3306/itwillbs8"
-			  username = "itwillbs8"
-			  password = "itwillbs8030909"
+			  url = "jdbc:mysql://localhost:3306/tripicker"
+			  username = "root"
+			  password = "1234"
 			  maxWait = "5000"/>
 </Context>
