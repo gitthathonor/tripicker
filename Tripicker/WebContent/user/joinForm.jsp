@@ -275,7 +275,7 @@
 			  $('#input_email').focus();
 			  return false;
 		  }		  
-	  });//회원가입 버튼(sbumit) 클릭 이벤트
+	  });//회원가입 버튼(submit) 클릭 이벤트
 	  
 	  
 	  //checkId()
