@@ -120,13 +120,13 @@
             <a class="nav-link" href="./PlanMain.pl">코스짜기</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="property-single.jsp">여행장소</a>
+            <a class="nav-link" href="#">여행장소</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="property-grid.jsp">숙박/교통</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="blog-grid.jsp">커뮤니티</a>
+            <a class="nav-link" href="#">커뮤니티</a>
           </li>
           
           <li class="nav-item dropdown">
@@ -135,8 +135,8 @@
               고객센터
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="notice.jsp">공지사항</a>
-              <a class="dropdown-item" href="faq.jsp">FAQ</a>
+              <a class="dropdown-item" href="./NoticeAction.no">공지사항</a>
+              <a class="dropdown-item" href="./FAQAction.no">FAQ</a>
               <a class="dropdown-item" href="requestsEX.jsp">1:1문의</a>
             </div>
           </li>

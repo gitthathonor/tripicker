@@ -6,6 +6,7 @@ import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.tripicker.Action;
 import com.tripicker.ActionForward;
@@ -66,9 +67,11 @@ public class PlanDateAction implements Action{
 		PlanDAO pdao = new PlanDAO();
 		pdao.insertDate(pdto);
 		
-		int tourDay = (int)periodRealDate + 1;
+		int tourDay = (int)periodRealDate+1;
+		System.out.println(tourDay);
 		
-		request.setAttribute("tourDay", tourDay);
+		HttpSession session = request.getSession();
+		session.setAttribute("tourDay", tourDay);
 		
 		
 		
