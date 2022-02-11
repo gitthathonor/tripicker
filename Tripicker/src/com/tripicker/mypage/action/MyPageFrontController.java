@@ -73,7 +73,7 @@ public class MyPageFrontController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		// 페이지가 get 방식으로 호출될때 실행되는 메서드
-		System.out.println("UserFrontController_doGet() 호출");
+		System.out.println("MyPageFrontController_doGet() 호출");
 		doProcess(request, response);
 	}
 	
@@ -81,7 +81,7 @@ public class MyPageFrontController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		// 페이지가 post 방식으로 호출될때 실행되는 메서드
-		System.out.println("UserFrontController_doPost() 호출");
+		System.out.println("MyPageFrontController_doPost() 호출");
 		doProcess(request, response);
 
 	}
