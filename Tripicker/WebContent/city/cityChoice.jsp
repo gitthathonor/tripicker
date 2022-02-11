@@ -60,12 +60,11 @@
             <div class="img-box-b">
               <img src="../img/post-1.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
-                
-                <div class="card-title-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
+                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 서울 </a>
+                    <b><a href="../blog-single.html"> 서울 </a></b>
                   </h2>
                 </div>
                 
@@ -79,12 +78,12 @@
             
               <img src="../img/post-2.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
                 
                 <div class="centor">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 인천 </a>
+                    <b><a href="../blog-single.html"> 인천 </a></b>
                   </h2>
                 </div>
                 
@@ -97,12 +96,12 @@
             <div class="img-box-b">
               <img src="../img/post-3.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
                 
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 대전 </a>
+                    <b><a href="../blog-single.html"> 대전 </a></b>
                   </h2>
                 </div>
                 
@@ -115,11 +114,12 @@
             <div class="img-box-b">
               <img src="../img/post-4.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
+                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 대구 </a>
+                    <b><a href="../blog-single.html"> 대구 </a></b>
                   </h2>
                 </div>
                 
@@ -132,12 +132,12 @@
             <div class="img-box-b">
               <img src="../img/post-5.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
                 
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 광주 </a>
+                    <b><a href="../blog-single.html"> 광주 </a></b>
                   </h2>
                 </div>
                 
@@ -150,12 +150,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 부산 </a>
+                    <b><a href="../blog-single.html"> 부산 </a></b>
                   </h2>
                 </div>
                 
@@ -168,12 +168,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 울산 </a>
+                    <b><a href="../blog-single.html"> 울산 </a></b>
                   </h2>
                 </div>
                 
@@ -186,12 +186,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 70px;  text-align: center;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 세종<br>특별자치시 </a>
+                    <b><a href="../blog-single.html" style="text-align: center;"> 세종 <br>특별자치시 </a></b>
                   </h2>
                 </div>
                 
@@ -204,12 +204,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 45px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 경기도 </a>
+                    <b><a href="../blog-single.html"> 경기도 </a></b>
                   </h2>
                 </div>
                 
@@ -222,12 +222,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 45px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 강원도 </a>
+                    <b><a href="../blog-single.html"> 강원도 </a></b>
                   </h2>
                 </div>
                 
@@ -240,12 +240,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 충청북도 </a>
+                    <b><a href="../blog-single.html"> 충청북도 </a></b>
                   </h2>
                 </div>
                 
@@ -258,12 +258,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 충청남도 </a>
+                    <b><a href="../blog-single.html"> 충청남도 </a></b>
                   </h2>
                 </div>
                 
@@ -276,12 +276,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 경상북도 </a>
+                    <b><a href="../blog-single.html"> 경상북도 </a></b>
                   </h2>
                 </div>
                 
@@ -294,12 +294,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 경상남도 </a>
+                    <b><a href="../blog-single.html"> 경상남도 </a></b>
                   </h2>
                 </div>
                 
@@ -312,12 +312,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 전라북도 </a>
+                    <b><a href="../blog-single.html"> 전라북도 </a></b>
                   </h2>
                 </div>
                 
@@ -330,12 +330,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 전라남도 </a>
+                    <b><a href="../blog-single.html"> 전라남도 </a></b>
                   </h2>
                 </div>
                 
@@ -348,12 +348,12 @@
             <div class="img-box-b">
               <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
             </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
+            <div class="card-overlay" style="padding: 50px;">
+              <div class="card-header-b" style="padding-bottom: 90px; padding-left: 45px;">
                
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="../blog-single.html"> 제주도 </a>
+                    <b><a href="../blog-single.html"> 제주도 </a></b>
                   </h2>
                 </div>
                 
