@@ -15,8 +15,6 @@ public class UserFrontController extends HttpServlet{
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		// *.us 회원정보 처리
 		
 		// 1. 가상주소 계산 //
 		String url = request.getRequestURL()+"";

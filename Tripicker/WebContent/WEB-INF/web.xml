@@ -10,16 +10,15 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  
   <!-- 커넥션 풀 -->
   <resource-ref>
-  	<description>ConnectionPool</description>
-  	<res-ref-name>jdbc/mysqldb</res-ref-name>
-  	<res-type>javax.sql.DataSource</res-type>
-  	<res-auth>Container</res-auth>
-  </resource-ref>
-  
+		<description>ConnectionPool</description>
+		<res-ref-name>jdbc/mysqldb</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref> 
   <!-- 커넥션 풀 -->
+  
   <!-- PlanFrontController -->
   <servlet>
   	<servlet-name>PlanFrontController</servlet-name>
@@ -30,6 +29,20 @@
   	<url-pattern>*.pl</url-pattern>
   </servlet-mapping>
   <!-- PlanFrontController -->
+  
+  <!-- PlanAjaxController -->
+  <servlet>
+  	<servlet-name>PlanAjaxController</servlet-name>
+  	<servlet-class>com.tripicker.plan.action.PlanAjaxController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PlanAjaxController</servlet-name>
+  	<url-pattern>*.ajax</url-pattern>
+  </servlet-mapping>
+  <!-- PlanAjaxController -->
+  
+  
+  
   
   <!-- CityFrontController -->
   <servlet>
@@ -59,12 +72,49 @@
       <servlet-name>MainFrontController</servlet-name>
       <servlet-class>com.tripicker.MainFrontController</servlet-class>
     </servlet>
-
+      
     <servlet-mapping>
       <servlet-name>MainFrontController</servlet-name>
       <url-pattern>*.tr</url-pattern>
     </servlet-mapping>     
   <!-- MainFrontController -->
   
-    
+  <!-- MyPageFrontController -->
+    <servlet>
+      <servlet-name>MyPageFrontController</servlet-name>
+      <servlet-class>com.tripicker.mypage.action.MyPageFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>MyPageFrontController</servlet-name>
+      <url-pattern>*.my</url-pattern>
+    </servlet-mapping>     
+  <!-- MyPageFrontController -->
+  
+  <!-- NoticeFrontController -->
+    <servlet>
+      <servlet-name>NoticeFrontController</servlet-name>
+      <servlet-class>com.tripicker.notice.action.NoticeFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>NoticeFrontController</servlet-name>
+      <url-pattern>*.no</url-pattern>
+    </servlet-mapping>     
+  <!-- NoticeFrontController -->
+  
+  <!-- BoardFrontController -->
+   <servlet>
+      <servlet-name>BoardFrontController</servlet-name>
+      <servlet-class>com.tripicker.board.action.BoardFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>BoardFrontController</servlet-name>
+      <url-pattern>*.bo</url-pattern>
+    </servlet-mapping>     
+  <!-- BoardFrontController -->
+  
+  
+  
 </web-app>

@@ -144,16 +144,17 @@ public class UserDAO {
 	
 	
 	//loginCheck(id,pass) - 로그인
-	public int loginCheck(String id, String pass) {		
+	public int loginCheck(String id, String pass) {				
 		int result = -1;
 		System.out.println(id+"/"+pass);
 		try {
 			con = getCon();
-			sql = "SELECT pass FROM user WHERE id=?";
+			sql = "SELECT pass, ('rank'), nickname FROM user WHERE id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);			
 			rs = pstmt.executeQuery();
-			System.out.println(" DAO - loginCheck 실행 ");
+			
+			System.out.println(" DAO - loginCheck 실행 ");			
 			
 			if(rs.next()) {//아이디 있음
 				if(rs.getString("pass").equals(pass)) {//아이디, 비밀번호 확인
@@ -174,26 +175,33 @@ public class UserDAO {
 	}
 	//loginCheck(id,pass)
 	
-	//getRank(rank) - 회원등급 조회(등급이름or아이콘 아이디옆에 나오도록?)
-	public int getRank(String id) {
-		int rank = 1;
+	//getSessionInfo(rank) - 세션값 설정에 필요한 정보 조회(등급,닉네임,아이디)
+	public UserDTO getSessionInfo(String id) {	
+		UserDTO  udto = new UserDTO();
+				
 		try {
 			con = getCon();
-			sql = "SELECT ('rank') FROM user WHERE id=?";
+			sql = "SELECT `rank`,nickname FROM user WHERE id=?";
+			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
+			System.out.println("DAO : user 아이디 셋 완료");
 			
 			rs = pstmt.executeQuery();
-			rank = rs.getInt("rank");
-			System.out.println("랭크 : "+rank);
+			if(rs.next()) {
+				udto.setId(id);
+				udto.setRank(rs.getInt("rank"));
+				udto.setNickname(rs.getString("nickname"));
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			closeDB();
 		}
 		
-		return rank;
+		return udto;
 	}	
-	//getRank(rank) - 회원등급 조회
+	//getSessionInfo(rank) - 세션값 설정에 필요한 정보 조회(등급,닉네임,아이디)
 	
 	
 	
