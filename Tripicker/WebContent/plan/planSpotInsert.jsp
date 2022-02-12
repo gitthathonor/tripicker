@@ -177,7 +177,7 @@
 		  								var cat3Code = $(this).find("code").text();
 		  								var cat3Name = $(this).find("name").text();
 		  								
-		  								$("select[name=cat3]").append("<option value="+cat3Code+">"+cat3Name+"</option>");
+		  								$("select[name=cat3]").append("<option value="+cat3Code+">"+cat3Name+"</option>");(""))
 		  							});
 									
 								}
@@ -247,22 +247,47 @@
   				var cat3 = $("select[name=cat3]").val();
   				var areacode = $("select[name=areacode]").val();
   				var sigungucode = $("select[name=sigungucode]").val();
+  				var spotPageNum = 1;
   				
   				
   				$.ajax({
   					url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey="+servicekey+"&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&cat1"+cat1+"&contentTypeId="+contentType+"&areaCode="+areacode+"&sigunguCode="+sigungucode+"&cat2"+cat2+"&cat3"+cat3+"&listYN=N",
   					success : function(data) {
-  						console.lot(data);
+  						// console.lot(data);
   						var totalcount = $(data).find("totalCount").text();
   						alert(totalcount);
+  						pageNo = parseInt(totalcount/10)+1;
+  						alert(pageNo);
   						
+  						for(var i=1; i<=pageNo; i++) {
+	  						$.ajax({
+	  							url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey="+servicekey+"&pageNo="+i+"&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&cat1"+cat1+"&contentTypeId="+contentType+"&areaCode="+areacode+"&sigunguCode="+sigungucode+"&cat2"+cat2+"&cat3"+cat3+"&listYN=Y",
+	  							success : function(data) {
+	  								console.log(data);
+	  								$(data).find("item").each(function(){
+	  									var spotCode = $(this).find("contentid").text();
+	  									var spotName = $(this).find("title").text();
+	  									
+	  									$("#spotInfo > ul").append("<li value="+spotCode+">"+spotName+"</li>");
+	  									
+	  									if($("#spotInfo > ul > li").index() == 15) {
+	  										
+	  									}
+	  									
+	  								});
+	  								
+	  							}
+	  						}); //두번재 ajax
+  						}// for문
   					}
-  				});
+  				}); // 첫번째 ajax
   			});
   		});
   		
   		
-  		//var url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey="+servicekey+"&MobileApp=AppTest&MobileOS=ETC&contentTypeId="+contentType+"&areaCode="+areacode+"&sigunguCode="+sigungucode+"&listYN=Y" 
+  		
+  		
+ 		
   		
   	
   </script>
@@ -422,14 +447,15 @@
 	</section>
 	
 	<!-- 지역 및 관광지 검색 창 -->
+	
 
 	<!-- 데이터 출력 창 -->
 	<section style="display: block;">
 		<div id="spotInfo" style="width: 500px;" class="spotInfo">
 			<ul>
-			
+				
 			</ul>
-			<a href="">1</a>&nbsp;&nbsp;<a href="">2</a>
+			<a href=""></a>
 		</div>
 
 		<div id="insertSpotTab" style="height: 500px; width: 500px;"> <!-- style="margin-left: 50%; margin-bottom: 70%; height: auto;" class="spotInfo" -->
