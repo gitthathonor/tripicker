@@ -5,9 +5,9 @@
             auth = "Container" 
             type ="javax.sql.DataSource" 
             driverClassName = "com.mysql.cj.jdbc.Driver" 
-            url="jdbc:mysql://localhost:3306/jspdb" 
-            username="root"
-            password="1234"
+            url="jdbc:mysql://itwillbs8.cafe24.com:3306/itwillbs8" 
+            username="itwillbs8"
+            password="itwillbs8030909"
             maxWait="5000" 
   />  
 </Context>
