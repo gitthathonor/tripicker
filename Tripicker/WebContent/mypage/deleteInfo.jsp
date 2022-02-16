@@ -59,7 +59,8 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">내정보</h1>
+            <h1 class="title-single">회원탈퇴</h1>
+            <h6>회원탈퇴를 위해 비밀번호를 입력해 주세요</h6>
           </div>
         </div>
        </div>
@@ -69,59 +70,25 @@
 
 
   <!-- 내정보 출력 -->
-	<div id="board-list">
+	
 		<div class="container">
-			<table class="board-table">
-				<tr>
-					<th class="th-title">아이디</th>
-					<td><%=dto.getId()%></td>
-				</tr>
-				<tr>
-					<th>이름</th>
-					<td><%=dto.getName()%></td>
-				</tr>
-				<tr>
-					<th>닉네임</th>
-					<td><%=dto.getNickname() %></td>
-				</tr>
-				<tr>
-					<th>나이</th>
-					<td><%=dto.getAge() %></td>
-				</tr>
-				<tr>
-					<th>성별</th>
-					<td><%=dto.getGender()%></td>
-				</tr>
-				<tr>
-					<th>이메일</th>
-					<td><%=dto.getEmail()%></td>
-				</tr>
-				<tr>
-					<th>주소</th>
-					<td><%=dto.getAddr()%></td>
-				</tr>
-				<tr>
-					<th>등급</th>
-					<td><%=dto.getRank() %></td>
-				</tr>
-				<tr>
-					<th>회원가입일</th>
-					<td><%=dto.getReg_date() %></td>
-				</tr>
-			</table>
-			<br>
-				<input type="button" class="btn btn-b" value="회원정보 수정"
-					onclick="location.href='./MyPageUpdateInfo.my';"
-					style="float: right; font-size: small;">
-				<input type="button" class="btn btn-a" value="회원탈퇴"
-					onclick="location.href='./MyPageDeleteInfo.my';"
-					style="float: right; font-size: small; margin-right: 10px;">
-			
-			<br><br>
-		</div>
+		
+			<div style="margin-left: 40%; margin-bottom: 10%;">
+				<form action="./MyPageDeleteInfoAction.my" method="post" name="fr" onsubmit="return del();">
+					<input type="hidden" name="id" value="${sessionScope.id }">
+					비밀번호
+					<input type="password" name="pass" id="input_pass" class="form-control col-4" value="" >
+				   
+			</div>
+		
+		<input type="submit" class="btn btn-a" value="탈퇴하기"
+			style="float: right; font-size: small;">
+		</form>
+		<br><br><br><br>
+		
 	</div>
 
-<!-- 내정보 출력 -->
+	<!-- 내정보 출력 -->
 
   <!-- footer -->
   	<jsp:include page="../inc/bottom.jsp"/>
@@ -146,7 +113,9 @@
  
  <!-- 회원가입 정보 체크 스크립트 -->
  <script type="text/javascript">
- 
+ function del() {
+		alert("정말 탈퇴하시겠습니까?");				
+	}
   
 </script>
 </body>

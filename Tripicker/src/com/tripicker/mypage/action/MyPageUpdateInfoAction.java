@@ -9,21 +9,18 @@ import com.tripicker.ActionForward;
 import com.tripicker.mypage.db.MyPageDAO;
 import com.tripicker.mypage.db.MyPageDTO;
 
+public class MyPageUpdateInfoAction  implements Action{
 
-public class MyPageInfoAction implements Action {
-
-	// 내정보 조회
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("MyPageFront: MyPageInfoAction실행");
+		System.out.println("MyPage: MyPageUpdateInfoAction_execute()");
 		
-		request.setCharacterEncoding("utf-8");
-		
+		// 세션체크
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
 		ActionForward forward = new ActionForward();
-		if (id == null) {
+		if(id==null) {
 			forward.setPath("./UserLogin.us");
 			forward.setRedirect(true);
 			return forward;
@@ -31,18 +28,13 @@ public class MyPageInfoAction implements Action {
 		
 		MyPageDAO dao = new MyPageDAO();
 		MyPageDTO dto = dao.getUser(id);
-		
 		request.setAttribute("dto", dto);
 		
-		forward.setPath("./mypage/showInfo.jsp");
+		forward.setPath("./mypage/updateInfo.jsp");
 		forward.setRedirect(false);
-		
-		
 		
 		return forward;
 	}
-	// 내정보 조회
-	
 	
 	
 	

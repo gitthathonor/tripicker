@@ -39,11 +39,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-  <style type="text/css">
-    body {
-    background-color: #ffffff;
-    }
-    </style>
+  
     
 </head>
 

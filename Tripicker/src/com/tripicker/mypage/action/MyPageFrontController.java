@@ -17,6 +17,7 @@ public class MyPageFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
+		request.setCharacterEncoding("utf-8");
 	
 		// 1. 가상주소 계산
 		String url = request.getRequestURL()+"";
@@ -25,37 +26,63 @@ public class MyPageFrontController extends HttpServlet {
 		System.out.println("uri : " +uri);
 		
 		String requestURI = request.getRequestURI();
-		System.out.println(" C : requestURI - " +requestURI);
+		System.out.println("MyPageFront : requestURI - " +requestURI);
 		String ctxPath = request.getContextPath();
-		System.out.println(" C : ctxPath - " +ctxPath);
+		System.out.println("MyPageFront : ctxPath - " +ctxPath);
 		String command = requestURI.substring(ctxPath.length());
-		System.out.println(" C : command - "+command);
-		System.out.println(" C : 1. 가상 주소 계산 끝");
+		System.out.println("MyPageFront : command - "+command);
+		System.out.println("MyPageFront : 1. 가상 주소 계산 끝");
 	
 		// 2. 가상주소 매핑
 		Action action = null;
 		ActionForward forward = null;
 		
-		if (command.equals("/MyPage.my")) {
-			// 마이페이지(MyPageForm.jsp)출력
-			forward = new ActionForward();
-			forward.setPath("./mypage/infoForm.jsp");
-			forward.setRedirect(false);
-			
-		} else if (command.equals("/MyPageInfo.my")) {
+		if (command.equals("/MyPageInfo.my")) {
 			action = new MyPageInfoAction();
 			try {
 				forward =  action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if (command.equals("/MyPageUpdateInfo.my")) {
+			try {
+				action = new MyPageUpdateInfoAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/MyPageUpdateInfoProAction.my")) { 
+			//DB처리(정보수정), view페이지로 이동(main.jsp)
+			//MyPageUpdateInfoProAction() 객체
+			try {
+				action = new MyPageUpdateInfoProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if (command.equals("/MyPageDeleteInfo.my")) {
+			forward = new ActionForward();
+			forward.setPath("./mypage/deleteInfo.jsp");
+			forward.setRedirect(false);
+		} else if (command.equals("/MyPageDeleteInfoAction.my")) {
+			try {
+				action = new MyPageDeleteInfoAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}	
+			
 		
-		}
 		
-		System.out.println("MyPageFront: 페이지 매핑처리 끝");
+		
+		
+		System.out.println("MyPageFront: 2. 페이지 매핑처리 끝 (페이지 이동x)");
 		
 		// 3. 페이지 이동
-		if(forward != null) { // 페이지 이동정보 있음
+		if(forward != null) { // 페이지 이동정보 있을때
 			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
 				System.out.println("MyPageFront: 페이지 주소 - " + forward.getPath());
@@ -73,7 +100,7 @@ public class MyPageFrontController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		// 페이지가 get 방식으로 호출될때 실행되는 메서드
-		System.out.println("UserFrontController_doGet() 호출");
+		System.out.println("MyPageFrontController_doGet() 호출");
 		doProcess(request, response);
 	}
 	
@@ -81,7 +108,7 @@ public class MyPageFrontController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		// 페이지가 post 방식으로 호출될때 실행되는 메서드
-		System.out.println("UserFrontController_doPost() 호출");
+		System.out.println("MyPageFrontController_doPost() 호출");
 		doProcess(request, response);
 
 	}

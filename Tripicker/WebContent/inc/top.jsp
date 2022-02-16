@@ -11,8 +11,6 @@
 		id = (String)session.getAttribute("id");
 		rank = session.getAttribute("rank")+"";
 	}
-	
-
 %>
 <!--  보류!
   검색조건
@@ -128,12 +126,10 @@
           <li class="nav-item">
             <a class="nav-link" href="#">커뮤니티</a>
           </li>
-          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              고객센터
-            </a>
+              고객센터</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="./NoticeAction.no">공지사항</a>
               <a class="dropdown-item" href="./FAQAction.no">FAQ</a>
@@ -148,17 +144,18 @@
  		%>
       	  <!-- 로그인 전 메뉴 -->
       	  <input type="button" class="btn btn-b-n" onclick="location.href='./UserLogin.us';" value="로그인" style="border-radius: 5px;">&nbsp;
-      	  <input type="button" class="btn" onclick="location.href='./UserJoin.us';" value="회원가입" style="border-radius: 5px;">
+      	  <input type="button" class="btn btn-a-n" onclick="location.href='./UserJoin.us';" value="회원가입" style="border-radius: 5px;">
       	  
-      	 
  		<% 	
  			}else{
 		%>
        	  <!-- 로그인 후 메뉴 -->
-       	  
-       	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이<%=id %>페이지" style="border-radius: 5px;">&nbsp;
+       	  <div>
+       	  <%=id %>님 환영합니다! &nbsp;&nbsp;&nbsp;
+       	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이페이지" style="border-radius: 5px;">&nbsp;
       	  <input type="button" class="btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
-      	 
+      	  
+      	  </div>
  		<%
  			}
 		 %>

@@ -9,8 +9,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.tripicker.user.db.UserDTO;
-
 public class MyPageDAO {
 	
 	private Connection con = null;
@@ -22,8 +20,7 @@ public class MyPageDAO {
 	private Connection getCon() throws Exception {
 		Context initCTX = new InitialContext();    
 		DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/mysqldb");
-		//DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/mysqldb");
-
+		
 		con = ds.getConnection();
 		System.out.println("DB연결");
 		return con;
@@ -46,7 +43,7 @@ public class MyPageDAO {
 			
 			try {
 				con=getCon();
-				sql = "SELECT * FROM user WHERE id =?";
+				sql = "SELECT * FROM user WHERE id=?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, id);
 				rs = pstmt.executeQuery();
@@ -61,8 +58,12 @@ public class MyPageDAO {
 					dto.setGender(rs.getString("gender"));
 					dto.setEmail(rs.getString("email"));
 					dto.setAddr(rs.getString("addr"));
+					dto.setRank(rs.getInt("rank"));
+					dto.setReg_date(rs.getDate("reg_date"));
 					
 				}
+				System.out.println("SQL 구문 실행완료");
+				System.out.println("회원정보: "+ dto);
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -71,5 +72,87 @@ public class MyPageDAO {
 			return dto;
 		}
 		//getUser(id)
+		
+		
+		//updateInfo
+		public int updateInfo(MyPageDTO dto) {
+			int result = 1;
+			try {
+				con=getCon();
+				sql = "select pass from user where id =?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, dto.getId());
+				rs = pstmt.executeQuery();
+				
+				if (rs.next()) {
+					if (dto.getPass().equals(rs.getString("pass"))) {	// 비밀번호 맞는지 확인
+						sql = "update user set name =?, nickname =?, age =?, gender =?, email =?, addr =? where id =?";
+						pstmt = con.prepareStatement(sql);
+						pstmt.setString(1, dto.getName());
+						pstmt.setString(2, dto.getNickname());
+						pstmt.setInt(3, dto.getAge());
+						pstmt.setString(4, dto.getGender());
+						pstmt.setString(5, dto.getEmail());
+						pstmt.setString(6, dto.getAddr());
+						pstmt.setString(7, dto.getId());
+						
+						result = pstmt.executeUpdate();
+						System.out.println("회원정보 수정 완료");
+					} else {	// 비번오류
+						result = 0;
+					}
+				} else {	// 데이터 x
+					result = -1;
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				closeDB();
+			}
+			
+			
+			return result;
+		}
+		//updateInfo
+		
+		
+		//deleteInfo
+		public int deleteInfo(MyPageDTO dto) {
+			int result = 1;
+			try {
+				con = getCon();
+				sql = "select pass from user where id =?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, dto.getId());
+				rs = pstmt.executeQuery();
+				if (rs.next()) {
+					if (dto.getPass().equals(rs.getString("pass"))) {
+						sql = "delete from user where id=?"; // 게시글도 지우려면 연결을 board로? 
+						pstmt = con.prepareStatement(sql);
+						pstmt.setString(1, dto.getId());
+						result = pstmt.executeUpdate();
+						System.out.println("회원삭제 완료");
+					} else {	//비번오류
+						result = 0;
+					}
+				} else {	//데이터x
+					result = -1;
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				closeDB();
+			}
+			
+			return result;
+		}
+
+		
+		
+		
+		
+		
 	
 }
