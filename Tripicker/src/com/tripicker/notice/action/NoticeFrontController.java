@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.tripicker.Action;
 import com.tripicker.ActionForward;
-import com.tripicker.plan.action.MyPlanAction;
 import com.tripicker.plan.action.PlanDateAction;
 
 public class NoticeFrontController extends HttpServlet{
