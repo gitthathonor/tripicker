@@ -7,13 +7,13 @@
 	//한글 인코딩
 	request.setCharacterEncoding("UTF-8");	
 
-	Integer rank = 1;
+	
  	String id = null;
 	String nickname = null;		
 	//세션 정보 저장
 	if(session != null){
 		//rank = (int)session.getAttribute("rank");	
-		rank = (Integer)session.getAttribute("rank");
+		
 		id = (String)session.getAttribute("id");
 		nickname = (String)session.getAttribute("nickname");				
 	}
@@ -163,7 +163,7 @@
        	  
        	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이<%=id %>페이지" style="border-radius: 5px;">&nbsp;
       	  <input type="button" class="btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
-      	  <%-- <input type="button" class="btn" onclick="location.href='./AdminMemberList.ad';" value="관리자 페이지<%=rank %>" style="border-radius: 5px;"> --%>
+      	  
  		<%		
  			}
 		 %>
