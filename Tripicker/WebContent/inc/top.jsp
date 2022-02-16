@@ -163,7 +163,7 @@
        	  
        	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이<%=id %>페이지" style="border-radius: 5px;">&nbsp;
       	  <input type="button" class="btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
-      	  <input type="button" class="btn" onclick="location.href='./AdminMemberList.ad';" value="관리자 페이지<%=rank %>" style="border-radius: 5px;">
+      	  <%-- <input type="button" class="btn" onclick="location.href='./AdminMemberList.ad';" value="관리자 페이지<%=rank %>" style="border-radius: 5px;"> --%>
  		<%		
  			}
 		 %>
