@@ -31,21 +31,36 @@ public class BoardFrontController extends HttpServlet{
 		Action action = null;
 		ActionForward forward = null;
 		
-		if(command.equals("/BoardMain.bo")) {
-			forward  = new ActionForward();
-			forward.setPath("./board/boardMain.jsp");
-			forward.setRedirect(false);
+		if(command.equals("/BoardMain.bo")) {			
+			action = new BoardListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch(Exception e){
+				e.printStackTrace();
+			}
+			
 		}else if(command.equals("/BoardWrite.bo")) {
 			forward = new ActionForward();
 			forward.setPath("./board/boardWrite.jsp");
 			forward.setRedirect(false);
+			
 		}else if(command.equals("/BoardWriteAction.bo")) {
 			action = new BoardWriteAction();			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
+			}			
+			
+		}else if(command.equals("/BoardContent.bo")) {
+			action = new BoardContentAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
+		}else if(command.equals("/BoardModify.bo")) {
+			action = new BoardModifyAction();
 			
 		}
 		

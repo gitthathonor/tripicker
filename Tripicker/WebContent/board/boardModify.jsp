@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>     
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>글작성</title>
+  <title>글 수정</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -41,14 +42,11 @@
 	<%
 		// 닉네임 세션값 가져오기
 		String nickname = (String)session.getAttribute("nickname");
-		if(nickname == null){	
-	%>		
-			<script>
-			  alert("로그인이 필요한 서비스입니다");
-			  location.href = "./UserLogin.us";
-			</script>						
-	<% 
-		}	
+		if(nickname == null){
+	%>
+			
+	<%		
+		}
 	%>
 		
   <div class="click-closed"></div>
@@ -62,7 +60,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">글쓰기</h1>
+            <h1 class="title-single">글 수정</h1>
           </div>
         </div>
         <div class="col-md-12 col-lg-4">
@@ -79,19 +77,52 @@
     <div class="container">
     <div class="row">
         <div class="col-md-6 mb-3">
-        <form action="./BoardWriteAction.bo" enctype="multipart/form-data" method="post" name="ft" onsubmit="return checkBoardWrite();">
-   		 <input type="hidden" name="nickname" value=${nickname }>
-   		 <strong> 제목 </strong> <input type="text" class="form-control form-control-lg form-control-a" name="boardTitle"><br>  
-   		 <textarea rows="10" cols="50" name="boardContent" class="form-control form-control-lg form-control-a" ></textarea>
+        <form action="./BoardUpdateAction.bo" enctype="multipart/form-data" method="post" name="ft" onsubmit="return checkBoardWrite();">
+		<input type="hidden" name="nickname" value=${content.nickname }>
+   		 <strong> 제목 </strong> <input type="text" class="form-control form-control-lg form-control-a" name="boardTitle" value="${content.boardTitle }"><br>  
+   		 <textarea rows="10" cols="50" name="boardContent" class="form-control form-control-lg form-control-a">${content.boardContent }</textarea>
    		 <br><br>
    		 <strong> 사진 </strong> <input type="file" multiple="multiple" name="upFile" id='btnAtt' accept=".jpg, .jpeg, .png"/>	 
-   		 <div id="att_zone"></div><!-- <p>파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요</p> -->
+   		 <c:set var="requestboardFile" value="${content.boardFile }"/>
+   		 <c:choose>
+   		 	<c:when test="${!empty requestboardFile }">
+   		 		<a href="${content.boardFile }">${fileName }</a>
+   		 	</c:when>
+	   		<c:otherwise>
+	   			<a>첨부파일 없음</a>
+	   		</c:otherwise>	   		 	
+   		 </c:choose>
+   		 <div id="att_zone"></div>  		   		   		 
    		 <input type="hidden" name="fileName" value="">
    		 <br>  	 
-    	 <strong> 태그 </strong><input type="text" class="form-control form-control-lg form-control-a" name="tag" placeholder="제주도,가족여행,자연 " maxlength="50"><br>    	     	   	 
-    	 <strong> 글비밀번호 </strong><input type="text" class="form-control form-control-lg form-control-a" name="boardPass" maxlength="4"><br>     	   	 	
-      	 	<input type="button" value="취소" class="btn btn-a" onclick="history.back();">
-      	 	<input type="submit" value="글쓰기" class="btn btn-a" id="write_btn">
+    	 <strong> 태그 </strong><input type="text" class="form-control form-control-lg form-control-a" name="tag" value="${content.tag }" maxlength="50"><br>    	     	   	 
+    	 <strong> 글비밀번호 </strong><input type="text" class="form-control form-control-lg form-control-a" name="boardPass" maxlength="4"><br>     	   	 		
+		 
+		 <input type="button" value="목록으로" class="btn btn-a" onclick="history.back();">						
+	<!-- 로그인된 회원의 닉네임과 글쓴이가 일치시, 글 수정/삭제 가능 -->
+	<% 
+		if(nickname != null){
+			if(nickname.equals(request.getAttribute("writer"))){ 			
+	
+	%>      	<input type="button" value="수정" class="btn btn-a" onclick="location.href='./BoardModifyAction.bo'">
+      	 		<input type="button" value="삭제" class="btn btn-a" id="write_btn">
+				
+	<%		
+			}
+		}else{
+			
+	%>
+			<script>
+			alert('세션이 만료되었습니다');
+			history.back();			
+			</script>
+	<%		
+		}
+	%>  	 	
+
+      	 
+      	 
+      	 
       	 </form>
         </div>
       </div>

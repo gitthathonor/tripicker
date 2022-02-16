@@ -9,11 +9,35 @@ public class BoardDTO {
 	private String nickname;
 	private String boardTitle;
 	private String boardContent;
-	private String boadFile;
+	private String boardFile;
 	private String tag;
 	private int likeCount;
 	private int readCount;
 	private Date bReg_date;
+	
+	
+	public BoardDTO() {
+		
+	}
+	
+	public BoardDTO(int boardNum, String boardTitle, String nickname, String boardFile, int readCount, int likeCount) {
+		this.boardNum = boardNum;
+		this.boardTitle = boardTitle;
+		this.nickname = nickname;
+		this.boardFile = boardFile;
+		this.readCount = readCount;
+		this.likeCount = likeCount;
+	}
+	
+	public BoardDTO(int boardNum, String boardPass, String nickname, String boardTitle, String boardContent, String boardFile, String tag) {
+		this.boardNum = boardNum;
+		this.boardPass = boardPass;
+		this.boardTitle = boardTitle;
+		this.nickname = nickname;
+		this.boardContent = boardContent;
+		this.boardFile = boardFile;
+		this.tag = tag;
+	}
 	
 	
 	public int getBoardNum() {
@@ -46,11 +70,11 @@ public class BoardDTO {
 	public void setBoardContent(String boardContent) {
 		this.boardContent = boardContent;
 	}
-	public String getBoadFile() {
-		return boadFile;
+	public String getBoardFile() {
+		return boardFile;
 	}
-	public void setBoadFile(String boadFile) {
-		this.boadFile = boadFile;
+	public void setBoardFile(String boardFile) {
+		this.boardFile = boardFile;
 	}
 	public String getTag() {
 		return tag;
@@ -81,13 +105,10 @@ public class BoardDTO {
 	@Override
 	public String toString() {
 		return "BoardDTO [boardNum=" + boardNum + ", boardPass=" + boardPass + ", nickname=" + nickname
-				+ ", boardTitle=" + boardTitle + ", boardContent=" + boardContent + ", boadFile=" + boadFile + ", tag="
+				+ ", boardTitle=" + boardTitle + ", boardContent=" + boardContent + ", boardFile=" + boardFile + ", tag="
 				+ tag + ", likeCount=" + likeCount + ", readCount=" + readCount + ", bReg_date=" + bReg_date + "]";
 	}
 	
-	
-	
-	
-	
+
 
 }
