@@ -12,6 +12,8 @@
 		response.sendRedirect("./Main.tr");
 		//response.sendRedirect("./CityInsert.ci");
 		
+		
+		
 	
 	%>
 </body>
