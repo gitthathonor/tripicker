@@ -45,7 +45,6 @@
   <!-- header -->
   	<jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- header --
-
         <!-- Property List Start -->
         
         <div class="intro-single">
@@ -197,7 +196,7 @@
                                 </div>
                             </div>
                             <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                                <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
+                                <a class="btn btn-primary py-3 px-5" href="./BoardWrite.bo">여행후기 작성하기</a>
                             </div>
                         </div>
                     </div>
@@ -494,15 +493,12 @@
 <!-- like button -->  
 <script type="text/javascript">
 let button = document.querySelector(".like-button");
-
 button.addEventListener("click", function(e) {
   e.preventDefault();
   this.classList.toggle("active");
   this.classList.add("animated");
   generateClones(this);
 });
-
-
 function generateClones(button) {
   let clones = randomInt(2, 4);
   for (let it = 1; it <= clones; it++) {
@@ -533,16 +529,12 @@ function generateClones(button) {
     }, 600);
   }
 }
-
-
 function plusOrMinus() {
   return Math.random() < 0.5 ? -1 : 1;
 }
-
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
 </script>
 <!-- like button -->  
 

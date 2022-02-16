@@ -10,9 +10,9 @@
 	<%
 		//response.sendRedirect("./UserJoin.us");
 		response.sendRedirect("./Main.tr");
+		//response.sendRedirect("./PlanSpotInsert2.pl");
 		//response.sendRedirect("./CityInsert.ci");
-		
-	
+		//response.sendRedirect("./AdminMemberList.ad");
 	%>
 </body>
 </html>

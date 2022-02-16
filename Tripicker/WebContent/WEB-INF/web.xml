@@ -42,8 +42,6 @@
   <!-- PlanAjaxController -->
   
   
-  
-  
   <!-- CityFrontController -->
   <servlet>
   	<servlet-name>CityFrontController</servlet-name>
@@ -103,6 +101,31 @@
     </servlet-mapping>     
   <!-- NoticeFrontController -->
   
+  <!-- BoardFrontController -->
+   <servlet>
+      <servlet-name>BoardFrontController</servlet-name>
+      <servlet-class>com.tripicker.board.action.BoardFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>BoardFrontController</servlet-name>
+      <url-pattern>*.bo</url-pattern>
+    </servlet-mapping>     
+  <!-- BoardFrontController -->
   
+  <!-- AdminFrontController -->
+   <servlet>
+      <servlet-name>AdminFrontController</servlet-name>
+      <servlet-class>com.tripicker.admin.action.AdminFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>AdminFrontController</servlet-name>
+      <url-pattern>*.ad</url-pattern>
+    </servlet-mapping>     
+  <!-- AdminFrontController -->
+  
+  
+ 
   
 </web-app>

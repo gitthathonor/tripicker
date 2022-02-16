@@ -31,11 +31,11 @@ public class PlanFrontController extends HttpServlet {
 		Action action = null; // Action 인터페이스 초기화
 		ActionForward forward = null; // ActionForward 객체 초기화
 		
-		if(command.equals("/PlanMain.pl")) {
-			System.out.println("PlantFront : /PlanMain.pl 주소호출!"); //plan 메인 페이지
+		if(command.equals("/PlanDate.pl")) {
+			System.out.println("PlantFront : /PlanDate.pl 주소호출!"); //plan 메인 페이지
 			
 			forward = new ActionForward();
-			forward.setPath("./plan/planMain.jsp");
+			forward.setPath("./plan/planDate.jsp");
 			forward.setRedirect(false);
 		} else if(command.equals("/PlanDateAction.pl")) {
 			action = new PlanDateAction();
@@ -50,11 +50,13 @@ public class PlanFrontController extends HttpServlet {
 			forward.setPath("./plan/planSpotInsert.jsp");
 			forward.setRedirect(false);
 		} else if(command.equals("/PlanSpotInsertAction.pl")) {
-			forward = new ActionForward();
-			forward.setPath("");
-			forward.setRedirect(false);
-		}
-		
+			action = new PlanSpotInsertAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		} 
 		
 		/////2. 가상 주소 매핑/////
 		

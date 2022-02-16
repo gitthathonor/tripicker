@@ -6,6 +6,8 @@ public class CityDTO {
 	private String cityName;
 	private String cityEngName;
 	private String cityInfo;
+	private String cityImgUrl;
+	
 	
 	public int getCityCode() {
 		return cityCode;
@@ -31,6 +33,13 @@ public class CityDTO {
 	public void setCityInfo(String cityInfo) {
 		this.cityInfo = cityInfo;
 	}
+	public String getCityImgUrl() {
+		return cityImgUrl;
+	}
+	public void setCityImgUrl(String cityImgUrl) {
+		this.cityImgUrl = cityImgUrl;
+	}
+	
 	
 	@Override
 	public String toString() {
