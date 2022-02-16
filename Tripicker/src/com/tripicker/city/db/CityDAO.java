@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -11,6 +12,7 @@ import javax.sql.DataSource;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.tripicker.city.db.CityDTO;
@@ -73,23 +75,25 @@ public class CityDAO {
 					Elements cityName = doc.getElementsByClass("name-Xm7WQ");
 					Elements cityEngName = doc.getElementsByClass("nameEn-33oNZ");
 					Elements cityInfo = doc.getElementsByClass("text");
-					// Elements cityImgUrl =
-					// doc.getElementsByClass("figure-3ftWB");
-
+					//Element figure = doc.select("figure").get(0);
+					//Elements img = figure.select("img");
+					//String cityImgUrl = img.attr("src");
+					
+					
 					System.out.println(cityName.text());
 					System.out.println(cityEngName.text());
 					System.out.println(cityInfo.text());
-					// System.out.println(cityImgUrl.text());
+					//System.out.println(cityImgUrl);
 
 					cdto.setCityCode(i);
 					cdto.setCityName(cityName.text());
 					cdto.setCityEngName(cityEngName.text());
 					cdto.setCityInfo(cityInfo.text());
-					// cdto.setCityImgUrl(cityImgUrl.text());
+					//cdto.setCityImgUrl(cityImgUrl);
 
 					cdtoArr.add(cdto);
 
-					sql = "insert into city(cityCode,cityName,cityEngName,cityInfo) values(?,?,?,?)";
+					sql = "insert into city(cityCode,cityName,cityEngName,cityInfo,cityImgUrl) values(?,?,?,?,?)";
 
 					pstmt = con.prepareStatement(sql);
 
@@ -97,7 +101,8 @@ public class CityDAO {
 					pstmt.setString(2, cdto.getCityName());
 					pstmt.setString(3, cdto.getCityEngName());
 					pstmt.setString(4, cdto.getCityInfo());
-
+					pstmt.setString(5, cdto.getCityImgUrl());
+					
 					pstmt.executeUpdate();
 				}
 
@@ -111,21 +116,26 @@ public class CityDAO {
 					Elements cityName = doc.getElementsByClass("name-Xm7WQ");
 					Elements cityEngName = doc.getElementsByClass("nameEn-33oNZ");
 					Elements cityInfo = doc.getElementsByClass("text");
+					//Element figure = doc.select("figure").get(0);
+					//Elements img = figure.select("img");
+					//String cityImgUrl = img.attr("src");
 					
 
 					System.out.println(cityName.text());
 					System.out.println(cityEngName.text());
 					System.out.println(cityInfo.text());
+					//System.out.println(cityImgUrl);
 
 					cdto.setCityCode(i);
 					cdto.setCityName(cityName.text());
 					cdto.setCityEngName(cityEngName.text());
 					cdto.setCityInfo(cityInfo.text());
+					//cdto.setCityImgUrl(cityImgUrl);
 					
 
 					cdtoArr.add(cdto);
 
-					sql = "insert into city(cityCode,cityName,cityEngName,cityInfo) values(?,?,?,?)";
+					sql = "insert into city(cityCode,cityName,cityEngName,cityInfo,cityImgUrl) values(?,?,?,?,?)";
 
 					pstmt = con.prepareStatement(sql);
 
@@ -133,6 +143,7 @@ public class CityDAO {
 					pstmt.setString(2, cdto.getCityName());
 					pstmt.setString(3, cdto.getCityEngName());
 					pstmt.setString(4, cdto.getCityInfo());
+					pstmt.setString(5, cdto.getCityImgUrl());
 
 					pstmt.executeUpdate();
 				}
@@ -182,6 +193,38 @@ public class CityDAO {
 			closeDB();
 		}
 		return cdto;
+	}
+	
+	public List<CityDTO> getCityList() {
+		ArrayList<CityDTO> arrCity = new ArrayList<>();
+		try {
+			con = getCon();
+			sql = "select * from city";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				CityDTO cdto = new CityDTO();
+				cdto.setCityCode(rs.getInt("cityCode"));
+				cdto.setCityName(rs.getString("cityName"));
+				cdto.setCityEngName(rs.getString("cityEngName"));
+				cdto.setCityInfo(rs.getString("cityInfo"));
+				cdto.setCityImgUrl(rs.getString("cityImgUrl"));
+				
+				arrCity.add(cdto);
+			}
+			
+			System.out.println("DAO : 도시 DTO 배열 저장 성공!");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return arrCity;
 	}
 
 }

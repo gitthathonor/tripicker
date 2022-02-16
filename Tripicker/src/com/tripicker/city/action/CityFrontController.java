@@ -42,7 +42,22 @@ public class CityFrontController extends HttpServlet{
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} else if(command.equals("/CityChoice.ci")) {
+			forward = new ActionForward();
+			forward.setPath("./city/cityChoice.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/CityChoice2Action.ci")) {
+			action = new CityChoice2Action();
+			try {
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} //도시별 메인 페이지 연습중
+		
+		
+		
+		
 		/////2. 가상 주소 매핑/////
 		
 		

@@ -3,17 +3,22 @@
 <!DOCTYPE html>
 <!--/ Form Search Star /-->
 <header>
-<%
-	String id = null;
-	String rank = null;
-	// 세션 정보 저장
-	if(session != null){
-		id = (String)session.getAttribute("id");
-		rank = session.getAttribute("rank")+"";
-	}
-	
+<%	
+	//한글 인코딩
+	request.setCharacterEncoding("UTF-8");	
 
+	Integer rank = 1;
+ 	String id = null;
+	String nickname = null;		
+	//세션 정보 저장
+	if(session != null){
+		//rank = (int)session.getAttribute("rank");	
+		rank = (Integer)session.getAttribute("rank");
+		id = (String)session.getAttribute("id");
+		nickname = (String)session.getAttribute("nickname");				
+	}
 %>
+
 <!--  보류!
   검색조건
   <div class="click-closed"></div>
@@ -117,16 +122,16 @@
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">          
           <li class="nav-item">
-            <a class="nav-link" href="./PlanMain.pl">코스짜기</a>
+            <a class="nav-link" href="./PlanDate.pl">코스짜기</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">여행장소</a>
+            <a class="nav-link" href="./CityChoice.ci">여행장소</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="property-grid.jsp">숙박/교통</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">커뮤니티</a>
+            <a class="nav-link" href="./BoardMain.bo">커뮤니티</a>
           </li>
           
           <li class="nav-item dropdown">
@@ -158,8 +163,8 @@
        	  
        	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이<%=id %>페이지" style="border-radius: 5px;">&nbsp;
       	  <input type="button" class="btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
-      	 
- 		<%
+      	  <input type="button" class="btn" onclick="location.href='./AdminMemberList.ad';" value="관리자 페이지<%=rank %>" style="border-radius: 5px;">
+ 		<%		
  			}
 		 %>
 

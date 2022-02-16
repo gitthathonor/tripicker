@@ -18,28 +18,27 @@ public class PlanDateAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		System.out.println("A : PlanDateAction_execute() 호출!");
 		
 		// 한글 인코딩
 		request.setCharacterEncoding("UTF-8");
 		
-		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		
+		
+		ActionForward forward = new ActionForward();
+		if(id == null) {
+			forward.setPath("./UserLogin.us");
+			forward.setRedirect(true);
+			return forward;
+		}
+		
+		
 		System.out.println(request.getParameter("startDate"));
 		System.out.println(request.getParameter("lastDate"));
 		String startDateString = request.getParameter("startDate");
 		String lastDateString = request.getParameter("lastDate");
-		/*System.out.println(startDateString.substring(5,7));
-		int startMonth = Integer.parseInt(startDateString.substring(5, 7))+1;
-		
-		System.out.println(startMonth);
-		int lastMonth = Integer.parseInt(lastDateString.substring(5, 7))+1;
-		System.out.println(lastMonth);*/
-		
-//		java.util.Date startUtilDate = sdf.parse(request.getParameter("startDate"));
-//		java.util.Date lastUtilDate = sdf.parse(request.getParameter("lastDate"));
-//		System.out.println(startUtilDate);
-//		System.out.println(lastUtilDate);
-//		startUtilDate.setMonth(startUtilDate.getMonth()+1);
-//		lastUtilDate.setMonth(lastUtilDate.getMonth()+1);
 		
 		
 		java.sql.Date  startDate = java.sql.Date.valueOf(startDateString);
@@ -57,6 +56,7 @@ public class PlanDateAction implements Action{
 		
 		PlanDTO pdto = new PlanDTO();
 		
+		pdto.setId(id);
 		pdto.setStartDate(startDate);
 		pdto.setLastDate(lastDate);
 		pdto.setPeriod(period);
@@ -65,17 +65,21 @@ public class PlanDateAction implements Action{
 		//planSeqNum을 계산해서 setter에 넣는 계산필요
 		
 		PlanDAO pdao = new PlanDAO();
-		pdao.insertDate(pdto);
+		pdao.insertDate(pdto, id);
 		
 		int tourDay = (int)periodRealDate+1;
-		System.out.println(tourDay);
+		//System.out.println(tourDay);
 		
-		HttpSession session = request.getSession();
+		session = request.getSession();
 		session.setAttribute("tourDay", tourDay);
 		
 		
+//		String[] arrSpot = {"불국사","광화문","순천만","오죽헌","경복궁","광안대교"};
+//		
+//		request.setAttribute("arrSpot", arrSpot);
 		
-		ActionForward forward = new ActionForward();
+		
+		
 		forward.setPath("./PlanSpotInsert.pl");
 		forward.setRedirect(true);
 		return forward;

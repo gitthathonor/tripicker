@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -64,7 +64,7 @@
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
                  <div class="card-title-b">
                   <h2 class="title-2">
-                    <b><a href="../blog-single.html"> 서울 </a></b>
+                    <b><a href="../city/cityInfo.jsp"> 서울 </a></b>
                   </h2>
                 </div>
                 

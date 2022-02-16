@@ -1,25 +1,16 @@
-package com.tripicker.user.db;
+package com.tripicker.admin.db;
 
 import java.sql.Date;
 
-public class UserDTO {
-	
-	// 회원정보를 담는 객체(member 테이블)
+public class AdminDTO {
 	private String id;
 	private String pass;
 	private String name;
 	private String nickname;
-	private int age;
-	private String gender; 
 	private String email;
 	private String addr;
-	private int grade; //회원등급(일반1~3,관리자4)
-	
-
-
+	private int rank;
 	private Date reg_date;
-	
-	
 	public String getId() {
 		return id;
 	}
@@ -44,18 +35,6 @@ public class UserDTO {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 	public String getEmail() {
 		return email;
 	}
@@ -68,27 +47,24 @@ public class UserDTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public int getGrade() {
-		return grade;
+	public int getRank() {
+		return rank;
 	}
-	public void setGrade(int grade) {
-		this.grade = grade;
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
+	
 	public Date getReg_date() {
 		return reg_date;
 	}
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
-	
 	@Override
 	public String toString() {
-		return "UserDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", nickname=" + nickname + ", age=" + age
-				+ ", gender=" + gender + ", email=" + email + ", addr=" + addr + ", grade=" + grade + ", reg_date="
-				+ reg_date + "]";
+		return "AdminDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", nickname=" + nickname + ", email="
+				+ email + ", addr=" + addr + ", rank=" + rank + ", reg_date=" + reg_date + "]";
 	}
 	
 	
-	
-
 }

@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>도시들 DB에 저장하기</title>
-<script> src="../js/jquery-3.6.0.js"</script>
+<script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	/* $(document).ready(function(){
 		
@@ -27,7 +27,9 @@
 	도시 코드 : ${cdto.cityCode } <br>
 	도시 이름 : ${cdto.cityName } <br>
 	도시 영문명 : ${cdto.cityEngName} <br>
-	도시  설명 : ${cdto.cityInfo } 
+	도시  설명 : ${cdto.cityInfo } <br>
+	도시 이미지 : <img src="${cdto.cityImgUrl}"> 
+	
 	
 	
 </body>
