@@ -31,9 +31,9 @@
 }
 
 /* 관광지 이미지 크기  */
-.areaImage {
-	width: 211px;
-	height: 120px;
+.areaImg {
+	width: 200px;
+	height: 100px;
 }
 
 </style>
@@ -62,9 +62,9 @@
   		
   		
   		//tab 창 코드
-  		/*$(document).ready(function(){
+  		$(document).ready(function(){
   			$("#insertSpotTab").tabs();
-  		});*/
+  		});
   		
   		
   			
@@ -315,7 +315,7 @@
   		
   		
   		// 검색 결과 나오게 하기 (ajax로 곧바로 주소 호출)
-  		function searchSpot(contentType,cat1,cat2,cat3,areacode,sigungucode, pageNo) {
+  		function searchSpot(contentType,cat1,cat2,cat3,areacode,sigungucode) {
 			$(document).ready(function(){
 				
 				$("#spotInfo > ul").empty();
@@ -335,11 +335,12 @@
 				alert(areacode);
 				alert(sigungucode);
 				
-				pageNo = 1;
+				var pageNo = 1;
 				
 				alert(pageNo);
 				
 				var a = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey="+servicekey+"&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&pageNo="+pageNo;
+				
 				if(contentType != "") {
 					a += "&contentTypeId="+contentType;
 				}
@@ -376,12 +377,11 @@
 									$(data).find("item").each(function(){
 										var areaname = $(this).find("title").text();
 										var imgUrl = $(this).find("firstimage").text();
-										
-										if(typeof imgUrl === 'undefined') {
+										if(imgUrl === undefined) {
 											imgUrl = "https://api.visitkorea.or.kr/static/images/common/noImage.gif";
 										}
 										
-										$("#spotInfo > ul").append("<li value="+areaname+" name='spotList' class='areaInfo' onclick='addSpot();'><img src="+imgUrl+" class='areaImage'><p>"+areaname+"</p></li>");
+										$("#spotInfo > ul").append("<li value="+areaname+"><img src="+imgUrl+" class='areaImg'><p>"+areaname+"</p></li>");
 										
 									});
 									
@@ -406,16 +406,10 @@
 		} //searchSpot()
 		
 		
-		function searchSpots() {
-				alert("hello");
-				
-		}// 페이지 이동에 따른 검색 결과들
 		
 		
-		// 목록을 클릭하면, 옆에 계획표에 다시 담기게 만들기
-		function addSpot() {
-			alert(this.value);
-		}
+		
+		
 		
   </script>
 
@@ -567,7 +561,7 @@
 							<tbody>				
 								<tr>
 									<th class="last wHacki8" scope="row">
-									<input type="button" id="searchSpotBtn" value="검색" onclick="searchSpot();">
+									<input type="button" id="searchSpotBtn" value="검색" onclick="searchSpot(this);">
 									</th>
 									<td class="last">
 									    <input type="hidden" name="mode" value="listOk">
@@ -588,7 +582,7 @@
 	
 	<!-- 데이터 출력 창 -->
 	<section style="display:inline-block;">
-			<%-- <div id="insertSpotTab" style="height: 500px; width: 600px; float:right; margin-left:400px; "> 
+		<div id="insertSpotTab" style="height: 500px; width: 600px; float:right; margin-left:400px; "> 
 			<ul>
 			<%for(int i=1; i<=tourDay; i++) {%>
 				<li><a href="#tabs-<%=i%>">Day<%=i%></a></li>
@@ -599,8 +593,8 @@
 				<p class="spotDayPlan" style="height: 500px; width: 500px; padding: 0.5em; float: left; margin: 10px;">관광지를 넣어주세요!</p>
 			</div>
 			<%}%>
-		</div> --%>
-		<div id="insertSpotTab" style="height: 500px; width: 600px; float:right; margin-left:400px;">
+		</div> 
+	<%-- <div id="insertSpotTab" style="height: 500px; width: 600px; float:right; margin-left:400px;">
 			<table>
 			<%for(int i=1; i<=tourDay; i++) { %>
 				<tr>
@@ -608,20 +602,17 @@
 					<td></td>
 				</tr>
 			<% } %>
-			</table>
-		</div>
-		
+			</table> 
+		</div>  --%>
 		<div id="spotInfo" style="width: 500px; float:left; " class="spotInfo">
-			<form action="./" method="post">
+			
 			<ul style="list-style: none; display: inline-block;">
 				<li id="areaInfo">관광지들</li>
 			</ul>
 			<div>
 				<span id="areaPage" style="margin: 1em 25%;"></span>
 			</div>
-			<input type="submit" value="관광지 선택">
-			</form>
-		</div>
+		</div> 
 		
 	</section>
 	
