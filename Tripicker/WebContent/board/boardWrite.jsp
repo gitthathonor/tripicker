@@ -138,7 +138,7 @@
 	  }else{// 업로드될 파일명 -> fileName.value에 담기
 		  var fileName = "";
 		  for(var i=0; i< files.length; i++){
-			  fileName += files[i].name+"/";			   
+			  fileName += files[i].name;			   
 		  }
 		  document.ft.fileName.value = fileName;
 		  alert(fileName);

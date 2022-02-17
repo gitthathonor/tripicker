@@ -114,7 +114,17 @@
       <url-pattern>*.bo</url-pattern>
     </servlet-mapping>     
   <!-- BoardFrontController -->
-  
-  
+     
+  <!-- BoardFrontController -->
+   <servlet>
+      <servlet-name>CommentFrontController</servlet-name>
+      <servlet-class>com.tripicker.comment.action.CommentFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>CommentFrontController</servlet-name>
+      <url-pattern>*.co</url-pattern>
+    </servlet-mapping>     
+  <!-- BoardFrontController -->
   
 </web-app>

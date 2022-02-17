@@ -11,14 +11,15 @@ import com.tripicker.ActionForward;
 import com.tripicker.board.db.BoardDAO;
 import com.tripicker.board.db.BoardDTO;
 
-public class BoardWriteAction implements Action{
+public class BoardModifyProAction implements Action{
+	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
 		String fileName = "";
 		
 		// Post 한글처리
-		request.setCharacterEncoding("UTF-8");				
+		request.setCharacterEncoding("UTF-8");	
+		
 		// 파일이 저장될 경로
 		ServletContext context = request.getServletContext();
 		String uploadPath = context.getRealPath("/save");	
@@ -47,6 +48,8 @@ public class BoardWriteAction implements Action{
 			}else {//파일업로드 성공시
 				// BoardWriter.jsp -> BoardDTO에 저장
 				BoardDTO bdto = new BoardDTO();		
+				bdto.setBoardNum(Integer.parseInt(multi.getParameter("boardNum")));
+				System.out.println("게시글번호:"+bdto.getBoardNum());
 				bdto.setBoardPass(multi.getParameter("boardPass"));
 				bdto.setNickname(multi.getParameter("nickname"));
 				bdto.setBoardTitle(multi.getParameter("boardTitle"));
@@ -57,7 +60,7 @@ public class BoardWriteAction implements Action{
 				bdto.setBoardFile(filePath);
 				// DB에 글정보 저장
 				BoardDAO bdao = new BoardDAO();
-				bdao.insertBoard(bdto);			
+				bdao.modifyBoard(bdto);		
 			}//파일업로드,글작성 성공						
 		} catch (Exception e) {
 			System.out.println("글 작성 예외발생"+e);
@@ -70,4 +73,5 @@ public class BoardWriteAction implements Action{
 		
 		return forward;
 	}
+
 }

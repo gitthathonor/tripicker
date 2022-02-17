@@ -30,17 +30,21 @@ public class BoardListAction implements Action{
 		// 페이지 목록(1..n)
 		ArrayList<Integer> pageList = calcNumOfPage(countedTuple);
 		session.setAttribute("pageList", pageList);
+		
 		ArrayList<BoardDTO> dtos = boDao.boardList(requestPage, numOfTuplesPerPage);
 		request.setAttribute("list", dtos);
-		System.out.println("보드객체 array:"+dtos.toString());
+		//System.out.println("BoardListAction 보드객체 :"+dtos.toString());
 		
 		// 이미지파일 불러올 경로
-		ServletContext context = request.getServletContext();		
-		String savePath = context.getRealPath("/save");	
-		System.out.println("savePath경로1: "+savePath);
-		savePath = savePath.substring(0,savePath.length()-5);
-		System.out.println("savePath경로2: "+savePath);
-		request.setAttribute("savePath", savePath);
+//		ServletContext context = request.getServletContext();		
+//		String savePath = context.getRealPath("/save");	
+//		//System.out.println("savePath경로1: "+savePath);
+//		savePath = savePath.substring(0,savePath.length()-5);
+//		//System.out.println("savePath경로2: "+savePath);
+//		request.setAttribute("savePath", savePath);
+		
+		
+		
 				
 		// 페이지 이동정보 저장
 		ActionForward forward = new ActionForward();

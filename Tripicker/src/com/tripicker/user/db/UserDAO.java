@@ -149,7 +149,7 @@ public class UserDAO {
 		System.out.println(id+"/"+pass);
 		try {
 			con = getCon();
-			sql = "SELECT pass, ('rank'), nickname FROM user WHERE id=?";
+			sql = "SELECT pass FROM user WHERE id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);			
 			rs = pstmt.executeQuery();
@@ -181,7 +181,7 @@ public class UserDAO {
 				
 		try {
 			con = getCon();
-			sql = "SELECT `rank`,nickname FROM user WHERE id=?";
+			sql = "SELECT grade,nickname FROM user WHERE id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			System.out.println("DAO : user 아이디 셋 완료");
@@ -189,10 +189,10 @@ public class UserDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				udto.setId(id);
-				udto.setRank(rs.getInt("rank"));
+				udto.setGrade(rs.getInt("grade"));
 				udto.setNickname(rs.getString("nickname"));
 			}
-
+			System.out.println("등급:"+udto.getGrade());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

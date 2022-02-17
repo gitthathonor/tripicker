@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class UserDTO {
 	
-	// 회원정보를 담는 객체(member 테이블)
+	// 회원정보를 담는 객체(user 테이블)
 	private String id;
 	private String pass;
 	private String name;
@@ -13,7 +13,7 @@ public class UserDTO {
 	private String gender; 
 	private String email;
 	private String addr;
-	private int rank; //회원등급(일반1~3,관리자4)
+	private int grade; //회원등급(일반1~3,관리자4)
 	private Date reg_date;
 	
 	
@@ -65,11 +65,11 @@ public class UserDTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public int getRank() {
-		return rank;
+	public int getGrade() {
+		return grade;
 	}
-	public void setRank(int rank) {
-		this.rank = rank;
+	public void setGrade(int rank) {
+		this.grade = rank;
 	}
 	public Date getReg_date() {
 		return reg_date;
@@ -82,7 +82,7 @@ public class UserDTO {
 	@Override
 	public String toString() {
 		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", nickname=" + nickname + ", age=" + age
-				+ ", gender=" + gender + ", email=" + email + ", addr=" + addr + ", rank=" + rank + ", reg_date="
+				+ ", gender=" + gender + ", email=" + email + ", addr=" + addr + ", grade=" + grade + ", reg_date="
 				+ reg_date + "]";
 	}	
 

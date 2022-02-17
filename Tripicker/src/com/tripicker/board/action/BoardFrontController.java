@@ -59,13 +59,33 @@ public class BoardFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}else if(command.equals("/BoardModify.bo")) {
 			action = new BoardModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
+		}else if(command.equals("/BoardModifyAction.bo")) {
+			action = new BoardModifyProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}else if(command.equals("/BoardDeleteAction.bo")) {
+			action = new BoardDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {				
+				e.printStackTrace();
+			}
 		}
 		
-		
-		
+				
 		///////////// 2. 가상 주소 매핑 /////////////
 		
 		

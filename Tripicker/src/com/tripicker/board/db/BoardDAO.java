@@ -78,9 +78,9 @@ public class BoardDAO {
 		
 		ArrayList<BoardDTO> dtos = new ArrayList<BoardDTO>();
 		// LIMIT {OFFSET}, {LIMIT} -> 쿼리결과중 offset번째부터 limit개의 열 출력
-		sql = "SELECT boardNum, boardTitle, nickname, boardFile, readCount, likeCount "
+		sql = "SELECT boardNum, boardTitle, nickname, boardFile, readCount, likeCount, tag "
 				+ "FROM board ORDER BY boardNum DESC LIMIT ?, ?";
-		// page는 1부터 시작하지만, offset은 0부터 시작(0~9(10개), 10~19(10개)와같이 offset을 설정해)
+		// page는 1부터 시작하지만, offset은 0부터 시작(0~9(10개), 10~19(10개)와같이 offset을 설정)
 		int offset = requestPage - 1;
 
 		try {
@@ -102,8 +102,9 @@ public class BoardDAO {
 				String boardFile = rs.getString("boardFile");
 				int readCount = rs.getInt("readCount");
 				int likeCount = rs.getInt("likeCount");
+				String tag = rs.getString("tag");
 
-				BoardDTO dto = new BoardDTO(boardNum, boardTitle, nickname, boardFile, readCount, likeCount);
+				BoardDTO dto = new BoardDTO(boardNum, boardTitle, nickname, boardFile, readCount, likeCount, tag);
 				dtos.add(dto);				
 			}
 			
@@ -178,24 +179,103 @@ public class BoardDAO {
 		}		
 		
 		return bodto;
-	}
+	}	
 	//BoardDTO selContent()
 	
+	// updateReadcount(num)
+	public void updateReadcount(int boardNum){
+		try {
+			con = getCon();
+			sql = "update board set readcount = readcount+1 where boardNum=?";
+			pstmt = con.prepareStatement(sql);
+					
+			pstmt.setInt(1, boardNum);
+					
+			pstmt.executeUpdate();
+					
+			System.out.println("DAO : 조회수 업데이트!");
+					
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+				
+	}
+	// updateReadcount(num)
 	
-	public boolean delBoard(int no) {
-		boolean result = false;
+	
+	// modifyBoard(bdto)
+	public int modifyBoard(BoardDTO bdto){
+		int result = -1;
+		
+		try {
+			
+			con = getCon();
+			
+			sql = "select boardPass from board where boardNum=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bdto.getBoardNum());
+			System.out.println("modifyBoard boardPass:"+bdto.getBoardPass());
+			System.out.println("modifyBoard boardNum:"+bdto.getBoardNum());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				if(bdto.getBoardPass().equals(rs.getString("boardPass"))){
+					
+					sql = "update board set boardTitle=?,boardContent=?,boardFile=?,tag=?"
+							+ "where boardNum=?";
+					pstmt = con.prepareStatement(sql);
+					
+					pstmt.setString(1, bdto.getBoardTitle());
+					pstmt.setString(2, bdto.getBoardContent());
+					pstmt.setString(3, bdto.getBoardFile());
+					pstmt.setString(4, bdto.getTag());
+					pstmt.setInt(5, bdto.getBoardNum());
+					
+					result = pstmt.executeUpdate();
+					
+				}else{
+					result = 0;
+				}				
+			}else{
+				result = -1;
+			}
+			
+			System.out.println(" DAO : 수정결과 "+result);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+
+		return result;
+	}
+	// modifyBoard(bdto)
+
+	
+	
+	//delBoard() - 게시글 삭제
+	public int delBoard(int no) {
+		int result = 0;
 		
 		try {
 			con = getCon();
+			sql = "DELETE FROM board WHERE boardNum = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			result = pstmt.executeUpdate();			 
+			System.out.println("delBoard결과:"+result);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		return result;
 	}
-	
-	
-	
+	//delBoard()
 	
 
 }

@@ -4,13 +4,13 @@
 <!--/ Form Search Star /-->
 <header>
 <%
-	Integer rank =0;
+	Integer grade =0;
  	String id = null;
 	String nickname = null;		
 	//세션 정보 저장
 	if(session != null){
 		//rank = (int)session.getAttribute("rank");	
-		rank = (Integer)session.getAttribute("rank");
+		grade = (Integer)session.getAttribute("grade");
 		id = (String)session.getAttribute("id");
 		nickname = (String)session.getAttribute("nickname");				
 	}
@@ -158,7 +158,7 @@
 		%>
        	  <!-- 로그인 후 메뉴 -->
        	  
-       	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이<%=id %>페이지" style="border-radius: 5px;">&nbsp;
+       	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이(${nickname}/${grade})페이지" style="border-radius: 5px;">&nbsp;
       	  <input type="button" class="btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
       	 
  		<%

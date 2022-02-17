@@ -20,13 +20,14 @@ public class BoardDTO {
 		
 	}
 	
-	public BoardDTO(int boardNum, String boardTitle, String nickname, String boardFile, int readCount, int likeCount) {
+	public BoardDTO(int boardNum, String boardTitle, String nickname, String boardFile, int readCount, int likeCount, String tag) {
 		this.boardNum = boardNum;
 		this.boardTitle = boardTitle;
 		this.nickname = nickname;
 		this.boardFile = boardFile;
 		this.readCount = readCount;
 		this.likeCount = likeCount;
+		this.tag = tag;
 	}
 	
 	public BoardDTO(int boardNum, String boardPass, String nickname, String boardTitle, String boardContent, String boardFile, String tag) {

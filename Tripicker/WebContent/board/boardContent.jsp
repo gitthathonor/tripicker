@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page import="com.tripicker.board.db.BoardDTO"%>
+<%@ page language="java" contentType="text/html; charset=euc-kr"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>     
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>글 수정</title>
+  <title>여행 후기</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -40,10 +41,11 @@
 <body>
 
 	<%
+		// 한글깨짐 방지
+		request.setCharacterEncoding("UTF-8");
 		// 닉네임 세션값 가져오기
-		String nickname = (String)session.getAttribute("nickname");
-		//String writer = (String)request.getAttribute("writer");
-		//String boardPass = (String)request.getAttribute("boardPass");
+		String nickname = (String)session.getAttribute("nickname");	
+		String fileName = (String)request.getAttribute("fileName");
 	%>
 		
   <div class="click-closed"></div>
@@ -57,7 +59,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">글 수정</h1>
+            <h1 class="title-single">여행 후기</h1>
           </div>
         </div>
         <div class="col-md-12 col-lg-4">
@@ -69,13 +71,20 @@
   </section>
   <!--/ Intro Single End /-->
 
-  <!--/ 글 작성 폼 /-->
+  <!--/ 글 정보 폼 /-->
   <section class="property-single nav-arrow-b">
     <div class="container">
     <div class="row">
         <div class="col-md-6 mb-3">
-        <form action="./BoardUpdateAction.bo" enctype="multipart/form-data" method="post" name="ft" onsubmit="return checkBoardWrite();">
-		<input type="hidden" name="nickname" value=${content.nickname }>
+        <form action="./BoardModify.bo?boardNum=${content.boardNum }" enctype="multipart/form-data" method="post" name="ft">
+        
+        <!-- 글번호, 글비밀번호, 로그인중인 닉네임, 글쓴이 -->
+        <input type="hidden" name="boardNum" value="${content.boardNum }">
+        <input type="hidden" name="boardPass" value="${content.boardPass}">
+        <input type="hidden" name="writer" value="${content.nickname }">
+        <input type="hidden" name="nickname" value="<%=nickname %>">
+        <!-- /글번호, 글비밀번호, 로그인중인 닉네임, 글쓴이 -->
+        
    		 <strong> 제목 </strong> <input type="text" id="" class="form-control form-control-lg form-control-a" name="boardTitle" value="${content.boardTitle }" readonly><br>  
    		 <textarea rows="10" cols="50" name="boardContent" class="form-control form-control-lg form-control-a" readonly>${content.boardContent }</textarea>
    		 <br><br>
@@ -83,7 +92,8 @@
    		 <c:set var="requestboardFile" value="${content.boardFile }"/>
    		 <c:choose>
    		 	<c:when test="${!empty requestboardFile }">
-   		 		<a href="${content.boardFile }">${fileName }</a>
+   		 		<%-- <a href="${content.boardFile }">${fileName }</a> --%>
+   		 		<img class="img-fluid" src="../save/<%=fileName %>" id="boardFile">
    		 	</c:when>
 	   		<c:otherwise>
 	   			<a>첨부파일 없음</a>
@@ -92,28 +102,31 @@
    		 <div id="att_zone"></div>  		   		   		 
    		 <input type="hidden" name="fileName" value="">
    		 <br>  	 
-    	 <strong> 태그 </strong><input type="text" class="form-control form-control-lg form-control-a" name="tag" value="${content.tag }" maxlength="50" readonly><br>    	     	   	     	      	   	 	
-		<input type="button" value="목록으로" class="btn btn-a" onclick="history.back();">						
+    	 <strong> 태그 </strong><input type="text" class="form-control form-control-lg form-control-a" name="tag" value="${content.tag }" maxlength="50" readonly><br>    	     	   	     	      	   	 			 
+		 <div id="input_boardPass" style="display:none">
+		 <strong> 글비밀번호 </strong><input type="text" class="form-control form-control-lg form-control-a" name="inputBoardPass" value="" maxlength="4"><br>
+		 </div>
+		 <input type="button" value="목록으로" class="btn btn-a" onclick="history.back();">						
 	
-	<!-- 로그인된 회원의 닉네임과 글쓴이가 일치시, 글 수정/삭제 버튼 보임 -->
-	<% 
-		if(nickname != null){
-			if(nickname.equals(request.getAttribute("writer"))){ 				
-	%>      	
-				<input type="button" value="수정" class="btn btn-a" onclick="location.href='./BoardModify.bo'">
-      	 		<input type="button" value="삭제" class="btn btn-a" id="write_btn" onclick="location.href='./BoardDelete.bo'">				
-	
-	<%		
-			}
-		}
-	%>  	 	
+	     <!-- 로그인된 회원의 닉네임과 글쓴이가 일치시, 글 수정/삭제 버튼 보이게 -->	
+		 <div id="modify_btn" style="display:none"><input type="submit" value="수정" class="btn btn-a" ></div>		
+      	 <div id="delete_btn" style="display:none"><input type="button" value="삭제" class="btn btn-a" onclick="return checkDelBoard();"></div>			
 	
       	 </form>
         </div>
       </div>
     </div>	
   </section>
-  <!--/ 글 작성 폼 끝 /-->
+  <!--/ 글 정보 폼 끝 /-->
+  
+  
+<%--   <!-- 댓글 페이지 -->
+  	<jsp:include page="commentForm.jsp">
+  		<jsp:param value="${content.boardNum }" name="boardNum"/>
+  		<jsp:param value="${content.nickname }" name="nickname"/> 	
+  	</jsp:include>
+  <!-- 댓글 페이지 --> --%>
+  
   
   <!-- footer -->
   	<jsp:include page="../inc/bottom.jsp"/>
@@ -122,176 +135,51 @@
   <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
-  <script src="./lib/jquery/jquery.min.js"></script>
-  <script src="./lib/jquery/jquery-migrate.min.js"></script>
-  <script src="./lib/popper/popper.min.js"></script>
-  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="./lib/easing/easing.min.js"></script>
-  <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="./lib/scrollreveal/scrollreveal.min.js"></script>
-
+  <script src="/lib/jquery/jquery.min.js"></script>
+  <script src="/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="/lib/popper/popper.min.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/lib/easing/easing.min.js"></script>
+  <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/lib/scrollreveal/scrollreveal.min.js"></script>
   <!-- Contact Form JavaScript File -->
-  <script src="./contactform/contactform.js"></script>
-
+  <script src="/contactform/contactform.js"></script>
   <!-- Template Main Javascript File -->
-  <script src="./js/main.js"></script>
+  <script src="/js/main.js"></script>
 
 
-  <script type="text/javascript"> 
+
+  <script type="text/javascript">
   
-  var files = null; // 업로드될 파일 리스트
-  var fileName = "";  // 업로드될 파일 이름
-      
-  // 제목,비밀번호 공백 체크
-  function checkBoardWrite() {	   
-	  if(document.ft.boardTitle.value == ""){
-		  alert("글 제목을 입력해주세요");
-		  document.ft.boardTitle.focus();
-		  return false;
-	  }else if(document.ft.boardPass.value == ""){
-		  alert("글 비밀번호를 입력해주세요");
-		  document.ft.boardPass.focus();
-		  return false;
-	  }else{// 업로드될 파일명 -> fileName.value에 담기
-		  var fileName = "";
-		  for(var i=0; i< files.length; i++){
-			  fileName += files[i].name+"/";			   
-		  }
-		  document.ft.fileName.value = fileName;
-		  alert(fileName);
-		  //return false;
+  // 수정,삭제 버튼 보여주기
+  $(document).ready(function(){
+	  if( $("input[name='nickname']").val() === $("input[name='writer']").val() ){
+		  $('#modify_btn').css('display','inline');
+		  $('#delete_btn').css('display','inline');
+		  $('#input_boardPass').css('display','inline');
 	  }
-    }
-	   
-  
-	( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
-	 imageView = function imageView(att_zone, btn){
-	   var sel_files = [];	
-	   var attZone = document.getElementById(att_zone);
-	   var btnAtt = document.getElementById(btn);	    	    
-	   // 이미지와 체크 박스를 감싸고 있는 div 속성
-	   var div_style = 'display:inline-block;position:relative;'
-	                 + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
-	   // 미리보기 이미지 속성
-	   var img_style = 'width:100%;height:100%;z-index:none';
-	   // 이미지안에 표시되는 체크박스의 속성
-	   var chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
-	                 + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
-	   
-	   
-	   /* 파일선택완료 or 취소 버튼 이벤트 */	    
-	   btnAtt.onchange = function(e){
-		  files = e.target.files; 		
-		  delPrivew(sel_files);	
+  });
+		  
 
-		  // 선택된 파일수만큼 div 생성
-		  for(i=0; i < files.length; i++){			  	
-			  imageLoader(files[i]);
-		  }  
-	   };
-	   
-		function delPrivew(files){
-			var cell = document.getElementById("att_zone");
-			var i = 0;
-/* 			for(i=0; i<sel_files.length; i++){
-				//console.log("삭제전:"+sel_files[i].name);
-			  	//sel_files.splice(i, 1);
-			  	//console.log("삭제후:"+sel_files[i].name);
-			} */
-			while( cell.hasChildNodes() ){
-			 cell.removeChild( cell.firstChild );			    	
-			}
-		};		   
- 	    
-	    /* 탐색기에서 드래그앤 드롭 사용 */
-	    attZone.addEventListener('dragenter', function(e){
-	       e.preventDefault();
-	       e.stopPropagation();
-	    }, false);
-	    
-	    attZone.addEventListener('dragover', function(e){
-	       e.preventDefault();
-	       e.stopPropagation();
-	      
-	    }, false);
+  // 글비밀번호 확인
+  function checkDelBoard(){
 	  
-	    attZone.addEventListener('drop', function(e){
-	       var files = {};
-	       e.preventDefault();
-	       e.stopPropagation();
-	       var dt = e.dataTransfer;
-	       files = dt.files;
-	       for(f of files){
-	         imageLoader(f);
-	       }	      
-	     }, false); 
-		    	    
-	    	
-   	    /*첨부된 이미리즐을 배열에 넣고 미리보기 */
-	    imageLoader = function(file){
-   	       //sel_files = [];
-	       //sel_files.push(file);
-	       //sel_files = file;
-	       console.log("이미지로더 실행");
-	       sel_files.push(file);
-	       var reader = new FileReader();
-	       reader.onload = function(ee){
-	         let img = document.createElement('img');
-	         img.setAttribute('style', img_style);
-	         img.src = ee.target.result;
-	         attZone.appendChild(makeDiv(img, file));
-	       };
-	       reader.readAsDataURL(file);
-	     };
-	          
-	     
-	      
-	    /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
-	    makeDiv = function(img, file){
-	      var div = document.createElement('div');
-	      var btn = document.createElement('input');	
-	      div.setAttribute('style', div_style);	 	      
-	      //div.setAttribute('name', 'preview');	 	      
-	      
-	      btn.setAttribute('type', 'button');
-	      btn.setAttribute('value', 'x');
-	      btn.setAttribute('delFile', file.name);
-	      btn.setAttribute('style', chk_style);
-	      
-	      // 파일미리보기의 삭제버튼 -> 파일리스트에서 삭제
- 	      btn.onclick = function(ev){
-	        console.log("삭제버튼 실행");
-		    var ele = ev.srcElement;
-		    console.log("ele:"+ele);
-		    var delFile = ele.getAttribute('delFile');	
-		    console.log("delFile:"+delFile)
-		    console.log("삭제전 sel_files.length"+sel_files.length);
-	        for(var i = 0; i<sel_files.length+1;i++){
-	          if(delFile== sel_files[i].name){
-	        	  console.log("삭제될 delFile:"+delFile);
-	        	 // console.log("삭제될 se_files[i]:"+sel_files[i].name);	        	  
-	        	  sel_files.splice(i, 1);   
-	        	  console.log("삭제후 sel_files.length"+sel_files.length);
-	          }	               
-	        };
-	       	        
-	       // DataTransfer -> 드래그앤 드롭 사용시 Data를 담는 메서드
-	       dt = new DataTransfer();
-	        for(f in sel_files) {
-	          var file = sel_files[f];
-	          dt.items.add(file);
-	       }
-	        btnAtt.files = dt.files;
-	        var p = ele.parentNode;
-	        attZone.removeChild(p);
-	      };
-	      div.appendChild(img);
-	      div.appendChild(btn);		      
-	      return div;
-	    };
+	  var inputBoardPass = document.ft.inputBoardPass.value;
+	  if(inputBoardPass === ""){
+		  alert('비밀번호를 입력해주세요');
+		  document.ft.inputBoardPass.focus();
+		  return false;
+	  }else if(inputBoardPass != document.ft.boardPass.value){
+		  alert('맞지 않는 비밀번호입니다');
+		  document.ft.inputBoardPass.focus();
+		  return false;		  
+	  }else{ //비밀번호 일치
+		  location.href = "./BoardDeleteAction.bo?boardNum="+${content.boardNum};
 	  }
-	)('att_zone', 'btnAtt');
-
+	  
+  }
+    
+  
   </script>
 </body>
 </html>

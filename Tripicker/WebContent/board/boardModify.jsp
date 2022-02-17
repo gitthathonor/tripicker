@@ -41,14 +41,9 @@
 
 	<%
 		// 닉네임 세션값 가져오기
-		String nickname = (String)session.getAttribute("nickname");
-		if(nickname == null){
+		String nickname = (String)session.getAttribute("nickname");		
 	%>
-			
-	<%		
-		}
-	%>
-		
+
   <div class="click-closed"></div>
   <!-- header -->
   	<jsp:include page="../inc/top.jsp"></jsp:include>
@@ -77,13 +72,16 @@
     <div class="container">
     <div class="row">
         <div class="col-md-6 mb-3">
-        <form action="./BoardUpdateAction.bo" enctype="multipart/form-data" method="post" name="ft" onsubmit="return checkBoardWrite();">
+        <form action="./BoardModifyAction.bo" enctype="multipart/form-data" method="post" name="ft" onsubmit="return checkBoardWrite();">
+		<!-- 글번호, 글쓴이 -->
 		<input type="hidden" name="nickname" value=${content.nickname }>
+		<input type="hidden" name="boardNum" value=${content.boardNum }>
+		<!-- 글번호, 글쓴이 -->
    		 <strong> 제목 </strong> <input type="text" class="form-control form-control-lg form-control-a" name="boardTitle" value="${content.boardTitle }"><br>  
    		 <textarea rows="10" cols="50" name="boardContent" class="form-control form-control-lg form-control-a">${content.boardContent }</textarea>
    		 <br><br>
    		 <strong> 사진 </strong> <input type="file" multiple="multiple" name="upFile" id='btnAtt' accept=".jpg, .jpeg, .png"/>	 
-   		 <c:set var="requestboardFile" value="${content.boardFile }"/>
+<%--    		 <c:set var="requestboardFile" value="${content.boardFile }"/>
    		 <c:choose>
    		 	<c:when test="${!empty requestboardFile }">
    		 		<a href="${content.boardFile }">${fileName }</a>
@@ -91,35 +89,15 @@
 	   		<c:otherwise>
 	   			<a>첨부파일 없음</a>
 	   		</c:otherwise>	   		 	
-   		 </c:choose>
+   		 </c:choose> --%>
    		 <div id="att_zone"></div>  		   		   		 
    		 <input type="hidden" name="fileName" value="">
    		 <br>  	 
     	 <strong> 태그 </strong><input type="text" class="form-control form-control-lg form-control-a" name="tag" value="${content.tag }" maxlength="50"><br>    	     	   	 
     	 <strong> 글비밀번호 </strong><input type="text" class="form-control form-control-lg form-control-a" name="boardPass" maxlength="4"><br>     	   	 		
 		 
-		 <input type="button" value="목록으로" class="btn btn-a" onclick="history.back();">						
-	<!-- 로그인된 회원의 닉네임과 글쓴이가 일치시, 글 수정/삭제 가능 -->
-	<% 
-		if(nickname != null){
-			if(nickname.equals(request.getAttribute("writer"))){ 			
-	
-	%>      	<input type="button" value="수정" class="btn btn-a" onclick="location.href='./BoardModifyAction.bo'">
-      	 		<input type="button" value="삭제" class="btn btn-a" id="write_btn">
-				
-	<%		
-			}
-		}else{
-			
-	%>
-			<script>
-			alert('세션이 만료되었습니다');
-			history.back();			
-			</script>
-	<%		
-		}
-	%>  	 	
-
+		 <input type="button" value="취소" class="btn btn-a" onclick="history.back();">						
+       	 <input type="submit" value="수정" class="btn btn-a">
       	 
       	 
       	 
@@ -169,7 +147,7 @@
 	  }else{// 업로드될 파일명 -> fileName.value에 담기
 		  var fileName = "";
 		  for(var i=0; i< files.length; i++){
-			  fileName += files[i].name+"/";			   
+			  fileName += files[i].name;			   
 		  }
 		  document.ft.fileName.value = fileName;
 		  alert(fileName);
