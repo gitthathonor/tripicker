@@ -10,23 +10,23 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="../img/favicon.png" rel="icon">
-  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="./img/favicon.png" rel="icon">
+  <link href="./img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="../lib/animate/animate.min.css" rel="stylesheet">
-  <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="./lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./lib/animate/animate.min.css" rel="stylesheet">
+  <link href="./lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="../css/style.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
 
 </head>
 
@@ -58,7 +58,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-1.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/72/1782972_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
@@ -76,7 +76,7 @@
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
             
-              <img src="../img/post-2.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/62/2015162_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
@@ -94,7 +94,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-3.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/36/2646336_image2_1.bmp" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
@@ -112,7 +112,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-4.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/23/1240423_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
@@ -130,7 +130,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-5.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/36/2015036_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
@@ -148,7 +148,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/67/2612467_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
@@ -166,7 +166,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/94/2648694_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
@@ -184,7 +184,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/25/2724225_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 70px;  text-align: center;">
@@ -202,7 +202,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/56/2612856_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 45px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 50px;">
@@ -220,7 +220,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/40/2671440_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 45px;">
@@ -238,7 +238,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/67/2616667_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
@@ -256,7 +256,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/15/2445115_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
@@ -274,7 +274,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/61/2612561_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
@@ -292,7 +292,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/04/2612904_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
@@ -310,7 +310,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/95/2634995_image2_1.JPG" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
@@ -328,7 +328,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/86/183586_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 30px;">
@@ -346,7 +346,7 @@
         <div class="col-md-3">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="../img/post-6.jpg" alt="" class="img-b img-fluid">
+              <img src="http://tong.visitkorea.or.kr/cms/resource/95/1876195_image2_1.jpg" alt="" class="img-b img-fluid" style="height: 255px; width: 255px;">
             </div>
             <div class="card-overlay" style="padding: 50px;">
               <div class="card-header-b" style="padding-bottom: 90px; padding-left: 45px;">
@@ -376,18 +376,18 @@
   <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
-  <script src="../lib/jquery/jquery.min.js"></script>
-  <script src="../lib/jquery/jquery-migrate.min.js"></script>
-  <script src="../lib/popper/popper.min.js"></script>
-  <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../lib/easing/easing.min.js"></script>
-  <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="../lib/scrollreveal/scrollreveal.min.js"></script>
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="./lib/jquery/jquery-migrate.min.js"></script>
+  <script src="./lib/popper/popper.min.js"></script>
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./lib/easing/easing.min.js"></script>
+  <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="./lib/scrollreveal/scrollreveal.min.js"></script>
   <!-- Contact Form JavaScript File -->
-  <script src="../contactform/contactform.js"></script>
+  <script src="./contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="../js/main.js"></script>
+  <script src="./js/main.js"></script>
 
 </body>
 </html>
