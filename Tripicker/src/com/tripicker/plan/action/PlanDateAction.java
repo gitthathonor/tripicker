@@ -80,7 +80,7 @@ public class PlanDateAction implements Action{
 		
 		
 		
-		forward.setPath("./PlanSpotInsert.pl");
+		forward.setPath("./PlanSpot.pl");
 		forward.setRedirect(true);
 		return forward;
 	}

@@ -113,6 +113,18 @@
     </servlet-mapping>     
   <!-- AdminFrontController -->
   
+  <!-- CommentFrontController -->
+   <servlet>
+      <servlet-name>CommentFrontController</servlet-name>
+      <servlet-class>com.tripicker.comment.action.CommentFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>CommentFrontController</servlet-name>
+      <url-pattern>*.co</url-pattern>
+    </servlet-mapping>     
+  <!-- CommentFrontController -->
+  
   
  
   

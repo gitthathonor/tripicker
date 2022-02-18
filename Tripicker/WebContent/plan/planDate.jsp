@@ -72,12 +72,7 @@
   <!-- Main Stylesheet File -->
   <link href="./css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: EstateAgency
-    Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+ 
 </head>
 
 <body>
@@ -115,16 +110,22 @@
   <!--/ Intro Single End /-->
 
   <!--/ About Star /-->
-  <section class="section-about">
-  	<fieldset>
-  		<form action="./PlanDateAction.pl" method="post" id="selectDate">
-  			<input type="text" name="startDate" id="startDate" autocomplete="off"> 
-  			 <input type="text" name="lastDate" id="lastDate" autocomplete="off"> 
-  			 <input type="submit" value="날짜 전송" id="submitDate">
-  		</form>
-  	</fieldset>
-  </section>
-  <!--/ About End /-->
+	<section class="section-about" style="padding-top: 10%;">
+		<div class="container">
+			<fieldset>
+				<form action="./PlanDateAction.pl" method="post" id="selectDate">
+					<input type="text" name="startDate" id="startDate" autocomplete="off"> 
+					<input type="text" name="lastDate" id="lastDate" autocomplete="off">
+					 <div class="container">
+					 <br><br><br><br><br><br>
+					 <hr> 
+					 <input type="submit" class="btn btn-b" value="날짜 전송"	id="submitDate" style="border-radius: 15px;">
+					 </div>
+				</form>
+			</fieldset>
+		</div>
+	</section>
+	<!--/ About End /-->
 
   <!--/ Team Star /-->
   <section class="section-agents section-t8">

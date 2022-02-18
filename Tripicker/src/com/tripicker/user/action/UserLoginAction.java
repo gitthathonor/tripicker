@@ -59,7 +59,7 @@ public class UserLoginAction implements Action{
 			// 세션생성(아이디, 등급, 닉네임)
 			HttpSession session = request.getSession();
 			session.setAttribute("id", user.getId());
-			session.setAttribute("rank", user.getGrade());
+			session.setAttribute("grade", user.getGrade());
 			session.setAttribute("nickname", user.getNickname());
 			
 			// 페이지 이동(main.jsp)

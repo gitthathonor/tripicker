@@ -20,13 +20,12 @@ public class AdminMemberRankProAction implements Action{
 		// 세션체크
 				HttpSession session = request.getSession();
 				String id = (String) session.getAttribute("id");
-				Integer rank = (Integer)session.getAttribute("rank");
 				
 				ActionForward forward = new ActionForward();
-				if(id==null || rank != 4){
-					forward.setPath("./UserLogin.us");
+				if(id == null){
+					forward.setPath("./UserLogin.me");
 					forward.setRedirect(true);
-					return forward;
+					return forward;			
 				}
 		//한글처리
 		request.setCharacterEncoding("UTF-8");		
@@ -34,13 +33,16 @@ public class AdminMemberRankProAction implements Action{
 		
 		
 		// DAO 객체 생성 - 정보수정 메서드 호출
-		String rankID = (String)session.getAttribute("rankID");
-		int changeRank = Integer.parseInt(request.getParameter("changeRank"));
-		
+		//String rankID = (String)session.getAttribute("rankID");
+		 String gradeID = request.getParameter("gradeID");
+		//Integer rank = Integer.parseInt((String)session.getAttribute("rank"));
+		 int grade = Integer.parseInt(request.getParameter("grade"));
+		 System.out.println(gradeID+", "+grade);
+		 
 		AdminDAO adao = new AdminDAO();
-		adao.rankUpdate(rankID,changeRank);
+		adao.rankUpdate(gradeID,grade);
 		
-		// 처리 결과에 따른 페이지 이동(0,1,-1)-js
+		
 		
 		
 		
@@ -48,8 +50,8 @@ public class AdminMemberRankProAction implements Action{
 		PrintWriter out = response.getWriter();
 		
 		out.print("<script>");
-		out.print("alert('rank 변경 완료');");
-		out.print("location.href='./AdminMemberList.ad';");
+		out.print("alert('grade 변경 완료');");
+		out.print("location.href='./AdminMemberList.ad'");
 		out.print("</script>");
 		
 		

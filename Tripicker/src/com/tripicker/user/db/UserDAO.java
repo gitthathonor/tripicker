@@ -21,7 +21,6 @@ public class UserDAO {
 	private Connection getCon() throws Exception {
 		Context initCTX = new InitialContext();    
 		DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/mysqldb");
-		//DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/mysqldb");
 
 		con = ds.getConnection();
 		System.out.println("DB연결");
@@ -149,7 +148,7 @@ public class UserDAO {
 		System.out.println(id+"/"+pass);
 		try {
 			con = getCon();
-			sql = "SELECT pass, ('rank'), nickname FROM user WHERE id=?";
+			sql = "SELECT pass, grade, nickname FROM user WHERE id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);			
 			rs = pstmt.executeQuery();

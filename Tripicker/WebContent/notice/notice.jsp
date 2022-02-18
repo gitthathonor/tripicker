@@ -270,11 +270,12 @@ section.notice {
                 </tr>
                 </tbody>
             </table>
+            <input type="button" value="글쓰기" onclick="location.href='./NoticeWrite.no'">
         </div>
     </div>
   
-	 <!--  <div class="col-md-12" style="text-align: center; ">
-                      <button class="btn btn-a"><a href="noticeWrite.jsp">공지사항 작성</a></button>
+	  <!-- <div class="col-md-12" style="text-align: center; ">
+                      <button class="btn btn-a"><a href="./NoticeWrite.no">공지사항 작성</a></button>
                     </div> -->
 <div class="clear"></div>
 	<div id="page_control">

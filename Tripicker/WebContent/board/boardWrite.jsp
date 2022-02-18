@@ -88,7 +88,7 @@
    		 <div id="att_zone"></div><!-- <p>파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요</p> -->
    		 <input type="hidden" name="fileName" value="">
    		 <br>  	 
-    	 <strong> 태그입력 </strong><input type="text" class="form-control form-control-lg form-control-a" name="tag"><br>    	     	   	 
+    	 <strong> 태그 </strong><input type="text" class="form-control form-control-lg form-control-a" name="tag" placeholder="제주도,가족여행,자연 " maxlength="50"><br>    	     	   	 
     	 <strong> 글비밀번호 </strong><input type="text" class="form-control form-control-lg form-control-a" name="boardPass" maxlength="4"><br>     	   	 	
       	 	<input type="button" value="취소" class="btn btn-a" onclick="history.back();">
       	 	<input type="submit" value="글쓰기" class="btn btn-a" id="write_btn">
@@ -138,11 +138,11 @@
 	  }else{// 업로드될 파일명 -> fileName.value에 담기
 		  var fileName = "";
 		  for(var i=0; i< files.length; i++){
-			  fileName += files[i].name+"/";			   
+			  fileName += files[i].name;			   
 		  }
 		  document.ft.fileName.value = fileName;
 		  alert(fileName);
-		  return false;
+		  //return false;
 	  }
     }
 	   

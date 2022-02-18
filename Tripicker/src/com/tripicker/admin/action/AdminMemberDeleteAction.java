@@ -25,10 +25,10 @@ public class AdminMemberDeleteAction implements Action{
 		//세션제어
 		HttpSession session = request.getSession();
 		String id= (String) session.getAttribute("id");
-		String rank= session.getAttribute("rank")+"";
+		
 		
 		ActionForward forward = new ActionForward();
-		if(id==null || !rank.equals("1")){
+		if(id==null){
 			forward.setPath("./UserLogin.us");
 			forward.setRedirect(true);
 			return forward;

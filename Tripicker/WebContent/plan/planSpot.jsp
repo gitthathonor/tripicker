@@ -21,6 +21,8 @@
 
 <style type="text/css">
 /* 검색창 form태그 css  */
+
+
 #searchSpotForm {
 	margin-left: 30%;
 } 
@@ -35,6 +37,9 @@
 	width: 200px;
 	height: 100px;
 }
+
+
+
 
 </style>
 
@@ -319,7 +324,7 @@
 			$(document).ready(function(){
 				
 				$("#spotInfo > ul").empty();
-				$("#areaPage").empty();
+				
 				
 				contentType = $("select[name=contentType]").val();
 				cat1 = $("select[name=cat1]").val();
@@ -328,39 +333,45 @@
 				areacode = $("select[name=areacode]").val();
 				sigungucode = $("select[name=sigungucode]").val();
 				
-				alert(contentType);
+				/* alert(contentType);
 				alert(cat1);
 				alert(cat2);
 				alert(cat3);
 				alert(areacode);
-				alert(sigungucode);
+				alert(sigungucode); */
 				
 				var pageNo = 1;
 				
-				alert(pageNo);
+				//alert(pageNo);
 				
 				var a = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?serviceKey="+servicekey+"&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&pageNo="+pageNo;
 				
+				//타입코드
 				if(contentType != "") {
 					a += "&contentTypeId="+contentType;
 				}
+				
+				//분류코드
 				if(cat1 != "") {
 					a += "&cat1="+cat1;
-				}
-				if(cat2 != "") {
-					a += "&cat2="+cat2;
-				}
-				if(cat3 != "") {
-					a += "&cat3="+cat3;
-				}
-				if(areacode != "") {
-					a += "&areaCode="+areacode;
-				}
-				if(sigungucode != "") {
-					a += "&sigunguCode="+sigungucode;
+					if(cat2 != "") {
+						a += "&cat2="+cat2;
+						if(cat3 != "") {
+							a += "&cat3="+cat3;
+						}
+					}
 				}
 				
-				console.log(a);
+				//지역코드
+				if(areacode != "") {
+					a += "&areaCode="+areacode;
+					if(sigungucode != "") {
+						a += "&sigunguCode="+sigungucode;
+					}
+				}
+				
+				
+				alert(a);
 				
 				
 				$.ajax({
@@ -395,9 +406,13 @@
 									var lastPage = 0;//한 페이지의 마지막 페이지
 									var pageSize = 10; //한 페이지 내의 출력되는 내용물 갯수
 									
+									$("#areaPage").empty();
+									
+									$("#areaPage").append("<input type='button' value='prev'>&nbsp&nbsp");
 									for(var i=1; i<=pageBlock; i++) {
 										$("#areaPage").append("<input type='button' name = 'pageNum' class='areaInfoList' value="+i+" onclick='searchSpots(this);'>&nbsp&nbsp");
 									}
+									$("#areaPage").append("<input type='button' value='next'>");
 							}
 						}); // 2중 ajax
 					}
@@ -481,6 +496,7 @@
 	<!-- 인트로 -->
 
 	<!-- 지역 및 관광지 검색 창 -->
+	<div class="container">
 	<section class="section-about">
 		<div id="selectArea">
 		<fieldset>
@@ -561,7 +577,7 @@
 							<tbody>				
 								<tr>
 									<th class="last wHacki8" scope="row">
-									<input type="button" id="searchSpotBtn" value="검색" onclick="searchSpot(this);">
+									<input type="button" id="searchSpotBtn" class="btn btn-b-n" style="border-radius: 5px;" value="검색" onclick="searchSpot(this);">
 									</th>
 									<td class="last">
 									    <input type="hidden" name="mode" value="listOk">
@@ -573,6 +589,9 @@
 		</fieldset>
 		</div>
 	</section>
+	<hr>
+	</div>
+	
 	
 	<!-- 지역 및 관광지 검색 창 -->
 	
@@ -581,8 +600,18 @@
 	<!-- <img src="https://api.visitkorea.or.kr/static/images/common/noImage.gif"> -->
 	
 	<!-- 데이터 출력 창 -->
+	<div class="container"  style="height: 1500px;">
 	<section style="display:inline-block;">
-		<div id="insertSpotTab" style="height: 500px; width: 600px; float:right; margin-left:400px; "> 
+			<div id="spotInfo" style="width: 500px; height: 500px; float: left;" class="spotInfo">
+
+				<ul style="list-style: none; display: inline-block;">
+					<li id="areaInfo">관광지들</li>
+				</ul>
+				<div>
+					<span id="areaPage" style="margin: 1em 10%;"></span>
+				</div>
+			</div>
+			<div id="insertSpotTab" style="height: 500px; width: 600px; float:right;"> 
 			<ul>
 			<%for(int i=1; i<=tourDay; i++) {%>
 				<li><a href="#tabs-<%=i%>">Day<%=i%></a></li>
@@ -604,18 +633,10 @@
 			<% } %>
 			</table> 
 		</div>  --%>
-		<div id="spotInfo" style="width: 500px; float:left; " class="spotInfo">
-			
-			<ul style="list-style: none; display: inline-block;">
-				<li id="areaInfo">관광지들</li>
-			</ul>
-			<div>
-				<span id="areaPage" style="margin: 1em 25%;"></span>
-			</div>
-		</div> 
+		
 		
 	</section>
-	
+	</div>
 	<!-- 데이터 출력 창 -->
 	
 	<!-- footer -->
