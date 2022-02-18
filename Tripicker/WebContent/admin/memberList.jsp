@@ -280,13 +280,13 @@ section.notice {
 	       <td>${adto.addr }</td>
 	       <td>${adto.email }</td>
 	       <td>${adto.reg_date }</td>
-	       <td>${adto.rank }</td>
+	       <td>${adto.grade }</td>
 	       <td><form action="./AdminMemberRankAction.ad">
-	       <input type="hidden" name="changeRank" value="${adto.rank }">
-	       <input type="hidden" name="changeRankID" value="${adto.id }">
+	       <input type="hidden" name="changeGrade" value="${adto.grade }">
+	       <input type="hidden" name="gradeID" value="${adto.id }">
 	       <input type="submit" value="등급변경"></form></td>
 	       <td><form action="./AdminMemberDeleteAction.ad" onsubmit="return checkDel();">
-	       <input type="hidden" name="deleteId" value="${adto.id }">
+	       <input type="hidden" name="deleteID" value="${adto.id }">
 	       <input type="submit" value="강제탈퇴" id="deleteForm"></form></td>
 	     </tr>
      </c:forEach>
@@ -294,13 +294,24 @@ section.notice {
             </table>
         </div>
     </div>
-  
-	 <!--  <div class="col-md-12" style="text-align: center; ">
-                      <button class="btn btn-a"><a href="noticeWrite.jsp">공지사항 작성</a></button>
-                    </div> -->
+	 
 <div class="clear"></div>
 	<div id="page_control">
-	
+		<% Integer startPage = (Integer)session.getAttribute("startPage");
+	 	Integer pageBlock = (Integer)session.getAttribute("pageBlock");
+	 	Integer endPage = (Integer)session.getAttribute("endPage");
+	 	Integer pageCount = (Integer)session.getAttribute("pageCount");
+	 	 if(startPage>pageBlock){ %>
+			<a href="./AdminMemberList.ad?pageNum=<%=startPage-pageBlock%>">Prev</a>
+		<% } %>
+		
+		<% for(int i=startPage;i<=endPage;i++){ %>
+			<a href="./AdminMemberList.ad?pageNum=<%=i%>"><%=i %></a>
+		<% }%>
+		
+		<% if(endPage < pageCount){%>
+			<a href="./AdminMemberList.ad?pageNum=<%=startPage+pageBlock%>">Next</a>
+		<% }%>
 	</div>
 </section>
 

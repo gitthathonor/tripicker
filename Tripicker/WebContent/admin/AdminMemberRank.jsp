@@ -6,35 +6,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원등급 변경 페이지</title>
-<script src="js/jquery-3.6.0.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("select[name=changRank]").change(function(){
-			var changeRank = $("select[name=changRank]").val();
-			alert(changeRank);
-		});
-	});
-</script>
+<title>Insert title here</title>
+
 </head>
 <body>
    
       <%
      // 세션값 제어
-     String id = (String)session.getAttribute("id");
-      Integer rank = (Integer)session.getAttribute("rank");
-   
-     if(id == null || rank != 4){
-    	 response.sendRedirect("./MemberLogin.me");
-     }   
+     //String rankID = (String)session.getAttribute("id");
+   		String gradeID = request.getParameter("gradeID");
+     //if(id == null){
+    	// response.sendRedirect("./MemberLogin.me");
      
     %>
-   ${rankID }
+   
    
 	
 	<form action="./AdminMemberRankProAction.ad" method="post">
-	<input type="hidden" name="rankID" value="${rankID } ">
-		<select name=changeRank>
+	<input type="hidden" name="gradeID" value="<%=gradeID %>">
+		<select name=grade>
 		<option value="1">1 : 일반</option>
 		<option value="2">2 : 도우미</option>
 		<option value="3">3 : 매니저</option>

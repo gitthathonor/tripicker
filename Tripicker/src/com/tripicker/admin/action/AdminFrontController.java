@@ -35,13 +35,20 @@ public class AdminFrontController extends HttpServlet{
 			action=new AdminMemberDeleteAction();
 			try {
 				forward=action.execute(request, response);
-				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/AdminMemberDeleteAction.ad")){
 			
+			System.out.println("AdminFront : /AdminMemberDelete.ad 주소 호출");
+			action=new AdminMemberDeleteAction();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/AdminMemberRankAction.ad")){
-			System.out.println("AdminFront : /AdminMemberRankAction.ad 주소 호출");
+			System.out.println("AdminFront : /AdminMemberRank.ad 주소 호출");
 			action = new AdminMemberRankAction();
 			try {
 				forward=action.execute(request, response);
@@ -49,7 +56,7 @@ public class AdminFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}else if(command.equals("/AdminMemberRankProAction.ad")){
-			System.out.println("AdminFront : /AdminMemberRankProAction.ad 주소 호출");
+			System.out.println("AdminFront : /AdminMemberRankPro.ad 주소 호출");
 			action=new AdminMemberRankProAction();
 			try {
 				forward=action.execute(request, response);
@@ -68,9 +75,9 @@ public class AdminFrontController extends HttpServlet{
 		
 		// -----------------------2. 가상 주소 매핑(처리) --------------------
 		
-		
+
 		// -----------------------3. 페이지 이동 -----------------------------
-		/*if(forward != null) { //페이지 이동정보가 있을 때
+		if(forward != null) { //페이지 이동정보가 있을 때
 			
 			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
@@ -85,7 +92,7 @@ public class AdminFrontController extends HttpServlet{
 				System.out.println("AdminFront : forward 방식 페이지 이동");
 			}
 			
-		}*/
+		}
 		System.out.println("AdminFront : 페이지 이동 끝!");
 		// -----------------------3. 페이지 이동 -----------------------------
 		

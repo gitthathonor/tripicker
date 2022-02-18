@@ -1,5 +1,8 @@
 package com.tripicker.board.action;
 
+import java.io.File;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
@@ -12,31 +15,32 @@ public class BoardWriteAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		// Post 한글처리
-		request.setCharacterEncoding("UTF-8");
-		
-		// 파일 업로드 실행
 		String fileName = "";
-		String savePath = "D:\\Tripciker_board";
-		//String savePath = request.getSession().getServletContext().getRealPath("upload");
-		//ServletContext ctx = getServletContext();
-		//String savePath = request.getSession().getServletContext().getRealPath("/upload");		
+		
+		// Post 한글처리
+		request.setCharacterEncoding("UTF-8");				
+		// 파일이 저장될 경로
+		ServletContext context = request.getServletContext();
+		String uploadPath = context.getRealPath("/save");	
+		System.out.println("경로:"+uploadPath.toString());		
 		int maxSize = 10 * 1024 * 1024; //최대 파일크기 10MB
-				
-		try {
-			// 톰캣서버에 파일 저장
-			MultipartRequest multi = 
-					new MultipartRequest(
-							request,
-							savePath,
-							maxSize,
-							"UTF-8");
-			
-			
+					
+		File folder = new File(uploadPath);		
+		if(!folder.exists()) {//해당 디렉토리 없을시, 폴더 생성
+			try{				
+				folder.mkdir();
+				System.out.println("폴더 생성 완료");
+			}catch (Exception e) {
+				e.getStackTrace();
+			}			
+		} else {
+			System.out.println("폴더 이미 생성되어있음");
+		}
+
+		try {		
+			MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize,"UTF-8");						
 			// 업로드한 파일명 받아오기			
 			fileName = multi.getParameter("fileName");
-			System.out.println("파라미터로 받은 파일명: "+fileName);
-			System.out.println(multi.getFileNames());
 			
 			if(fileName == "") {//파일업로드 실패
 				System.out.println("파일 업로드 실패");
@@ -46,14 +50,14 @@ public class BoardWriteAction implements Action{
 				bdto.setBoardPass(multi.getParameter("boardPass"));
 				bdto.setNickname(multi.getParameter("nickname"));
 				bdto.setBoardTitle(multi.getParameter("boardTitle"));
-				bdto.setBoardContent(multi.getParameter("boardContent"));
-				bdto.setBoadFile(fileName);
+				bdto.setBoardContent(multi.getParameter("boardContent"));				
 				bdto.setTag(multi.getParameter("tag"));
-				
+				// DB에 저장될 파일경로+이름 
+				String filePath = "save/" + fileName;		
+				bdto.setBoardFile(filePath);
 				// DB에 글정보 저장
 				BoardDAO bdao = new BoardDAO();
-				bdao.insertBoard(bdto);	
-				System.out.println("File name: "+fileName);				
+				bdao.insertBoard(bdto);			
 			}//파일업로드,글작성 성공						
 		} catch (Exception e) {
 			System.out.println("글 작성 예외발생"+e);

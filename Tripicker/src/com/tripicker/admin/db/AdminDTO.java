@@ -9,7 +9,7 @@ public class AdminDTO {
 	private String nickname;
 	private String email;
 	private String addr;
-	private int rank;
+	private int grade;
 	private Date reg_date;
 	public String getId() {
 		return id;
@@ -47,13 +47,14 @@ public class AdminDTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public int getRank() {
-		return rank;
-	}
-	public void setRank(int rank) {
-		this.rank = rank;
-	}
 	
+	
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
 	public Date getReg_date() {
 		return reg_date;
 	}
@@ -63,7 +64,7 @@ public class AdminDTO {
 	@Override
 	public String toString() {
 		return "AdminDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", nickname=" + nickname + ", email="
-				+ email + ", addr=" + addr + ", rank=" + rank + ", reg_date=" + reg_date + "]";
+				+ email + ", addr=" + addr + ", grade=" + grade + ", reg_date=" + reg_date + "]";
 	}
 	
 	

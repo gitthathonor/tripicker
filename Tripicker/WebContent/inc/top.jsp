@@ -3,22 +3,22 @@
 <!DOCTYPE html>
 <!--/ Form Search Star /-->
 <header>
-<%	
-	//한글 인코딩
-	request.setCharacterEncoding("UTF-8");	
-
+<%
+	String id = null;
+	String nickname = null;
+	Integer grade =0;
 	
- 	String id = null;
-	String nickname = null;		
-	//세션 정보 저장
+	// 세션 정보 저장
 	if(session != null){
-		//rank = (int)session.getAttribute("rank");	
-		
 		id = (String)session.getAttribute("id");
-		nickname = (String)session.getAttribute("nickname");				
+		grade = (Integer)session.getAttribute("grade");
+		nickname = (String)session.getAttribute("nickname");
+		
+		System.out.println(id);
+		System.out.println(grade);
+		System.out.println(nickname);
 	}
 %>
-
 <!--  보류!
   검색조건
   <div class="click-closed"></div>
@@ -128,19 +128,17 @@
             <a class="nav-link" href="./CityChoice.ci">여행장소</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="property-grid.jsp">숙박/교통</a>
+            <a class="nav-link" href="#">숙박/교통</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./BoardMain.bo">커뮤니티</a>
           </li>
-          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              고객센터
-            </a>
+              고객센터</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="./NoticeAction.no">공지사항</a>
+              <a class="dropdown-item" href="./NoticeList.no">공지사항</a>
               <a class="dropdown-item" href="./FAQAction.no">FAQ</a>
               <a class="dropdown-item" href="requestsEX.jsp">1:1문의</a>
             </div>
@@ -153,21 +151,24 @@
  		%>
       	  <!-- 로그인 전 메뉴 -->
       	  <input type="button" class="btn btn-b-n" onclick="location.href='./UserLogin.us';" value="로그인" style="border-radius: 5px;">&nbsp;
-      	  <input type="button" class="btn" onclick="location.href='./UserJoin.us';" value="회원가입" style="border-radius: 5px;">
+      	  <input type="button" class="btn btn-a-n" onclick="location.href='./UserJoin.us';" value="회원가입" style="border-radius: 5px;">
       	  
-      	 
  		<% 	
  			}else{
 		%>
        	  <!-- 로그인 후 메뉴 -->
-       	  
-       	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이<%=id %>페이지" style="border-radius: 5px;">&nbsp;
-      	  <input type="button" class="btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
+       	  <div>
+       	  <%=id %>님 환영합니다! &nbsp;&nbsp;&nbsp;
+       	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이페이지" style="border-radius: 5px;">&nbsp;
+      	  <input type="button" class="btn btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
       	  
- 		<%		
+      	  <% if(grade == 4) {%>
+      	  	<input type="button" class="btn btn-a-n" style="border-radius: 5px;" value="회원 리스트" onclick="location.href='./AdminMemberList.ad'">
+      	  <% 
+      	  		}
  			}
 		 %>
-
+ 		</div>
 <!-- 검색버튼 일단 보류 -->		 
 <!-- 		 <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse" -->
 <!--         data-target="#navbarTogglerDemo01" aria-expanded="false"> -->

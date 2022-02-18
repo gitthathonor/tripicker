@@ -25,19 +25,19 @@ public class AdminMemberRankAction implements Action{
 		//세션제어
 		HttpSession session = request.getSession();
 		String id= (String) session.getAttribute("id");
-		Integer rank = (Integer)session.getAttribute("rank");
+		
 		
 		ActionForward forward = new ActionForward();
-		if(id==null || rank != 4){
+		if(id==null){
 			forward.setPath("./UserLogin.us");
 			forward.setRedirect(true);
 			return forward;
 		}
 		
 		
-		String rankID = request.getParameter("changeRankID");
-		System.out.println(rankID);
-		request.setAttribute("rankID", rankID);		
+		String gradeID = request.getParameter("gradeID");
+		System.out.println(gradeID);
+		request.setAttribute("gradeID", gradeID);		
 		forward.setPath("./admin/AdminMemberRank.jsp");
 		forward.setRedirect(false);
 		return forward;

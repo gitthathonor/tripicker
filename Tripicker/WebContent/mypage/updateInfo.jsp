@@ -1,3 +1,4 @@
+<%@page import="com.tripicker.mypage.db.MyPageDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,33 +11,25 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="../img/favicon.png" rel="icon">
-  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="./img/favicon.png" rel="icon">
+  <link href="./img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="../lib/animate/animate.min.css" rel="stylesheet">
-  <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="../css/join.css" rel="stylesheet">
-  <!-- Main Stylesheet File -->
-  <link href="../css/style.css" rel="stylesheet">
-
-  <style type="text/css">
-	.section-footer {
-	margin-top: 1500px;
-	}
-	body {
-	background: white;
-}
-  </style>
+  <link href="./lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./lib/animate/animate.min.css" rel="stylesheet">
+  <link href="./lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+   <link href="./css/board.css" rel="stylesheet">
   
+  <!-- Main Stylesheet File -->
+  <link href="./css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -44,96 +37,133 @@
   <!-- header -->
   	<jsp:include page="../inc/top.jsp"></jsp:include>
   <!-- header -->
-
-  <!--/ Intro Single star /-->
+  <%
+	
+    request.setCharacterEncoding("utf-8");
+   
+    String id = (String) session.getAttribute("id");
+    if(id == null){
+    	response.sendRedirect("./UserLogin.us");
+    }
+    MyPageDTO dto = (MyPageDTO) request.getAttribute("dto");
+  
+  %>
+  <!--/ 제목 /-->
   <section class="intro-single">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">내정보 조회</h1>
+            <h1 class="title-single">내정보 수정</h1>
           </div>
         </div>
        </div>
       </div> 
    </section>    
-  <!--/ Intro Single End /-->
+  <!--/ 제목 /-->
 
-  <!-- 회원가입 -->
-<!--   <section class="property-single nav-arrow-b"> -->
-<!--     <div class="container"> -->
-<!--     <div class="row"> -->
-<!--         <div class="col-md-6 mb-3"> -->
-		<div class="container" >
-		<div class="col-md-4">
-        <form action="" method="post" name="fr" onsubmit="return checkJoin();">
-        	 <div>
-        	   <h3 class="join_title"> <label for="id">아이디</label></h3>
-        	   <span class="box int_id">
-                        <input type="text" name="id" id="input_id" placeholder="4~10자리" class="int" maxlength="20">
-                    </span>
-        	     <font id="id_check_msg"></font>
-        	    <span class="error_next_box" id="idError"></span>	
-        	 </div>
-        	 <div>
-              <h3 class="join_title"><label for="name">이름</label></h3>
-              <span class="box int_name">
-                        <input type="text" name="name" id="input_name" maxlength="15" class="int" >
-                    </span>
-                 <span id="name_check_msg"></span>
-             </div>
-        	 <div>
-              <h3 class="join_title"><label for="nickname">닉네임</label></h3>
-              <span class="box int_name">
-                        <input type="text" name="nickname" id="input_nickname" placeholder="2~8자리" class="int" maxlength="8">
-                    </span>
-               	 <font id="nickname_check_msg"></font> 
-             </div>
-        	 <div>
-              <h3 class="join_title"><label for="age">나이</label></h3>
-                <select name="age" id="sel_age" class="form-control ">
-						   <option value="noSel">연령대 선택</option>
-						   <option value="10">10대</option>
-						   <option value="20">20대</option>
-						   <option value="30">30대</option>
-						   <option value="40">40대</option>
-						   <option value="50">50대</option>
-						   <option value="60">60대</option>
-				</select>
-				 <font id="age_check_msg"></font>
-             </div>
-        	 <div>
-              <h3 class="join_title"><label for="gender">성별</label></h3>
-                 <input type="radio"  name="gender" id="check_gender_m" value="M" checked> 남
-    	 		 <input type="radio"  name="gender" id="check_gender_f" value="F"> 여<br>
-      	 		 <font id="gender_check_msg"></font>
-             </div>
-        	 <div>
-              <h3 class="join_title"><label for="email">이메일<span class="optional"></span></label></h3>
-               <span class="box int_email">
-                        <input type="email" name="email" id="input_email" class="int" maxlength="100" placeholder="선택입력"></input>
-                    </span>     	 	
-      	 		 <font id="email_check_msg"></font>
-             </div>
-             <div>
-        	  <h3 class="addr_title"><label for="addr">주소(선택)</label></h3>
-        	  <div class="row" style="padding-left: 15px;">
-        	    <input type="text" class="form-control form-control-lg form-control-a col-7" name="addr" placeholder="주소찾기를 이용해주세요" readonly style="font-size: medium;">&nbsp;
-      		    <input type="button" class="btn btn-b-n col-4" onclick="return findAddr();" value="주소찾기" style=" color: #000000; border-radius: 5px;"><br>
-      		    </div>
-      	     </div>
-        	 <div>
-        	  <h3 class="addr_detail"><label for="addr_detail">상세주소</label></h3>
-        	    <input type="text" class="form-control form-control-lg form-control-a" name="detailAddr"><br>
-      	     </div>
-      	     
-      	     <input type="button" value="취소" class="btn btn-a" onclick="history.back();" >
-      	 	 <input type="submit" value="회원가입" class="btn btn-b" id="join_btn">
-        	</div>
-      	 	</div>
-      	 </form>
-        
-  <!--/ Property Single End /-->
+  <!-- 정보 수정 -->
+		
+		<div id="board-list">
+		<div class="container">
+			<form action="./MyPageUpdateInfoProAction.my" method="post" name="fr" onsubmit="">
+			<table class="board-table">
+				<tr>
+					<th class="th-title">아이디</th>
+					<td>${dto.id}</td>
+				</tr>
+				<tr>
+					<th>이름</th>
+					<td><div class="row" style="padding-left: 15px;"><input type="text" name="name" id="input_name" class="form-control col-3" value="${dto.name}" > &nbsp;&nbsp;&nbsp;<span id="name_check_msg"></span></div></td>
+				</tr>
+				<tr>
+					<th>비밀번호 확인</th>
+					<td><div class="row" style="padding-left: 15px;"><input type="password" name="pass" id="input_pass" class="form-control col-3" value="" >&nbsp;&nbsp;&nbsp;<font>회원정보 수정을 위해 비밀번호를 입력해주세요</font></div></td>
+				</tr>
+				<!-- <tr>
+					<th>새 비밀번호</th>
+					<td><input type="password" name="new_pass" id="input_new_pass" class="form-control col-3" value="" ><font id="new_pass_check_msg"></font></td>
+				</tr>
+				<tr>
+					<th>새 비밀번호 확인</th>
+					<td><div class="row" style="padding-left: 15px;"><input type="password" name="new_same_pass" id="input_new_same_pass" class="form-control col-3" value="" >&nbsp;&nbsp;&nbsp;<font id="new_pass_same_check_msg"></font></div></td>
+				</tr> -->
+				<tr>
+					<th>닉네임</th>
+					<td><div class="row" style="padding-left: 15px;"><input type="text" name="nickname" id="input_nickname" class="form-control col-3" value="${dto.nickname}" >&nbsp;&nbsp;&nbsp;<font id="nickname_check_msg"></font></div> </td>
+				</tr>
+				<tr>
+					<th>나이</th>
+					<td><div class="row" style="padding-left: 15px;"><select name="age" id="sel_age" class="form-control col-3">
+							<option value="noSel">연령대 선택</option>
+							<option value="10" <%if (dto.getAge() == 10) {%>
+								selected="selected" <%}%>>10대</option>
+							<option value="20" <%if (dto.getAge() == 20) {%>
+								selected="selected" <%}%>>20대</option>
+							<option value="30" <%if (dto.getAge() == 30) {%>
+								selected="selected" <%}%>>30대</option>
+							<option value="40" <%if (dto.getAge() == 40) {%>
+								selected="selected" <%}%>>40대</option>
+							<option value="50" <%if (dto.getAge() == 50) {%>
+								selected="selected" <%}%>>50대</option>
+							<option value="60" <%if (dto.getAge() == 60) {%>
+								selected="selected" <%}%>>60대</option>
+					</select><font id="age_check_msg"></font></div></td>
+				</tr>
+				<tr>
+					<th>성별</th>
+					<td>
+						<input type="radio" name="gender" value="M"
+							<%if (dto.getGender().equals("M")) {%> checked <%}%>>남 <input
+							type="radio" name="gender" value="F"
+							<%if (dto.getGender().equals("F")) {%> checked <%}%>> 여
+						<font id="gender_check_msg"></font>
+					</td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td><div class="row" style="padding-left: 15px;"><input type="email" name="email" class="form-control col-4" id="input_email" value="${dto.email}">&nbsp;&nbsp;&nbsp;<font id="email_check_msg"></font></div></td>
+				</tr>
+				<tr>
+					<th>주소</th>
+					<td><b>현재 주소: ${dto.addr}</b>
+						<div class="row" style="padding-left: 15px;">
+
+							<input type="text"
+								class="form-control form-control-lg form-control-a col-3"
+								name="addr" placeholder="주소찾기를 이용해주세요" readonly
+								style="font-size: medium;">&nbsp; <input type="button"
+								class="btn btn-b-n col-2" onclick="return findAddr();"
+								value="주소찾기" style="color: #000000; border-radius: 5px;"><br>
+						</div>
+						<div>
+							<input type="text"
+								class="form-control form-control-lg form-control-a col-5"
+								name="detailAddr" placeholder="상세주소를 입력해주세요">
+						</div></td>
+				</tr>
+				<tr>
+					<th>등급</th>
+					<td>${dto.grade }</td>
+				</tr>
+				<tr>
+					<th>회원가입일</th>
+					<td>${dto.reg_date }</td>
+				</tr>
+				
+			</table>
+			<br>
+				<input type="submit" class="btn btn-b"  value="수정하기" id="update_btn"
+					style="float: right; font-size: small;">
+				</form>
+			<br><br>
+		</div>
+	</div>
+		
+		
+  <!--/ 정보 수정 /-->
+ 
+ 
   <!-- footer -->
   	<jsp:include page="../inc/bottom.jsp"/>
   <!-- footer -->
@@ -141,20 +171,20 @@
   <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
-  <script src="../lib/jquery/jquery.min.js"></script>
-  <script src="../lib/jquery/jquery-migrate.min.js"></script>
-  <script src="../lib/popper/popper.min.js"></script>
-  <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../lib/easing/easing.min.js"></script>
-  <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="../lib/scrollreveal/scrollreveal.min.js"></script>
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="./lib/jquery/jquery-migrate.min.js"></script>
+  <script src="./lib/popper/popper.min.js"></script>
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./lib/easing/easing.min.js"></script>
+  <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="./lib/scrollreveal/scrollreveal.min.js"></script>
   <!-- 주소찾기 API -->
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <!-- Contact Form JavaScript File -->
-  <script src="../contactform/contactform.js"></script>
+  <script src="./contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="../js/main.js"></script>
+  <script src="./js/main.js"></script>
  
  <!-- 회원가입 정보 체크 스크립트 -->
  <script type="text/javascript">
@@ -197,10 +227,8 @@
 	 return false;
   }//findAddr() 
    
-   
-   $(document).ready(function(){
+  $(document).ready(function(){
 	   
-   	  var idFlag = false;
    	  var passFlag = false;
    	  var passChFlag = false;
    	  var nameFlag = false;
@@ -210,9 +238,7 @@
    	  var emailFlag = false;
 	  
    	  // 입력받을 시 이벤트 	  				    
-	  $('#input_id').on("propertychange change keyup paste input", function(){
-		  checkId();	    //입력값이 바뀔때마다 실시간 감지
-	  });	  
+	    
 	  $('#input_pass').on("propertychange change keyup paste input", function(){
 	  	  checkPass();
 	  });	  	  
@@ -233,13 +259,9 @@
 	  });	
 	  
 	  	  
-	  //회원가입 버튼(sbumit) 클릭 이벤트
- 	  $('#join_btn').click(function(event){
-		  if(!idFlag){
-			  checkId();
-			  $('#input_id').focus();
-			  return false;
-		  }else if(!passFlag){
+	  //수정하기 버튼(sbumit) 클릭 이벤트
+ 	  $('#update_btn').click(function(event){
+		  if(!passFlag){
 			  checkPass();
 			  $('#input_pass').focus();
 			  return false;
@@ -264,60 +286,26 @@
 			  $('#input_email').focus();
 			  return false;
 		  }		  
-	  });//회원가입 버튼(sbumit) 클릭 이벤트
+	  });//수정하기 버튼(sbumit) 클릭 이벤트
 	  
 	  
-	  //checkId()
-	  function checkId(){
-		  var id = $('#input_id').val();
-
-		  $.ajax({
-			  url:'./UserIdCheckAction.us',
-			  type:'post',
-			  data: {id : id},
-			  dateType: 'json',
-			  success:function(result){			  
-				if( !(4 <= id.length && id.length <= 10) ){
-					//console.log("id if문 들어옴");
-					$('#id_check_msg').attr('color','red');
-					$('#id_check_msg').html("아이디는 4~10자리로 입력해주세요");
-					idFlag = false;
-				}else if(result === "ok"){ //아이디 중복안됨
-					//console.log("사용가능한 아이디");
-					$('#id_check_msg').attr('color','#054D95');
-					$('#id_check_msg').html("사용가능한 아이디 입니다!");
-					$('#input_id').removeAttr('required');
-					idFlag = true;
-				 }else{ //아이디 중복됨
-					$('#id_check_msg').attr('color','red');
-					$('#id_check_msg').html("이미 사용중인 아이디 입니다");
-					idFlag = false;				  
-				  }
-			  },//success
-			  error:function(){
-				  alert("에러");
-			  }
-		  });
-	  }//checkId()	  
+		  
 	    
-	  //checkPass()
+	  /* //checkPass()
 	  function checkPass(){
 		  var pass = $('#input_pass').val();	
 		  var checkPass = $('#input_same_pass').val();		  
-		  if( !(6 <= pass.length && pass.length <= 12) ){
-			  $('#pass_check_msg').attr('color','red');
-			  $('#pass_check_msg').html("비밀번호는 6~12자리로 입력해주세요");
+		  if( pass === "" ){
+			  $('#pass_check_msg').attr('color','black');
+			  $('#pass_check_msg').html("비밀번호를 입력해주세요");
+			  $('#pass_check_msg').show();
 			  passFlag = false;
-		  }else{
-			  $('#pass_check_msg').attr('color','#054D95');
-			  $('#pass_check_msg').html("사용가능한 비밀번호 입니다!");
-			  passFlag = true;
-		  }			  
+		  }		  
 		  //비밀번호 수정시, 비밀번호 확인 상태도 변경
-		  checkPassSame();
-	  }//checkPass()
+		  //checkPassSame();
+	  }//checkPass() */
 	  	  
-	  //checkPassSame()
+	  /* //checkPassSame()
 	  function checkPassSame(){
 		  var checkPass = $('#input_same_pass').val();
 		 if( checkPass === "" || checkPass !== $('#input_pass').val() ){
@@ -330,7 +318,7 @@
 			  $('#pass_same_check_msg').html("비밀번호가 일치합니다!");
 			  passChFlag = true;
 		  }		  
-	  }//checkPassSame()
+	  }//checkPassSame() */
 	  
 	  //checkName()
 	  function checkName(){
@@ -432,6 +420,7 @@
 	  }//checkEmail() 
 	  
   });
+ 
   
 </script>
 </body>

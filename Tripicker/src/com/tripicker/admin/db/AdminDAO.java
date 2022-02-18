@@ -23,14 +23,11 @@ public class AdminDAO {
 	private ResultSet rs = null;
 	private String sql = "";
 
-	private Connection getCon() {
-		try {
+	private Connection getCon() throws Exception{
+		
 			Context initCTX = new InitialContext();
 			DataSource ds = (DataSource) initCTX.lookup("java:comp/env/jdbc/mysqldb");
-			con = ds.getConnection();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			con = ds.getConnection();			
 		return con;
 	} // getCon()
 
@@ -50,12 +47,15 @@ public class AdminDAO {
 		}
 	} // closeDB()
 	
-	public ArrayList getMemberList(){
+	public ArrayList getMemberList(int startRow,int PageSize){
 		ArrayList memberList = new ArrayList();
 		try {
 			con=getCon();
-			sql= "select * from user where id != 'admin'";
+			
+			sql= "select * from user where id!='admin' order by reg_date desc limit ?,?";
 			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, startRow-1);
+			pstmt.setInt(2, PageSize);
 			
 			rs=pstmt.executeQuery();
 			
@@ -67,12 +67,13 @@ public class AdminDAO {
 				adto.setName(rs.getString("name"));
 				adto.setNickname(rs.getString("nickname"));
 				adto.setPass(rs.getString("pass"));
-				adto.setRank(rs.getInt("rank"));
+				adto.setGrade(rs.getInt("grade"));
 				adto.setReg_date(rs.getDate("reg_date"));
 				
+				System.out.println("회원리스트:"+adto.toString());
 				memberList.add(adto);
 			}
-			System.out.println("AdminDAO : memberList출력");
+			System.out.println("AdminDAO : memberList출력(reg_date asc순)");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -82,23 +83,46 @@ public class AdminDAO {
 	}//ArrayList getMemberList()
 	
 	
-	public void rankUpdate(String rankID, int changeRank){
-		
+	public int memberListCount(){
+		int cnt=0;
 		try {
-			con=getCon();
-			sql="update user set rank=? where id=?";
+			con=getCon();			
+			sql="select count(*) from user";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, changeRank);
-			pstmt.setString(2, rankID);
-			pstmt.executeUpdate();
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				cnt=rs.getInt(1);
+				System.out.println("AdminDAO : memberListCount "+cnt);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closeDB();
+		}
+		return cnt;
+	}//memberListCount()
+	
+	public void rankUpdate(String gradeID, int grade){
+		try {
+			System.out.println(grade +"," +gradeID);
+			con=getCon();
+			sql="update user set grade=? where id=?";
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, grade);
+			pstmt.setString(2, gradeID);
+			int result = pstmt.executeUpdate();
+			
+			System.out.println("result : "+result);
+			System.out.println(grade +"," +gradeID);
 			System.out.println("AdminDAO : rank 변경완료");
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}finally {
 			closeDB();
 		}
 				
-	}//rankUpdate(AdminDTO adto)
+	}//rankUpdate(String rankID, int rank)
 	
 	
 	
@@ -115,7 +139,7 @@ public class AdminDAO {
 			pstmt.executeUpdate();
 			System.out.println("AdminDAO : 회원 강제 탈퇴 완료");
 		}catch (Exception e) {
-			// TODO: handle exception 
+			e.printStackTrace();
 		}finally {
 			closeDB();
 		}
