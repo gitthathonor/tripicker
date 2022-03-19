@@ -24,7 +24,7 @@ public class CityInsertAction implements Action{
 		cdao.insertCityInfo(cdto);
 		System.out.println("A : 도시정보 저장 완료!");
 		
-		cdto = cdao.getCity(1);
+		cdto = cdao.getCity(3);
 		System.out.println("A : cityDTO 정보 들고오기 완료!");
 		
 		request.setAttribute("cdto", cdto);

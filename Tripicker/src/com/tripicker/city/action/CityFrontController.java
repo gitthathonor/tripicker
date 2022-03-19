@@ -42,11 +42,23 @@ public class CityFrontController extends HttpServlet{
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
+<<<<<<< HEAD
 		}  else if (command.equals("/CityChoice.ci")) {
 			forward = new ActionForward();
 			forward.setPath("./city/cityChoice.jsp");
 			forward.setRedirect(false);
 		}
+=======
+		} else if(command.equals("/CityChoice.ci")) {
+			forward = new ActionForward();
+			forward.setPath("./city/cityChoice.jsp");
+			forward.setRedirect(false);
+		} 
+		
+		
+		
+		
+>>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
 		/////2. 가상 주소 매핑/////
 		
 		

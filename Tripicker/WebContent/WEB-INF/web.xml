@@ -30,20 +30,6 @@
   </servlet-mapping>
   <!-- PlanFrontController -->
   
-  <!-- PlanAjaxController -->
-  <servlet>
-  	<servlet-name>PlanAjaxController</servlet-name>
-  	<servlet-class>com.tripicker.plan.action.PlanAjaxController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>PlanAjaxController</servlet-name>
-  	<url-pattern>*.ajax</url-pattern>
-  </servlet-mapping>
-  <!-- PlanAjaxController -->
-  
-  
-  
-  
   <!-- CityFrontController -->
   <servlet>
   	<servlet-name>CityFrontController</servlet-name>
@@ -103,6 +89,43 @@
     </servlet-mapping>     
   <!-- NoticeFrontController -->
   
+  <!-- BoardFrontController -->
+   <servlet>
+      <servlet-name>BoardFrontController</servlet-name>
+      <servlet-class>com.tripicker.board.action.BoardFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>BoardFrontController</servlet-name>
+      <url-pattern>*.bo</url-pattern>
+    </servlet-mapping>     
+  <!-- BoardFrontController -->
   
+  <!-- AdminFrontController -->
+   <servlet>
+      <servlet-name>AdminFrontController</servlet-name>
+      <servlet-class>com.tripicker.admin.action.AdminFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>AdminFrontController</servlet-name>
+      <url-pattern>*.ad</url-pattern>
+    </servlet-mapping>     
+  <!-- AdminFrontController -->
+  
+  <!-- CommentFrontController -->
+   <servlet>
+      <servlet-name>CommentFrontController</servlet-name>
+      <servlet-class>com.tripicker.comment.action.CommentFrontController</servlet-class>
+    </servlet>
+      
+    <servlet-mapping>
+      <servlet-name>CommentFrontController</servlet-name>
+      <url-pattern>*.co</url-pattern>
+    </servlet-mapping>     
+  <!-- CommentFrontController -->
+  
+  
+ 
   
 </web-app>

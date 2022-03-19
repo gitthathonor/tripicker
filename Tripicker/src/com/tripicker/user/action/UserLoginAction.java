@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.tripicker.Action;
 import com.tripicker.ActionForward;
 import com.tripicker.user.db.UserDAO;
@@ -15,8 +14,6 @@ public class UserLoginAction implements Action{
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 로그인정보(id,pass) 받아와 DAO에서 비교후,
-		// 가져온 결과값에 따라 메세지와 함께 페이지 이동 (forward)
 		
 		// 한글처리
 		request.setCharacterEncoding("UTF-8");
@@ -53,13 +50,17 @@ public class UserLoginAction implements Action{
 			out.close();
 			return null;
 		}else {//로그인 성공 
-			// 회원등급 조회
-			int rank = udao.getRank(id);
 			
-			// 아이디, 등급 세션생성
+			// 회원등급,닉네임 조회 
+			//System.out.println("A : 로그인 성공");
+			user = udao.getSessionInfo(id);
+			System.out.println("id : "+user.getId());
+			
+			// 세션생성(아이디, 등급, 닉네임)
 			HttpSession session = request.getSession();
-			session.setAttribute("id", id);
-			session.setAttribute("rank", rank);
+			session.setAttribute("id", user.getId());
+			session.setAttribute("grade", user.getGrade());
+			session.setAttribute("nickname", user.getNickname());
 			
 			// 페이지 이동(main.jsp)
 			ActionForward forward = new ActionForward();

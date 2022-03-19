@@ -1642,6 +1642,15 @@ footer .credits {
   background-color: #26a356;
   color: #ffffff;
 }
+.btn.btn-a-n {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 0;
+}
+.btn.btn-a-n:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
 
 @media (min-width: 576px) {
   .intro .intro-title {

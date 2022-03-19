@@ -13,7 +13,10 @@ public class UserDTO {
 	private String gender; 
 	private String email;
 	private String addr;
-	private int rank; //회원등급(일반1~3,관리자4)
+	private int grade; //회원등급(일반1~3,관리자4)
+	
+
+
 	private Date reg_date;
 	
 	
@@ -65,11 +68,11 @@ public class UserDTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public int getRank() {
-		return rank;
+	public int getGrade() {
+		return grade;
 	}
-	public void setRank(int rank) {
-		this.rank = rank;
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 	public Date getReg_date() {
 		return reg_date;
@@ -78,12 +81,14 @@ public class UserDTO {
 		this.reg_date = reg_date;
 	}
 	
-	
 	@Override
 	public String toString() {
-		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", nickname=" + nickname + ", age=" + age
-				+ ", gender=" + gender + ", email=" + email + ", addr=" + addr + ", rank=" + rank + ", reg_date="
+		return "UserDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", nickname=" + nickname + ", age=" + age
+				+ ", gender=" + gender + ", email=" + email + ", addr=" + addr + ", grade=" + grade + ", reg_date="
 				+ reg_date + "]";
-	}	
+	}
+	
+	
+	
 
 }

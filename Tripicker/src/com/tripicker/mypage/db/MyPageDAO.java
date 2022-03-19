@@ -118,6 +118,7 @@ public class MyPageDAO {
 		
 		
 		//deleteInfo
+<<<<<<< HEAD
 		public int deleteInfo(String id, String pass) {
 			int result = -1;
 			try {
@@ -150,6 +151,41 @@ public class MyPageDAO {
 			return result;
 		}
 
+=======
+		public int deleteInfo(MyPageDTO dto) {
+			int result = 1;
+			try {
+				con = getCon();
+				sql = "select pass from user where id =?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, dto.getId());
+				rs = pstmt.executeQuery();
+				if (rs.next()) {
+					if (dto.getPass().equals(rs.getString("pass"))) {
+						sql = "delete from user where id=?"; // 게시글도 지우려면 연결을 board로? 
+						pstmt = con.prepareStatement(sql);
+						pstmt.setString(1, dto.getId());
+						result = pstmt.executeUpdate();
+						System.out.println("회원삭제 완료");
+					} else {	//비번오류
+						result = 0;
+					}
+				} else {	//데이터x
+					result = -1;
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				closeDB();
+			}
+			
+			return result;
+		}
+
+		
+		
+>>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
 		
 		
 		

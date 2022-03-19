@@ -1,3 +1,4 @@
+<%@page import="com.tripicker.board.db.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
@@ -38,10 +39,24 @@
     body {
     background-color: #ffffff;
     }
+    
+    .col-lg-4 col-md-6 wow fadeInUp{
+    display: inline;
+    }
+    .property-item rounded overflow-hidden{
+    display: inline;
+    }
+    
+    #page_table{
+    margin: 0 auto;
+    font-size: 23px;
+    }
+    
     </style>
 </head>
 
 <body>
+
   <div class="click-closed"></div>
   <!-- header -->
   	<jsp:include page="../inc/top.jsp"></jsp:include>
@@ -77,6 +92,7 @@
                       
                         <div class="row g-4">
                         <c:forEach items="${list }" var="dto">
+<<<<<<< HEAD
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">                            
                                
                                 <div class="property-item rounded overflow-hidden">
@@ -105,6 +121,47 @@
                          	</div>
                        
                             <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+=======
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">                         
+                               
+                                <div class="property-item rounded overflow-hidden" style="display:inilne">
+                                    <div class="position-relative overflow-hidden">                                    	                                 														
+                                        <a href="./BoardContent.bo?boardNum=${dto.boardNum }">
+                                        <!-- <img class="img-fluid" src="./img/property-1.jpg" alt=""></a>    -->                             														
+                                        <img class="img-fluid" src="${dto.boardFile }" id="boardFile"></a>
+                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">${dto.boardNum }</div>
+                                    </div>                                   
+	                                    <div class="p-4 pb-0">   
+	                                        <a class="d-block h5 mb-2" href="./BoardContent.bo?boardNum=${dto.boardNum }">${dto.boardTitle }</a>
+	                                        <p><i class="fa fa-user text-primary me-2" ></i>${dto.nickname }</p>
+	                                    </div>
+	                                    <div class="d-flex border-top">
+	                                        <small class="flex-fill text-center border-end py-2">${dto.readCount }<i class="fa fa-eye  text-primary me-2"></i></small>
+	                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>${dto.tag}</small>
+	                                        <small class="flex-fill text-center py-2"><a href="#" class="like-button">
+											<?xml version="1.0" encoding="utf-8"?>
+											<svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 1344q0-26-19-45t-45-19q-27 0-45.5 19t-18.5 45q0 27 18.5 45.5t45.5 18.5q26 0 45-18.5t19-45.5zm160-512v640q0 26-19 45t-45 19h-288q-26 0-45-19t-19-45v-640q0-26 19-45t45-19h288q26 0 45 19t19 45zm1184 0q0 86-55 149 15 44 15 76 3 76-43 137 17 56 0 117-15 57-54 94 9 112-49 181-64 76-197 78h-129q-66 0-144-15.5t-121.5-29-120.5-39.5q-123-43-158-44-26-1-45-19.5t-19-44.5v-641q0-25 18-43.5t43-20.5q24-2 76-59t101-121q68-87 101-120 18-18 31-48t17.5-48.5 13.5-60.5q7-39 12.5-61t19.5-52 34-50q19-19 45-19 46 0 82.5 10.5t60 26 40 40.5 24 45 12 50 5 45 .5 39q0 38-9.5 76t-19 60-27.5 56q-3 6-10 18t-11 22-8 24h277q78 0 135 57t57 135z"/></svg>
+											</a> ${dto.likeCount } </small>
+	                                    </div>
+	                                </div>
+	                                </div>    
+	                                </c:forEach>                       
+	                            </div>                            
+                         	<!-- </div> -->
+                         	
+                       		<!-- 페이징 부분 -->
+                       		<table id="page_table">
+								<tr>
+									<td colspan="4" align="center">										
+										<c:forEach items="${pageList }" var="page">
+											<a href="./BoardMain.bo?page=${page }">${page}</a>
+										</c:forEach>
+									</td>
+								</tr>				
+							</table>
+                       		<!-- 페이징 부분 -->       
+                            <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s" style="margin-top:10px">
+>>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
                                 <a class="btn btn-primary py-3 px-5" href="./BoardWrite.bo">여행후기 작성하기</a>
                             </div>               
                         </div>
@@ -112,6 +169,7 @@
                     </div>                   
         <!-- Property List End -->
 
+<<<<<<< HEAD
 			<tr>
 				<td colspan="4" align="center">
 					<!-- 페이징 부분 -->
@@ -144,6 +202,9 @@
         </div>
         <!-- Call to Action End -->
         
+=======
+
+>>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
 
 
         <!-- Back to Top -->
@@ -156,7 +217,10 @@
  	 
 <!-- like button -->  
 <script type="text/javascript">
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
 //new scrollReveal();
 let button = document.querySelector(".like-button");
 button.addEventListener("click", function(e) {
