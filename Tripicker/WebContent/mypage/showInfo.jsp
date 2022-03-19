@@ -19,27 +19,14 @@
 
   <!-- Bootstrap CSS File -->
   <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<<<<<<< HEAD
-=======
 
   <!-- Libraries CSS Files -->
   <link href="./lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="./lib/animate/animate.min.css" rel="stylesheet">
   <link href="./lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
->>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
   <link href="./css/board.css" rel="stylesheet">
   
-<<<<<<< HEAD
-  <!-- Libraries CSS Files -->
-  <link href="./lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="./lib/animate/animate.min.css" rel="stylesheet">
-  <link href="./lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  
-  
-=======
->>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
   <!-- Main Stylesheet File -->
   <link href="./css/style.css" rel="stylesheet">
   
@@ -115,11 +102,7 @@
 				</tr>
 				<tr>
 					<th>등급</th>
-<<<<<<< HEAD
-					<td><%=dto.getRank() %></td>
-=======
 					<td><%=dto.getGrade() %></td>
->>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
 				</tr>
 				<tr>
 					<th>회원가입일</th>

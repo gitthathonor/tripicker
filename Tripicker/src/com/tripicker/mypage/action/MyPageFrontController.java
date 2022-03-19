@@ -66,13 +66,8 @@ public class MyPageFrontController extends HttpServlet {
 			forward.setPath("./mypage/deleteInfo.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/MyPageDeleteInfoAction.my")) {
-<<<<<<< HEAD
-			action = new MyPageDeleteInfoAction();
-			try {
-=======
 			try {
 				action = new MyPageDeleteInfoAction();
->>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();

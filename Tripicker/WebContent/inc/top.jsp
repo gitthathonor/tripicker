@@ -125,11 +125,7 @@
             <a class="nav-link" href="./PlanDate.pl">코스짜기</a>
           </li>
           <li class="nav-item">
-<<<<<<< HEAD
-            <a class="nav-link" href="CityChoice.ci">여행장소</a>
-=======
             <a class="nav-link" href="./CityChoice.ci">여행장소</a>
->>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">숙박/교통</a>
@@ -164,19 +160,12 @@
        	  <div>
        	  <%=id %>님 환영합니다! &nbsp;&nbsp;&nbsp;
        	  <input type="button" class="btn btn-b-n" onclick="location.href='./MyPageInfo.my';" value="마이페이지" style="border-radius: 5px;">&nbsp;
-<<<<<<< HEAD
-      	  <input type="button" class="btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
-      	  
-      	  </div>
- 		<%
-=======
       	  <input type="button" class="btn btn" onclick="location.href='./UserLogout.us';" value="로그아웃" style="border-radius: 5px;">
       	  
       	  <% if(grade == 4) {%>
       	  	<input type="button" class="btn btn-a-n" style="border-radius: 5px;" value="회원 리스트" onclick="location.href='./AdminMemberList.ad'">
       	  <% 
       	  		}
->>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
  			}
 		 %>
  		</div>

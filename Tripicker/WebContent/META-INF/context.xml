@@ -4,14 +4,7 @@
 			  auth = "Container"
 			  type = "javax.sql.DataSource"
 			  driverClassName = "com.mysql.cj.jdbc.Driver"
-<<<<<<< HEAD
-			  url = "jdbc:mysql://itwillbs8.cafe24.com:3306/itwillbs8"
-			  username = "itwillbs8"
-			  password = "itwillbs8030909"
-			  maxWait = "5000"/>
-=======
 			  url = "jdbc:mysql://localhost:3306/itwillbs8"
 			  username = "root"
 			  password = "1234" />
->>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
 </Context>

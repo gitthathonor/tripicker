@@ -4,21 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Main Page</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<%
 		//response.sendRedirect("./UserJoin.us");
 		response.sendRedirect("./Main.tr");
 		//response.sendRedirect("./CityInsert.ci");
-<<<<<<< HEAD
-		
-		
-		
-	
-=======
 		//response.sendRedirect("./AdminMemberList.ad");
->>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
 	%>
 </body>
 </html>
