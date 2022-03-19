@@ -19,23 +19,30 @@ public class MyPageDeleteInfoAction implements Action {
 		
 		request.setCharacterEncoding("utf-8");
 		
+
+		
+		
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-		String pass = (String) session.getAttribute("pass");
+		String pass = request.getParameter("pass");
 		
+		MyPageDTO dto = new MyPageDTO();
 		MyPageDAO dao = new MyPageDAO();
-		MyPageDTO dto = dao.getUser(id);
 		
+		
+		int result = dao.deleteInfo(id, pass);
+		System.out.println("수정처리 결과: "+result);
 		
 		ActionForward forward = new ActionForward();
 		if(id == null) {
+			// 로그인 확인
 			forward.setPath("./UserLogin.us");
 			forward.setRedirect(true);
 			return forward;
 		}
 		
-		int result = dao.deleteInfo(dto);
-		System.out.println("수정처리 결과: "+result);
+	
+		
 		
 		if (result == -1) {	//데이터x
 			response.setContentType("text/html; charset=UTF-8");

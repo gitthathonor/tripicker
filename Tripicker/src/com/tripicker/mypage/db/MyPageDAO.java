@@ -58,7 +58,7 @@ public class MyPageDAO {
 					dto.setGender(rs.getString("gender"));
 					dto.setEmail(rs.getString("email"));
 					dto.setAddr(rs.getString("addr"));
-					dto.setRank(rs.getInt("rank"));
+					dto.setGrade(rs.getInt("grade"));
 					dto.setReg_date(rs.getDate("reg_date"));
 					
 				}
@@ -118,25 +118,27 @@ public class MyPageDAO {
 		
 		
 		//deleteInfo
-		public int deleteInfo(MyPageDTO dto) {
-			int result = 1;
+		public int deleteInfo(String id, String pass) {
+			int result = -1;
 			try {
-				con = getCon();
-				sql = "select pass from user where id =?";
+				con=getCon();
+				sql = "select pass from user where id=?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, dto.getId());
+				pstmt.setString(1, id);
 				rs = pstmt.executeQuery();
+				
 				if (rs.next()) {
-					if (dto.getPass().equals(rs.getString("pass"))) {
-						sql = "delete from user where id=?"; // 게시글도 지우려면 연결을 board로? 
+					if (pass.equals(rs.getString("pass"))) {
+						sql = "delete from user where id=?";
 						pstmt = con.prepareStatement(sql);
-						pstmt.setString(1, dto.getId());
-						result = pstmt.executeUpdate();
+						pstmt.setString(1, id);
+						pstmt.executeUpdate();
+						result = 1;
 						System.out.println("회원삭제 완료");
-					} else {	//비번오류
+					} else {	// 비번 오류
 						result = 0;
 					}
-				} else {	//데이터x
+				} else {
 					result = -1;
 				}
 				
@@ -145,12 +147,9 @@ public class MyPageDAO {
 			} finally {
 				closeDB();
 			}
-			
 			return result;
 		}
 
-		
-		
 		
 		
 		

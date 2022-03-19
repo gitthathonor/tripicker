@@ -66,8 +66,8 @@ public class MyPageFrontController extends HttpServlet {
 			forward.setPath("./mypage/deleteInfo.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/MyPageDeleteInfoAction.my")) {
+			action = new MyPageDeleteInfoAction();
 			try {
-				action = new MyPageDeleteInfoAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
