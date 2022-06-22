@@ -30,7 +30,5 @@
 	도시  설명 : ${cdto.cityInfo } <br>
 	도시 이미지 : <img src="${cdto.cityImgUrl}"> 
 	
-	
-	
 </body>
 </html>
