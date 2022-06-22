@@ -144,7 +144,11 @@
 				</tr>
 				<tr>
 					<th>등급</th>
+<<<<<<< HEAD
+					<td>${dto.rank }</td>
+=======
 					<td>${dto.grade }</td>
+>>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git
 				</tr>
 				<tr>
 					<th>회원가입일</th>

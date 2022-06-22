@@ -118,19 +118,19 @@ public class MyPageDAO {
 		
 		
 		//deleteInfo
-		public int deleteInfo(MyPageDTO dto) {
-			int result = 1;
+		public int deleteInfo(String id, String pass) {
+			int result = -1;
 			try {
 				con = getCon();
 				sql = "select pass from user where id =?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, dto.getId());
+				pstmt.setString(1, id);
 				rs = pstmt.executeQuery();
 				if (rs.next()) {
-					if (dto.getPass().equals(rs.getString("pass"))) {
+					if (pass.equals(rs.getString("pass"))) {
 						sql = "delete from user where id=?"; // 게시글도 지우려면 연결을 board로? 
 						pstmt = con.prepareStatement(sql);
-						pstmt.setString(1, dto.getId());
+						pstmt.setString(1, id);
 						result = pstmt.executeUpdate();
 						System.out.println("회원삭제 완료");
 					} else {	//비번오류

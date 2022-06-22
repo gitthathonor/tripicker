@@ -123,6 +123,8 @@ section.notice {
 	clear: both;
 }
 
+<<<<<<< HEAD
+=======
 .container {
 	width: 1100px;
 	margin: 0 auto;
@@ -136,3 +138,4 @@ section.notice {
 	width: 1px;
 	height: 1px;
 }
+>>>>>>> branch 'master' of https://github.com/gitthathonor/tripicker.git

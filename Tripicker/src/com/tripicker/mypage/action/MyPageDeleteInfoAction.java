@@ -21,10 +21,10 @@ public class MyPageDeleteInfoAction implements Action {
 		
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-		String pass = (String) session.getAttribute("pass");
+		String pass = request.getParameter("pass");
 		
 		MyPageDAO dao = new MyPageDAO();
-		MyPageDTO dto = dao.getUser(id);
+		MyPageDTO dto = new MyPageDTO();
 		
 		
 		ActionForward forward = new ActionForward();
@@ -34,7 +34,7 @@ public class MyPageDeleteInfoAction implements Action {
 			return forward;
 		}
 		
-		int result = dao.deleteInfo(dto);
+		int result = dao.deleteInfo(id, pass);
 		System.out.println("수정처리 결과: "+result);
 		
 		if (result == -1) {	//데이터x
